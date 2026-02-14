@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>PIAdvisor Packages</title>
+  <meta name="description" content="Package archives for the PIAdvisor PixInsight update repository."/>
+  <link rel="icon" type="image/svg+xml" href="../pia-logo.svg"/>
+  <style>
+    :root{
+      --accent-blue: #60a5fa;
+      --accent-purple: #c084fc;
+      --accent-gradient: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+      --bg-darkest: #0a0e1a;
+      --card: rgba(30, 41, 59, 0.55);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --shadow: 0 14px 40px rgba(0,0,0,.55);
+      --radius: 18px;
+    }
+    @font-face {
+      font-family: "Atkinson";
+      src: url("../fonts/atkinson-regular.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Atkinson";
+      src: url("../fonts/atkinson-bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    *{ box-sizing: border-box; }
+    body{
+      margin: 0;
+      font-family: "Atkinson", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg-darkest);
+      background-image:
+        radial-gradient(ellipse 70% 55% at 12% 18%, rgba(96, 165, 250, 0.12) 0%, transparent 58%),
+        radial-gradient(ellipse 55% 45% at 88% 82%, rgba(192, 132, 252, 0.09) 0%, transparent 60%);
+    }
+    .wrap{
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 44px 20px 64px;
+    }
+    a{ color: var(--accent-blue); text-decoration: none; }
+    a:hover{ color: var(--accent-purple); }
+    .header-pill{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.85rem;
+      padding: 5px 12px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--accent-blue);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .header-pill:hover{
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.15);
+      color: var(--accent-purple);
+    }
+    header{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .brand{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .brand img{
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.35);
+    }
+    .brand strong{ letter-spacing: -0.02em; }
+    .brand span{ display: block; color: var(--muted); font-size: 0.95rem; margin-top: 2px; }
+    .card{
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      padding: 18px;
+      margin-bottom: 14px;
+    }
+    h1{
+      margin: 0 0 8px;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      letter-spacing: -0.03em;
+    }
+    h2{
+      margin: 0;
+      font-size: 1.1rem;
+      letter-spacing: -0.01em;
+    }
+    .grad{
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    p{ margin: 10px 0 0; color: var(--muted); line-height: 1.55; }
+    ul{ margin: 12px 0 0; padding-left: 18px; }
+    li{ margin: 8px 0; color: var(--muted); }
+    code{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.95em;
+      padding: 2px 7px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(241,245,249,0.95);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="../index.html">
+        <img src="../pia-logo.svg" alt="PIAdvisor"/>
+        <div>
+          <strong>PIAdvisor</strong>
+          <span>packages/</span>
+        </div>
+      </a>
+      <a class="header-pill" href="https://github.com/phatwila/PIAdvisor-Release/blob/main/updates.xri">updates.xri</a>
+    </header>
+    <div class="card">
+      <h1><span class="grad">Package</span> Archives</h1>
+      <p><b>Status:</b> Public packages published: 1.</p>
+      <p><b>Latest package:</b> <a href="PIAdvisor-1.0.3-20260213214617.zip"><code>PIAdvisor-1.0.3-20260213214617.zip</code></a></p>
+      <p><b>Release date:</b> 2026-02-13 21:46:17 UTC</p>
+      <p><b>Manifest:</b> <a href="https://github.com/phatwila/PIAdvisor-Release/blob/main/updates.xri"><code>updates.xri</code></a></p>
+    </div>
+    <div class="card">
+      <h2>What's New (v1.0.3)</h2>
+      <p>Stability and packaging improvements.</p>
+      <ul>
+      <li>Improved update feed and package archive reliability.</li>
+      </ul>
+      <p><b>Changelog:</b> <a href="https://github.com/phatwila/PIAdvisor-Source/releases">https://github.com/phatwila/PIAdvisor-Source/releases</a></p>
+    </div>
+    <div class="card">
+      <h2>Archive</h2>
+      <ul>
+      <li><a href="PIAdvisor-1.0.3-20260213214617.zip"><code>PIAdvisor-1.0.3-20260213214617.zip</code></a></li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

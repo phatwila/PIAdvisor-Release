@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+   <title>PixInsight Reference Documentation | PIAdvisor</title>
+   <meta name="keywords" content="LLM, PixInsight, astrophotography, processing guidance, workflow, context, chat, processing history, vision, multimodal, OpenAI, Gemini, Ollama" />
+   <meta name="author" content="Author: Ray Detwiler" />
+   <meta name="description" content="PIAdvisor provides processing guidance inside PixInsight. It sends a structured workspace snapshot (metadata, statistics, history, optional attachments) with your question to your selected provider." />
+   <meta name="robots" content="INDEX,FOLLOW" />
+   <meta name="generator" content="PixInsight Documentation Compiler script version 1.7.1" />
+   <meta name="pidoc-document-class" content="PIToolDoc" />
+   <script type="text/javascript" src="../../pidoc/scripts/pidoc-utility.js"></script>
+   <link type="text/css" href="../../pidoc/css/pidoc-common.css" rel="stylesheet" />
+   <link type="text/css" href="../../pidoc/css/pidoc-highlight.css" rel="stylesheet" />
+   <link type="text/css" href="../../pidoc/css/pidoc-tool.css" rel="stylesheet" />
+   <link rel="icon" href="../../pidoc/icons/pidoc-icon.svg" />
+</head>
+<body>
+<script type="text/javascript">
+   pidoc_generateDynamicContents();
+</script>
+
+<h1>PIAdvisor</h1>
+
+<div id="authors">
+<p>By Author: Ray Detwiler</p>
+</div>
+
+<hr class="separator"/>
+
+<div id="brief">
+<p>PIAdvisor provides processing guidance inside PixInsight. It sends a structured workspace snapshot (metadata, statistics, history, optional attachments) with your question to your selected provider. <a href="#__contents__">[more]</a></p></div>
+
+<div id="categories">
+<p><strong>Categories:</strong> Utilities</p>
+</div>
+
+<div id="keywords">
+<p><strong>Keywords:</strong> LLM, PixInsight, astrophotography, processing guidance, workflow, context, chat, processing history, vision, multimodal, OpenAI, Gemini, Ollama</p>
+</div>
+
+<h3 class="pidoc_sectionTitle" id="__toc__">Contents</h3>
+<p class="pidoc_sectionToggleButton" onclick="pidoc_toggleSection( 'toc', this );">[hide]</p>
+<div id="toc">
+<ul>
+<li class="pidoc_tocItem"><a href="#__Introduction__">1&emsp;Introduction</a>
+<ul>
+<li class="pidoc_tocSubitem"><a href="#__Introduction_:_Core_Approach_Structured_Context_Analysis__">1.1&emsp;Core Approach: Structured Context Analysis</a></li>
+<li class="pidoc_tocSubitem"><a href="#__Introduction_:_Free_vs_Pro__">1.2&emsp;Free vs Pro</a></li>
+</ul>
+</li>
+<li class="pidoc_tocItem"><a href="#__Description__">2&emsp;Description</a>
+<ul>
+<li class="pidoc_tocSubitem"><a href="#__Description_:_Key_Features__">2.1&emsp;Key Features</a></li>
+<li class="pidoc_tocSubitem"><a href="#__Description_:_Supported_LLM_Providers__">2.2&emsp;Supported LLM Providers</a></li>
+</ul>
+</li>
+<li class="pidoc_tocItem"><a href="#__Parameters__">3&emsp;Parameters</a></li>
+
+<ul>
+<li class="pidoc_tocSubitem"><a href="#__parameter001__">3.1&emsp;Provider</a></li>
+<li class="pidoc_tocSubitem"><a href="#__parameter002__">3.2&emsp;API Endpoint</a></li>
+<li class="pidoc_tocSubitem"><a href="#__parameter003__">3.3&emsp;API Key</a></li>
+<li class="pidoc_tocSubitem"><a href="#__parameter004__">3.4&emsp;Model</a></li>
+<li class="pidoc_tocSubitem"><a href="#__parameter005__">3.5&emsp;Override Temperature</a></li>
+<li class="pidoc_tocSubitem"><a href="#__parameter006__">3.6&emsp;Temperature</a></li>
+<li class="pidoc_tocSubitem"><a href="#__parameter007__">3.7&emsp;Max Tokens</a></li>
+<li class="pidoc_tocSubitem"><a href="#__parameter008__">3.8&emsp;Include History Snapshot</a></li>
+<li class="pidoc_tocSubitem"><a href="#__parameter009__">3.9&emsp;History Max Items</a></li>
+<li class="pidoc_tocSubitem"><a href="#__parameter010__">3.10&emsp;Enable Vision</a></li>
+<li class="pidoc_tocSubitem"><a href="#__parameter011__">3.11&emsp;Vision Max Pixels</a></li>
+<li class="pidoc_tocSubitem"><a href="#__parameter012__">3.12&emsp;Visual Memory Limit</a></li>
+<li class="pidoc_tocSubitem"><a href="#__parameter013__">3.13&emsp;Enable Debug Console Output</a></li>
+<li class="pidoc_tocSubitem"><a href="#__parameter014__">3.14&emsp;Enable Rich Formatting</a></li>
+<li class="pidoc_tocSubitem"><a href="#__parameter015__">3.15&emsp;Formatting Template (Markdown)</a></li>
+<li class="pidoc_tocSubitem"><a href="#__parameter016__">3.16&emsp;Enable Streaming</a></li>
+<li class="pidoc_tocSubitem"><a href="#__parameter017__">3.17&emsp;System Prompt</a></li>
+</ul>
+<li class="pidoc_tocItem"><a href="#__Usage__">4&emsp;Usage</a>
+<ul>
+<li class="pidoc_tocSubitem"><a href="#__Usage_:_Quick_Start__">4.1&emsp;Quick Start</a></li>
+<li class="pidoc_tocSubitem"><a href="#__Usage_:_Having_a_Conversation__">4.2&emsp;Having a Conversation</a></li>
+<li class="pidoc_tocSubitem"><a href="#__Usage_:_Using_Workspace_Mode_Pro__">4.3&emsp;Using Workspace Mode (Pro)</a></li>
+<li class="pidoc_tocSubitem"><a href="#__Usage_:_Attaching_Images__">4.4&emsp;Attaching Images</a></li>
+<li class="pidoc_tocSubitem"><a href="#__Usage_:_Exporting__">4.5&emsp;Exporting</a></li>
+<li class="pidoc_tocSubitem"><a href="#__Usage_:_Keyboard_Shortcuts__">4.6&emsp;Keyboard Shortcuts</a></li>
+</ul>
+</li>
+<li class="pidoc_tocItem"><a href="#__Licensing__">5&emsp;Licensing</a>
+<ul>
+<li class="pidoc_tocSubitem"><a href="#__Licensing_:_Activating_a_License__">5.1&emsp;Activating a License</a></li>
+<li class="pidoc_tocSubitem"><a href="#__Licensing_:_Device_Limits__">5.2&emsp;Device Limits</a></li>
+<li class="pidoc_tocSubitem"><a href="#__Licensing_:_Trial_Licenses__">5.3&emsp;Trial Licenses</a></li>
+<li class="pidoc_tocSubitem"><a href="#__Licensing_:_Deactivating_a_Device__">5.4&emsp;Deactivating a Device</a></li>
+<li class="pidoc_tocSubitem"><a href="#__Licensing_:_Purchasing_a_License__">5.5&emsp;Purchasing a License</a></li>
+</ul>
+</li>
+<li class="pidoc_tocItem"><a href="#__Model_Selection__">6&emsp;Model Selection</a></li>
+<li class="pidoc_tocItem"><a href="#__Troubleshooting__">7&emsp;Troubleshooting</a>
+<ul>
+<li class="pidoc_tocSubitem"><a href="#__Troubleshooting_:_Connection_Errors__">7.1&emsp;Connection Errors</a></li>
+<li class="pidoc_tocSubitem"><a href="#__Troubleshooting_:_Empty_or_Garbled_Responses__">7.2&emsp;Empty or Garbled Responses</a></li>
+<li class="pidoc_tocSubitem"><a href="#__Troubleshooting_:_Export_Debug_Dev_builds__">7.3&emsp;Export Debug (Dev builds)</a></li>
+</ul>
+</li>
+<li class="pidoc_tocItem"><a href="#__Related_Tools__">8&emsp;Related Tools</a></li>
+</ul>
+</div>
+
+<div id="__contents__">
+
+<div class="pidoc_section" id="__Introduction__">
+   <h3 class="pidoc_sectionTitle">1&emsp;Introduction</h3>
+   <p class="pidoc_sectionToggleButton" onclick="pidoc_toggleSection( 'Introduction', this );">[hide]</p>
+   <div id="Introduction">
+<p>PIAdvisor connects PixInsight to Large Language Models (LLMs) using providers such as OpenAI, Google Gemini, OpenRouter, or local OpenAI-compatible servers (Ollama, LM Studio). For each request, PIAdvisor can collect structured context from your open images—including FITS metadata, processing history, astrometry, STF state, and image statistics—and include it alongside your question.</p>
+<p>This allows responses to reference <em>your specific image(s)</em> and current workspace state, such as:</p>
+
+<ul class="pidoc_list">
+<li>Next processing steps based on your workflow stage</li>
+<li>Troubleshooting artifacts, gradients, or color balance issues</li>
+<li>Tool parameter recommendations grounded in your image statistics</li>
+<li>AstroBin or social media descriptions based on your acquisition data</li>
+</ul>
+
+<div class="pidoc_subsection" id="__Introduction_:_Core_Approach_Structured_Context_Analysis__">
+   <h4 class="pidoc_subsectionTitle">1.1&emsp;Core Approach: Structured Context Analysis</h4>
+<p>PIAdvisor uses <em>Structured Context Analysis</em>: a deterministic context snapshot built from observable image data (dimensions, SNR, FITS headers, processing history) and workspace state.</p>
+</div>
+
+<div class="pidoc_subsection" id="__Introduction_:_Free_vs_Pro__">
+   <h4 class="pidoc_subsectionTitle">1.2&emsp;Free vs Pro</h4>
+<p>PIAdvisor is available in Free and Pro tiers:</p>
+
+<dl class="pidoc_list">
+<dt>
+<p>Free Features</p>
+</dt>
+<dd>
+
+<ul class="pidoc_list">
+<li>Single-image context (active view only)</li>
+<li>Interactive tool links and workflow guidance</li>
+<li>History snapshot up to 5 entries</li>
+<li>Vision attachments up to 1024 max pixels</li>
+<li>Visual memory up to 5 images</li>
+<li>Full LLM provider support</li>
+</ul>
+
+</dd>
+<dt>
+<p>Pro Features (License Required)</p>
+</dt>
+<dd>
+
+<ul class="pidoc_list">
+<li><em>Workspace Mode</em>: Include all open images in the context snapshot (L+RGB, SHO, starless/stars)</li>
+<li><em>Higher Limits</em>: History up to 20 entries, vision max pixels up to 2048, visual memory up to 20 images</li>
+</ul>
+
+</dd>
+</dl>
+
+</div>
+
+   </div>
+</div>
+
+<div class="pidoc_section" id="__Description__">
+   <h3 class="pidoc_sectionTitle">2&emsp;Description</h3>
+   <p class="pidoc_sectionToggleButton" onclick="pidoc_toggleSection( 'Description', this );">[hide]</p>
+   <div id="Description">
+<div class="pidoc_subsection" id="__Description_:_Key_Features__">
+   <h4 class="pidoc_subsectionTitle">2.1&emsp;Key Features</h4>
+
+<dl class="pidoc_list">
+<dt>
+<p>Structured Context Analysis</p>
+</dt>
+<dd>
+<p>Captures image metadata, FITS headers, processing history, astrometry, ICC profiles, and STF/stretch state. Requests include this structured snapshot alongside your question.</p>
+</dd>
+<dt>
+<p>Workspace Mode (Pro)</p>
+</dt>
+<dd>
+<p>Include <em>all</em> open images in a single context snapshot. This is useful for multi-channel workflows such as L+RGB or SHO.</p>
+</dd>
+<dt>
+<p>Vision Support</p>
+</dt>
+<dd>
+<p>Attach view captures or screenshots for vision-capable models. Attachments can help with diagnosing visual artifacts.</p>
+</dd>
+<dt>
+<p>Streaming Responses</p>
+</dt>
+<dd>
+<p>Render partial output while a request is in progress. If streaming fails before any content is received, PIAdvisor retries once without streaming.</p>
+</dd>
+<dt>
+<p>Rich Formatting</p>
+</dt>
+<dd>
+<p>Responses include styled callouts, code blocks, and <em>clickable tool links</em> that launch PixInsight processes directly.</p>
+</dd>
+<dt>
+<p>Multiple Providers</p>
+</dt>
+<dd>
+<p>Supports OpenAI, OpenRouter, Google Gemini, and any OpenAI-compatible API (Ollama, LM Studio, etc.).</p>
+</dd>
+</dl>
+
+</div>
+
+<div class="pidoc_subsection" id="__Description_:_Supported_LLM_Providers__">
+   <h4 class="pidoc_subsectionTitle">2.2&emsp;Supported LLM Providers</h4>
+
+<table class="pidoc_table">
+<caption>Supported LLM Providers</caption>
+<tr>
+<th><p>Provider</p>
+</th>
+<th><p>Endpoint</p>
+</th>
+<th><p>Notes</p>
+</th>
+</tr>
+<tr>
+<td><p>OpenAI</p>
+</td>
+<td><p>https://api.openai.com/v1</p>
+</td>
+<td><p>Official OpenAI API</p>
+</td>
+</tr>
+<tr>
+<td><p>OpenRouter</p>
+</td>
+<td><p>https://openrouter.ai/api/v1</p>
+</td>
+<td><p>Multi-model router (Claude, GPT, Llama, etc.)</p>
+</td>
+</tr>
+<tr>
+<td><p>OpenAI-compatible (local)</p>
+</td>
+<td><p>http://127.0.0.1:11434/v1</p>
+</td>
+<td><p>Default for Ollama. LM Studio typically uses http://127.0.0.1:1234/v1.</p>
+</td>
+</tr>
+<tr>
+<td><p>Google Gemini</p>
+</td>
+<td><p>https://generativelanguage.googleapis.com/v1beta/openai</p>
+</td>
+<td><p>Gemini via OpenAI-compatible endpoint</p>
+</td>
+</tr>
+</table>
+
+</div>
+
+   </div>
+</div>
+
+<div class="pidoc_section" id="__Parameters__">
+   <h3 class="pidoc_sectionTitle">3&emsp;Parameters</h3>
+   <p class="pidoc_sectionToggleButton" onclick="pidoc_toggleSection( 'Parameters', this );">[hide]</p>
+   <div id="Parameters">
+      <div id="__parameter001__">
+<div class="pidoc_parameter">
+   <h4 class="pidoc_parameterTitle">3.1&emsp;Provider</h4>
+<p>Select the LLM provider to use:</p>
+
+<dl class="pidoc_list">
+<dt>
+<p>OpenAI</p>
+</dt>
+<dd>
+<p>The official OpenAI API (api.openai.com). Use <em>Models</em> to fetch available model ids.</p>
+</dd>
+<dt>
+<p>OpenRouter</p>
+</dt>
+<dd>
+<p>A multi-model router (openrouter.ai) providing access to dozens of models with a single API key.</p>
+</dd>
+<dt>
+<p>Google Gemini</p>
+</dt>
+<dd>
+<p>Google's Gemini API. Requires a Google AI Studio API key.</p>
+</dd>
+<dt>
+<p>OpenAI-Compatible</p>
+</dt>
+<dd>
+<p>Any API following the OpenAI chat completions format: Ollama, LM Studio, vLLM, etc.</p>
+</dd>
+</dl>
+
+</div>
+
+      </div>
+      <div id="__parameter002__">
+<div class="pidoc_parameter">
+   <h4 class="pidoc_parameterTitle">3.2&emsp;API Endpoint</h4>
+<p>The full base URL of the LLM's API. This is auto-populated when you select a provider, but can be customized for private deployments or proxies.</p>
+</div>
+
+      </div>
+      <div id="__parameter003__">
+<div class="pidoc_parameter">
+   <h4 class="pidoc_parameterTitle">3.3&emsp;API Key</h4>
+<p>Your API authentication key. For cloud providers, this is required. For local servers (Ollama, LM Studio), you can often leave this as &quot;no-key&quot; or empty.</p>
+
+<div class="pidoc_note">
+<p>API keys are stored in user-local configuration files under PixInsight's configuration directory (the <span class="pidoc_code">PIAdvisor</span> subfolder), not in the Windows Registry.</p>
+</div>
+</div>
+
+      </div>
+      <div id="__parameter004__">
+<div class="pidoc_parameter">
+   <h4 class="pidoc_parameterTitle">3.4&emsp;Model</h4>
+<p>The model identifier to use (e.g., &quot;gpt-4o&quot;, &quot;gemini-2.5-pro&quot;, &quot;openrouter/auto&quot;, &quot;llama3.2&quot;). Click <em>Models</em> to fetch the list of available models from your provider.</p>
+<p>For local servers, the model name must match exactly what you have loaded.</p>
+</div>
+
+      </div>
+      <div id="__parameter005__">
+<div class="pidoc_parameter">
+   <h4 class="pidoc_parameterTitle">3.5&emsp;Override Temperature</h4>
+<p>When enabled, sends the specified temperature value to the LLM. When disabled, the provider's default is used.</p>
+</div>
+
+      </div>
+      <div id="__parameter006__">
+<div class="pidoc_parameter">
+   <h4 class="pidoc_parameterTitle">3.6&emsp;Temperature</h4>
+<p>Controls the &quot;creativity&quot; of responses. Range: 0.0 (deterministic) to 2.0 (highly random). Recommended: 0.7 for balanced responses.</p>
+</div>
+
+      </div>
+      <div id="__parameter007__">
+<div class="pidoc_parameter">
+   <h4 class="pidoc_parameterTitle">3.7&emsp;Max Tokens</h4>
+<p>Limits the maximum length of the LLM's response. Default: 4096. Set to <em>0</em> to omit the limit. Valid non-zero range: 256-65536.</p>
+</div>
+
+      </div>
+      <div id="__parameter008__">
+<div class="pidoc_parameter">
+   <h4 class="pidoc_parameterTitle">3.8&emsp;Include History Snapshot</h4>
+<p>When enabled, includes recent processing history entries (from the History Explorer) in the context sent to the provider. This helps establish what has already been done.</p>
+</div>
+
+      </div>
+      <div id="__parameter009__">
+<div class="pidoc_parameter">
+   <h4 class="pidoc_parameterTitle">3.9&emsp;History Max Items</h4>
+<p>The maximum number of recent processing history entries to include. <em>0</em> disables history. Default: 5 (Free) / 10 (Pro). Max: 5 (Free) / 20 (Pro).</p>
+</div>
+
+      </div>
+      <div id="__parameter010__">
+<div class="pidoc_parameter">
+   <h4 class="pidoc_parameterTitle">3.10&emsp;Enable Vision</h4>
+<p>When enabled, PIAdvisor can send image attachments to vision-capable models. Attachments are resized to the Vision Max Pixels limit.</p>
+</div>
+
+      </div>
+      <div id="__parameter011__">
+<div class="pidoc_parameter">
+   <h4 class="pidoc_parameterTitle">3.11&emsp;Vision Max Pixels</h4>
+<p>The maximum resolution (in pixels on the longest side) for image attachments. Options are snapped to 512, 768, 1024, 1536, or 2048. Max: 1024 (Free) / 2048 (Pro).</p>
+</div>
+
+      </div>
+      <div id="__parameter012__">
+<div class="pidoc_parameter">
+   <h4 class="pidoc_parameterTitle">3.12&emsp;Visual Memory Limit</h4>
+<p>Controls how many recent attached images are retained in the conversation context. <em>0</em> disables visual memory. Default: 5 (Free) / 6 (Pro). Max: 5 (Free) / 20 (Pro).</p>
+</div>
+
+      </div>
+      <div id="__parameter013__">
+<div class="pidoc_parameter">
+   <h4 class="pidoc_parameterTitle">3.13&emsp;Enable Debug Console Output</h4>
+<p>Writes debug information to the PixInsight console. Can also be enabled via <span class="pidoc_code">PIA_DEBUG=1</span>. Available in Dev builds only.</p>
+</div>
+
+      </div>
+      <div id="__parameter014__">
+<div class="pidoc_parameter">
+   <h4 class="pidoc_parameterTitle">3.14&emsp;Enable Rich Formatting</h4>
+<p>When enabled, instructs the LLM to use structured formatting (callouts, tool links, code blocks) that PIAdvisor renders with custom styling.</p>
+</div>
+
+      </div>
+      <div id="__parameter015__">
+<div class="pidoc_parameter">
+   <h4 class="pidoc_parameterTitle">3.15&emsp;Formatting Template (Markdown)</h4>
+<p>The formatting instructions injected into the system prompt when rich formatting is enabled. Use <em>Reset -&gt; Template</em> to restore defaults.</p>
+</div>
+
+      </div>
+      <div id="__parameter016__">
+<div class="pidoc_parameter">
+   <h4 class="pidoc_parameterTitle">3.16&emsp;Enable Streaming</h4>
+<p>When enabled, responses are streamed incrementally as they arrive from the provider. If streaming fails before any content is received, PIAdvisor retries once without streaming.</p>
+</div>
+
+      </div>
+      <div id="__parameter017__">
+<div class="pidoc_parameter">
+   <h4 class="pidoc_parameterTitle">3.17&emsp;System Prompt</h4>
+<p>The system instructions sent to the LLM at the start of each conversation. A detailed default prompt is provided by PIAdvisor. Advanced users can customize this, but changes may affect response quality.</p>
+<p><em>Reset -&gt; Prompt</em> restores the built-in system prompt.</p>
+</div>
+
+      </div>
+   </div>
+</div>
+
+<div class="pidoc_section" id="__Usage__">
+   <h3 class="pidoc_sectionTitle">4&emsp;Usage</h3>
+   <p class="pidoc_sectionToggleButton" onclick="pidoc_toggleSection( 'Usage', this );">[hide]</p>
+   <div id="Usage">
+<div class="pidoc_subsection" id="__Usage_:_Quick_Start__">
+   <h4 class="pidoc_subsectionTitle">4.1&emsp;Quick Start</h4>
+
+<ol class="pidoc_list">
+<li>Open PIAdvisor from <em>Process &gt; PIAdvisor</em> or the Process Explorer.</li>
+<li>Go to the <em>Settings</em> section (bottom of the panel).</li>
+<li>Select a <em>Provider</em> (e.g., OpenAI, OpenRouter, Google Gemini, or OpenAI-compatible for local models).</li>
+<li>Enter your <em>API Key</em> (cloud providers require a key; local models may use &quot;no-key&quot; or be empty).</li>
+<li>Click <em>Models</em> to fetch available models, then select one.</li>
+<li>Click <em>Test</em> to verify your settings.</li>
+<li>Click <em>Save</em> to persist your configuration.</li>
+</ol>
+
+</div>
+
+<div class="pidoc_subsection" id="__Usage_:_Having_a_Conversation__">
+   <h4 class="pidoc_subsectionTitle">4.2&emsp;Having a Conversation</h4>
+
+<ol class="pidoc_list">
+<li>Open one or more images in PixInsight. For best results, use plate-solved images with processing history.</li>
+<li>In the PIAdvisor panel, type your question in the input box at the bottom.</li>
+<li>Press <em>Ctrl+Enter</em> or click <em>Send</em>.</li>
+<li>PIAdvisor gathers context from your active image (or all images in Pro mode) and sends it to your selected provider.</li>
+<li>The response appears in the chat transcript. Clickable tool links (e.g., <em>SPCC</em>, <em>BlurXTerminator</em>) launch processes directly.</li>
+</ol>
+
+</div>
+
+<div class="pidoc_subsection" id="__Usage_:_Using_Workspace_Mode_Pro__">
+   <h4 class="pidoc_subsectionTitle">4.3&emsp;Using Workspace Mode (Pro)</h4>
+<p>Enable Workspace Mode by clicking the <em>Workspace Mode</em> button in the toolbar. When enabled:</p>
+
+<ul class="pidoc_list">
+<li>Context is gathered from <em>all</em> open images, not just the active one.</li>
+<li>The request context includes related images (e.g., starless + stars, L + R + G + B).</li>
+<li>Image relationships are inferred from naming patterns and shared metadata.</li>
+</ul>
+
+<p>Use <em>Refresh Workspace</em> to capture new changes across open images without sending a message.</p>
+
+<div class="pidoc_note">
+<p>Workspace Mode is a Pro feature. Without an active license, context is limited to the active image only.</p>
+</div>
+</div>
+
+<div class="pidoc_subsection" id="__Usage_:_Attaching_Images__">
+   <h4 class="pidoc_subsectionTitle">4.4&emsp;Attaching Images</h4>
+<p>Enable the <em>Enable Vision</em> option in Settings to attach images. This requires a vision-capable model.</p>
+
+<dl class="pidoc_list">
+<dt>
+<p>Attach View</p>
+</dt>
+<dd>
+<p>Captures the currently selected view as a PNG and attaches it to your next message.</p>
+</dd>
+<dt>
+<p>Screenshot</p>
+</dt>
+<dd>
+<p>Load an image file from disk to attach. Useful for annotated screenshots or reference images from other sources.</p>
+</dd>
+</dl>
+
+<p>Attachments are resized to the <em>Vision max pixels</em> limit before sending to control bandwidth and cost.</p>
+</div>
+
+<div class="pidoc_subsection" id="__Usage_:_Exporting__">
+   <h4 class="pidoc_subsectionTitle">4.5&emsp;Exporting</h4>
+
+<dl class="pidoc_list">
+<dt>
+<p>Export Chat</p>
+</dt>
+<dd>
+<p>Saves the entire conversation as a Markdown file for documentation or sharing.</p>
+</dd>
+<dt>
+<p>Export Debug (Dev builds)</p>
+</dt>
+<dd>
+<p>Creates a support bundle containing context, prompt, request/response, streaming diagnostics, attachments, and logs. <em>API keys are never exported.</em> Useful for bug reports.</p>
+</dd>
+</dl>
+
+</div>
+
+<div class="pidoc_subsection" id="__Usage_:_Keyboard_Shortcuts__">
+   <h4 class="pidoc_subsectionTitle">4.6&emsp;Keyboard Shortcuts</h4>
+
+<table class="pidoc_table">
+<caption>Keyboard Shortcuts</caption>
+<tr>
+<th><p>Shortcut</p>
+</th>
+<th><p>Action</p>
+</th>
+</tr>
+<tr>
+<td><p>Ctrl+Enter</p>
+</td>
+<td><p>Send message</p>
+</td>
+</tr>
+</table>
+
+</div>
+
+   </div>
+</div>
+
+<div class="pidoc_section" id="__Licensing__">
+   <h3 class="pidoc_sectionTitle">5&emsp;Licensing</h3>
+   <p class="pidoc_sectionToggleButton" onclick="pidoc_toggleSection( 'Licensing', this );">[hide]</p>
+   <div id="Licensing">
+<p>PIAdvisor includes Free features without a license. Pro features require activation.</p>
+<div class="pidoc_subsection" id="__Licensing_:_Activating_a_License__">
+   <h4 class="pidoc_subsectionTitle">5.1&emsp;Activating a License</h4>
+
+<ol class="pidoc_list">
+<li>Open PIAdvisor and click the <em>Preferences</em> (wrench) button.</li>
+<li>In the <em>PIAdvisor License</em> dialog, enter your license key (format: <span class="pidoc_code">PRO-XXXX-XXXX-XXXX</span> or <span class="pidoc_code">TRIAL-XXXX-XXXX-XXXX</span>).</li>
+<li>Click <em>Activate</em>.</li>
+</ol>
+
+<p>Activation verifies your key with the PIAdvisor license server and unlocks Pro features immediately.</p>
+</div>
+
+<div class="pidoc_subsection" id="__Licensing_:_Device_Limits__">
+   <h4 class="pidoc_subsectionTitle">5.2&emsp;Device Limits</h4>
+<p>Pro licenses support activation on up to <em>3 devices</em> simultaneously. Trial licenses support up to <em>2 devices</em>. If you exceed the limit, you'll receive an error prompting you to deactivate an existing device.</p>
+</div>
+
+<div class="pidoc_subsection" id="__Licensing_:_Trial_Licenses__">
+   <h4 class="pidoc_subsectionTitle">5.3&emsp;Trial Licenses</h4>
+<p>Trials are time-limited Pro licenses (typically 30 days). Trial keys are delivered by email and are never shown in the UI or API responses.</p>
+</div>
+
+<div class="pidoc_subsection" id="__Licensing_:_Deactivating_a_Device__">
+   <h4 class="pidoc_subsectionTitle">5.4&emsp;Deactivating a Device</h4>
+<p>To free up an activation slot:</p>
+
+<ol class="pidoc_list">
+<li>Open PIAdvisor on the device you want to deactivate.</li>
+<li>Click the <em>Preferences</em> (wrench) button.</li>
+<li>Click <em>Deactivate</em>.</li>
+</ol>
+
+</div>
+
+<div class="pidoc_subsection" id="__Licensing_:_Purchasing_a_License__">
+   <h4 class="pidoc_subsectionTitle">5.5&emsp;Purchasing a License</h4>
+<p>License purchase details are provided on the PIAdvisor website. After purchase, your license key is delivered via email and can be activated in the License dialog.</p>
+</div>
+
+   </div>
+</div>
+
+<div class="pidoc_section" id="__Model_Selection__">
+   <h3 class="pidoc_sectionTitle">6&emsp;Model Selection</h3>
+   <p class="pidoc_sectionToggleButton" onclick="pidoc_toggleSection( 'Model_Selection', this );">[hide]</p>
+   <div id="Model_Selection">
+<p>Use the <em>Models</em> button to fetch the available model list from your provider. If your provider does not support model listing, enter the exact model id manually.</p>
+<p>If you just need a starting point, these defaults are commonly used:</p>
+
+<ul class="pidoc_list">
+<li>OpenAI: <span class="pidoc_code">gpt-4o</span></li>
+<li>Google Gemini: <span class="pidoc_code">gemini-2.5-pro</span></li>
+<li>OpenRouter: <span class="pidoc_code">openrouter/auto</span></li>
+<li>OpenAI-Compatible (local): <span class="pidoc_code">llama3.2</span></li>
+</ul>
+
+   </div>
+</div>
+
+<div class="pidoc_section" id="__Troubleshooting__">
+   <h3 class="pidoc_sectionTitle">7&emsp;Troubleshooting</h3>
+   <p class="pidoc_sectionToggleButton" onclick="pidoc_toggleSection( 'Troubleshooting', this );">[hide]</p>
+   <div id="Troubleshooting">
+<div class="pidoc_subsection" id="__Troubleshooting_:_Connection_Errors__">
+   <h4 class="pidoc_subsectionTitle">7.1&emsp;Connection Errors</h4>
+
+<dl class="pidoc_list">
+<dt>
+<p>&quot;Connection failed&quot; or timeout</p>
+</dt>
+<dd>
+<p>Verify your API endpoint URL is correct. Use <em>Test</em> to diagnose. Check firewall settings for local servers.</p>
+</dd>
+<dt>
+<p>&quot;401 Unauthorized&quot;</p>
+</dt>
+<dd>
+<p>Your API key is invalid or expired. Verify it in your provider's dashboard.</p>
+</dd>
+<dt>
+<p>&quot;429 Rate Limited&quot;</p>
+</dt>
+<dd>
+<p>You've exceeded your provider's rate limits. Wait and try again, or upgrade your API plan.</p>
+</dd>
+<dt>
+<p>&quot;Model not found&quot;</p>
+</dt>
+<dd>
+<p>The model name doesn't match what's available. Click <em>Models</em> to see available options.</p>
+</dd>
+</dl>
+
+</div>
+
+<div class="pidoc_subsection" id="__Troubleshooting_:_Empty_or_Garbled_Responses__">
+   <h4 class="pidoc_subsectionTitle">7.2&emsp;Empty or Garbled Responses</h4>
+
+<ul class="pidoc_list">
+<li>Try disabling <em>Enable Streaming</em> to use standard requests.</li>
+<li>Some local models have limited context windows—try reducing history or using a smaller context.</li>
+<li>Check the Process Console for error messages (Script &gt; Show Console).</li>
+</ul>
+
+</div>
+
+<div class="pidoc_subsection" id="__Troubleshooting_:_Export_Debug_Dev_builds__">
+   <h4 class="pidoc_subsectionTitle">7.3&emsp;Export Debug (Dev builds)</h4>
+<p>For support requests, use <em>Export Debug</em> in the toolbar (Dev builds only). This creates a folder containing:</p>
+
+<ul class="pidoc_list">
+<li>Context snapshot (flat_kv format)</li>
+<li>Prompt and settings (API key redacted)</li>
+<li>Last request/response and streaming diagnostics</li>
+<li>Attachments and metadata (if present)</li>
+<li>UI/worker logs for the last request</li>
+</ul>
+
+<p>Share this bundle when reporting issues.</p>
+</div>
+
+   </div>
+</div>
+
+<div class="pidoc_section" id="__Related_Tools__">
+   <h3 class="pidoc_sectionTitle">8&emsp;Related Tools</h3>
+   <p class="pidoc_sectionToggleButton" onclick="pidoc_toggleSection( 'Related_Tools', this );">[hide]</p>
+   <div id="Related_Tools">
+<p>PIAdvisor may reference PixInsight tools and third-party processes. The following tools are commonly mentioned in PIAdvisor responses (when installed and applicable):</p>
+
+<ul class="pidoc_list">
+<li>SPCC</li>
+<li>BlurXTerminator</li>
+<li>NoiseXTerminator</li>
+<li>StarXTerminator</li>
+<li>ImageSolver</li>
+<li>DynamicCrop</li>
+<li>HistogramTransformation</li>
+<li>CurvesTransformation</li>
+<li>ColorCalibration</li>
+</ul>
+
+   </div>
+</div>
+
+<hr class="separator"/>
+
+<div id="copyright">
+   <p>Copyright &copy; 2025-2026 All Rights Reserved.</p>
+</div>
+
+<div id="footer">
+   <p>Generated by the PixInsight Documentation Compiler script version 1.7.1 on 2026-02-05 21:52:33 UTC</p>
+</div>
+<br/>
+<br/>
+
+</div> <!-- contents -->
+
+</body>
+</html>

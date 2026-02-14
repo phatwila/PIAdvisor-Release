@@ -1,0 +1,7 @@
+# Local scratch / staging
+.staging/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+

@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>PIAdvisor Update Repository</title>
+  <meta name="description" content="PixInsight update repository for PIAdvisor (updates.xri + packages)."/>
+  <link rel="icon" type="image/svg+xml" href="pia-logo.svg"/>
+  <style>
+    :root{
+      --accent-blue: #60a5fa;
+      --accent-purple: #c084fc;
+      --accent-gradient: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+      --bg-darkest: #0a0e1a;
+      --bg-dark: #0f172a;
+      --panel: rgba(15, 23, 42, 0.72);
+      --panel-2: rgba(2, 6, 23, 0.56);
+      --card-border: rgba(255, 255, 255, 0.10);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --shadow: 0 18px 44px rgba(0,0,0,.55);
+      --shadow-sm: 0 10px 22px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+
+    @font-face {
+      font-family: "Atkinson";
+      src: url("fonts/atkinson-regular.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Atkinson";
+      src: url("fonts/atkinson-bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    *{ box-sizing: border-box; }
+    html, body{ height: 100%; }
+
+    body{
+      margin: 0;
+      font-family: "Atkinson", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1000px 600px at 12% 15%, rgba(96, 165, 250, 0.18), transparent 60%),
+        radial-gradient(900px 540px at 88% 82%, rgba(192, 132, 252, 0.14), transparent 62%),
+        var(--bg-darkest);
+      overflow-x: hidden;
+    }
+
+    /* Static stars (no animations; avoids compositor artifacts on hover). */
+    body::before{
+      content: "";
+      position: fixed;
+      inset: -20vh -20vw;
+      background:
+        radial-gradient(circle at 18% 78%, rgba(255,255,255,0.10) 0 1px, transparent 2px),
+        radial-gradient(circle at 62% 12%, rgba(255,255,255,0.08) 0 1px, transparent 2px),
+        radial-gradient(circle at 84% 36%, rgba(255,255,255,0.07) 0 1px, transparent 2px),
+        radial-gradient(circle at 42% 52%, rgba(255,255,255,0.06) 0 1px, transparent 2px),
+        radial-gradient(circle at 74% 68%, rgba(255,255,255,0.07) 0 1px, transparent 2px);
+      pointer-events: none;
+      opacity: 0.45;
+    }
+
+    .wrap{
+      position: relative;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 48px 20px 72px;
+    }
+
+    header{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 8px 0 32px;
+      animation: fadeIn 520ms ease-out both;
+    }
+
+    @keyframes fadeIn{
+      from{ opacity: 0; transform: translateY(8px); }
+      to{ opacity: 1; transform: translateY(0); }
+    }
+
+    .brand{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .brand img{
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.35);
+    }
+
+    .brand-title{
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-title strong{
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-title span{
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .pill{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 999px;
+      background: rgba(2, 6, 23, 0.55);
+      color: var(--muted);
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
+    .pill-group{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .pill-link{
+      color: var(--text);
+      text-decoration: none;
+      cursor: pointer;
+      transition: border-color 160ms ease, background 160ms ease, color 160ms ease, box-shadow 160ms ease;
+    }
+
+    .pill-link:hover{
+      border-color: rgba(255,255,255,0.18);
+      background: rgba(2, 6, 23, 0.70);
+      box-shadow: var(--shadow-sm);
+      color: var(--text);
+    }
+
+    .pill-link:focus-visible{
+      outline: 2px solid rgba(96, 165, 250, 0.85);
+      outline-offset: 3px;
+    }
+
+    main{
+      animation: fadeIn 520ms ease-out both;
+      animation-delay: 80ms;
+    }
+
+    .hero{
+      padding: 28px;
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    h1{
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.1rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .grad{
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    p{
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.55;
+      max-width: 72ch;
+    }
+
+    .hint{
+      display: inline-block;
+      margin-top: 6px;
+      color: rgba(148,163,184,0.82);
+      font-size: 0.98rem;
+    }
+
+    .grid{
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .card{
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      background: var(--panel-2);
+      padding: 14px 14px;
+    }
+
+    .card h2{
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      letter-spacing: -0.01em;
+    }
+
+    .row{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .row.buttons{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      align-items: stretch;
+    }
+
+    .row.buttons .btn{
+      width: 100%;
+    }
+
+    a{
+      color: var(--accent-blue);
+      text-decoration: none;
+      transition: color 160ms ease;
+    }
+    a:not(.btn):hover{ color: var(--accent-purple); }
+    a:focus-visible{
+      outline: 2px solid rgba(96, 165, 250, 0.85);
+      outline-offset: 3px;
+    }
+
+    code{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.95em;
+      padding: 2px 7px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(241,245,249,0.95);
+    }
+
+    .repo-url code{
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .btn-compact{
+      padding: 8px 12px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      background: rgba(2, 6, 23, 0.60);
+      backdrop-filter: none;
+    }
+    .btn-compact:hover{
+      box-shadow: var(--shadow-sm);
+    }
+
+    .copy-status{
+      color: rgba(148,163,184,0.85);
+      font-size: 0.95rem;
+    }
+
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 11px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(2, 6, 23, 0.55);
+      color: var(--text);
+      font-weight: 700;
+      cursor: pointer;
+      transition: border-color 140ms ease, background 140ms ease, box-shadow 140ms ease;
+    }
+    .btn:not(.btn-primary):hover{
+      border-color: rgba(255,255,255,0.18);
+      background: rgba(2, 6, 23, 0.70);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn:focus-visible{
+      outline: 2px solid rgba(96, 165, 250, 0.85);
+      outline-offset: 3px;
+    }
+
+    .btn-primary{
+      border: none;
+      background: var(--accent-gradient);
+      color: #0a0e1a;
+      box-shadow: 0 10px 26px rgba(96, 165, 250, 0.18), 0 12px 30px rgba(192, 132, 252, 0.12);
+    }
+
+    .btn-primary:hover{
+      background: var(--accent-gradient);
+      color: #0a0e1a;
+      box-shadow: 0 14px 34px rgba(96, 165, 250, 0.20), 0 16px 40px rgba(192, 132, 252, 0.14);
+    }
+
+    .btn-secondary{
+      background: rgba(2, 6, 23, 0.55);
+    }
+
+    footer{
+      margin-top: 18px;
+      color: rgba(148,163,184,0.75);
+      font-size: 0.95rem;
+      padding: 20px 2px 0;
+    }
+
+    @media (min-width: 780px){
+      .grid{ grid-template-columns: 1fr 1fr; }
+      .hero{ padding: 34px; }
+    }
+
+    @media (max-width: 640px){
+      .wrap{ padding: 32px 16px 56px; }
+      header{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .pill-group{
+        width: 100%;
+        justify-content: flex-start;
+      }
+      .pill{
+        font-size: 0.9rem;
+        padding: 8px 10px;
+      }
+      .pill-link{
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="https://piadvisor.net" rel="noopener">
+        <img src="pia-logo.svg" alt="PIAdvisor"/>
+        <div class="brand-title">
+          <strong>PIAdvisor</strong>
+          <span>PixInsight update repository</span>
+        </div>
+      </a>
+      <div class="pill-group">
+        <div class="pill">
+          <span>Entry point:</span>
+          <a href="updates.xri"><code>updates.xri</code></a>
+        </div>
+        <a class="pill pill-link" href="docs/">Documentation</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1><span class="grad">PIAdvisor</span> releases for PixInsight</h1>
+        <p>
+          This repository is intentionally minimal: it hosts the signed update manifest and the ZIP packages
+          PixInsight installs. You don’t need to browse anything here unless you’re verifying the feed.
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <h2>For PixInsight users</h2>
+            <p style="margin-top: 0;">
+              Add this repository URL in PixInsight:
+              <span class="hint">Resources &gt; Updates &gt; Manage Repositories... &gt; Add</span>
+            </p>
+            <div class="row repo-url">
+              <code id="repoUrl">https://phatwila.github.io/PIAdvisor-Release/</code>
+              <button class="btn btn-compact" type="button" id="copyRepoUrl" aria-label="Copy repository URL">Copy</button>
+              <span class="copy-status" id="copyStatus" aria-live="polite"></span>
+            </div>
+          </div>
+          <div class="card">
+            <h2>Feed contents</h2>
+            <div class="row buttons">
+              <a class="btn btn-primary" href="updates.xri">Open updates.xri</a>
+              <a class="btn btn-secondary" href="packages/">Browse packages/</a>
+            </div>
+            <p style="margin-top: 10px;">
+              Packages deploy relative to the PixInsight installation root (e.g., <code>bin/</code>, <code>doc/tools/</code>).
+            </p>
+          </div>
+        </div>
+
+        <footer>
+          <div>Prefer the main site? <a href="https://piadvisor.net" rel="noopener">piadvisor.net</a></div>
+        </footer>
+      </section>
+    </main>
+  </div>
+  <script type="text/javascript">
+    (function(){
+      var codeEl = document.getElementById("repoUrl");
+      var btn = document.getElementById("copyRepoUrl");
+      var statusEl = document.getElementById("copyStatus");
+      if (!codeEl || !btn) return;
+
+      function setStatus(msg){
+        if (!statusEl) return;
+        statusEl.textContent = msg || "";
+      }
+
+      function fallbackCopy(text){
+        try {
+          var ta = document.createElement("textarea");
+          ta.value = text;
+          ta.setAttribute("readonly", "");
+          ta.style.position = "fixed";
+          ta.style.top = "-1000px";
+          document.body.appendChild(ta);
+          ta.select();
+          var ok = document.execCommand("copy");
+          document.body.removeChild(ta);
+          return ok;
+        } catch (e) {
+          return false;
+        }
+      }
+
+      btn.addEventListener("click", function(){
+        var text = (codeEl.textContent || "").trim();
+        if (!text) return;
+
+        setStatus("");
+        var original = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = "Copying...";
+
+        var done = function(ok){
+          btn.disabled = false;
+          btn.textContent = ok ? "Copied" : "Copy failed";
+          setStatus(ok ? "Copied to clipboard." : "Copy failed - please copy the URL manually.");
+          window.setTimeout(function(){
+            btn.textContent = original;
+            setStatus("");
+          }, 1400);
+        };
+
+        if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+          navigator.clipboard.writeText(text).then(function(){ done(true); }, function(){ done(fallbackCopy(text)); });
+        } else {
+          done(fallbackCopy(text));
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

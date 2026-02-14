@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#60a5fa"/>
+<stop offset="100%" stop-color="#c084fc"/>
+</linearGradient>
+</defs>
+<rect width="512" height="512" fill="#0f172a" stroke="#1e293b" stroke-width="16"/>
+<!-- Letter P - centered (shifted left by 24px) -->
+<path d="M 36 400 L 36 112 L 136 112 Q 196 112 196 172 L 196 232 Q 196 292 136 292 L 86 292 L 86 400 Z M 86 160 L 86 244 L 126 244 Q 146 244 146 224 L 146 180 Q 146 160 126 160 Z" fill="url(#grad1)"/>
+<!-- Letter I - centered -->
+<path d="M 216 400 L 216 112 L 266 112 L 266 400 Z" fill="url(#grad1)"/>
+<!-- Letter A - centered -->
+<path d="M 286 400 L 356 112 L 406 112 L 476 400 L 424 400 L 410 344 L 352 344 L 338 400 Z M 364 296 L 398 296 L 381 216 Z" fill="url(#grad1)"/>
+</svg>

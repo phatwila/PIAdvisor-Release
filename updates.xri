@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xri version="1.0">
+   <!-- PIAdvisor PixInsight Update Repository -->
+   <description>
+      <p>PIAdvisor update feed for PixInsight.</p>
+      <p>Status: Public package v1.0.3 published on 2026-02-13 21:46:17 UTC.</p>
+      <p>Stability and packaging improvements.</p>
+      <p>Changelog: https://github.com/phatwila/PIAdvisor-Source/releases</p>
+   </description>
+   <platform os="windows" arch="x64" version="1.8.9:1.9.99">
+      <package fileName="packages/PIAdvisor-1.0.3-20260213214617.zip" sha1="fcb965f928f7f97eeb8b7437c5ba45edcae259fd" releaseDate="20260213214617" type="module">
+         <title>PIAdvisor Module v1.0.3</title>
+         <remove>bin/PIAdvisor-pxm.dll
+bin/PIAdvisor-pxm.xsgn
+doc/tools/PIAdvisor/PIAdvisor.html</remove>
+         <description>
+            <p>Stability and packaging improvements.</p>
+            <p>Highlights:</p>
+            <p>- Improved update feed and package archive reliability.</p>
+            <p>Changelog: https://github.com/phatwila/PIAdvisor-Source/releases</p>
+         </description>
+      </package>
+   </platform>
+</xri>
+<Signature developerId="RayDetwiler" timestamp="2026-02-13T21:46:23.935Z" encoding="Base64">XIsJEojV/cgwk6cXSgTKY5CTNX/Jyj7+UuQU5dWkboDJoFZdrX2T1wCjQA7lgeYmZ1rnkT9hDCxYGdy8pCyMAA==</Signature>

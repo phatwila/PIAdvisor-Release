@@ -3,23 +3,37 @@
    <!-- PIAdvisor PixInsight Update Repository -->
    <description>
       <p>PIAdvisor update feed for PixInsight.</p>
-      <p>Status: Public package v1.0.3 published on 2026-02-13 21:46:17 UTC.</p>
-      <p>Stability and packaging improvements.</p>
+      <p>Status: Public package v1.0.4 published on 2026-02-18 04:19:42 UTC.</p>
+      <p>Stability and cross-platform release improvements.</p>
       <p>Changelog: https://github.com/phatwila/PIAdvisor-Source/releases</p>
    </description>
    <platform os="windows" arch="x64" version="1.8.9:1.9.99">
-      <package fileName="packages/PIAdvisor-1.0.3-20260213214617.zip" sha1="fcb965f928f7f97eeb8b7437c5ba45edcae259fd" releaseDate="20260213214617" type="module">
-         <title>PIAdvisor Module v1.0.3</title>
+      <package fileName="packages/PIAdvisor-windows-x64-1.0.4-20260218041942.zip" sha1="0aa2489a8bfa3c47e1658b28cc707de6a9d36369" releaseDate="20260218041942" type="module">
+         <title>PIAdvisor Module v1.0.4</title>
          <remove>bin/PIAdvisor-pxm.dll
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Stability and packaging improvements.</p>
+            <p>Stability and cross-platform release improvements.</p>
             <p>Highlights:</p>
-            <p>- Improved update feed and package archive reliability.</p>
+            <p>- One update feed now publishes both Windows and Linux packages.</p>
+            <p>Changelog: https://github.com/phatwila/PIAdvisor-Source/releases</p>
+         </description>
+      </package>
+   </platform>
+   <platform os="linux" arch="x64" version="1.8.9:1.9.99">
+      <package fileName="packages/PIAdvisor-linux-x64-1.0.4-20260218041942.zip" sha1="2afd62e921edfb92ec0af7707ea7645ae779effb" type="module" releaseDate="20260218041942">
+         <title>PIAdvisor Module v1.0.4</title>
+         <remove>bin/PIAdvisor-pxm.so
+bin/PIAdvisor-pxm.xsgn
+doc/tools/PIAdvisor/PIAdvisor.html</remove>
+         <description>
+            <p>Stability and cross-platform release improvements.</p>
+            <p>Highlights:</p>
+            <p>- One update feed now publishes both Windows and Linux packages.</p>
             <p>Changelog: https://github.com/phatwila/PIAdvisor-Source/releases</p>
          </description>
       </package>
    </platform>
 </xri>
-<Signature developerId="RayDetwiler" timestamp="2026-02-13T21:46:23.935Z" encoding="Base64">XIsJEojV/cgwk6cXSgTKY5CTNX/Jyj7+UuQU5dWkboDJoFZdrX2T1wCjQA7lgeYmZ1rnkT9hDCxYGdy8pCyMAA==</Signature>
+<Signature developerId="RayDetwiler" timestamp="2026-02-18T04:19:44.677Z" encoding="Base64">Gh6aWUFMIYKGYWrYuOfjIc7z+Q0c/J4NKLaoMPb13VXJmG87hNLo8KLNJLUPE4DqsBG0MM0CXhM1n9Me+m6VAw==</Signature>

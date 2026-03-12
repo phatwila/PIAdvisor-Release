@@ -45,7 +45,7 @@
         radial-gradient(ellipse 55% 45% at 88% 82%, rgba(192, 132, 252, 0.09) 0%, transparent 60%);
     }
     .wrap{
-      max-width: 980px;
+      max-width: 920px;
       margin: 0 auto;
       padding: 44px 20px 64px;
     }
@@ -93,19 +93,13 @@
       font-size: 1.1rem;
       letter-spacing: -0.01em;
     }
-    p{ margin: 10px 0 0; color: var(--muted); line-height: 1.55; }
-    ul{ margin: 12px 0 0; padding-left: 18px; }
-    li{ margin: 8px 0; color: var(--muted); }
     .grad{
       background: var(--accent-gradient);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
-    .status-ok{
-      color: var(--good);
-      font-weight: 700;
-    }
+    p{ margin: 10px 0 0; color: var(--muted); line-height: 1.55; }
     .meta-grid{
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -134,6 +128,10 @@
     .meta-note{
       margin-top: 12px;
       font-size: .92rem;
+    }
+    .status-ok{
+      color: var(--good);
+      font-weight: 700;
     }
     .package-list{
       list-style: none;
@@ -164,6 +162,13 @@
       font-size: .86rem;
       white-space: nowrap;
     }
+    .package-empty{
+      color: var(--muted);
+      border: 1px dashed rgba(255,255,255,0.2);
+      border-radius: 12px;
+      padding: 10px 12px;
+      background: rgba(15,23,42,.2);
+    }
     .pill{
       display: inline-block;
       font-size: .78rem;
@@ -179,6 +184,8 @@
       background: rgba(255,255,255,0.09);
       border: 1px solid rgba(255,255,255,0.15);
     }
+    ul{ margin: 12px 0 0; padding-left: 18px; }
+    li{ margin: 8px 0; color: var(--muted); }
     table{
       width: 100%;
       border-collapse: collapse;
@@ -198,6 +205,9 @@
       color: rgba(241,245,249,.9);
       font-weight: 700;
     }
+    td code{
+      white-space: nowrap;
+    }
     code{
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       font-size: 0.95em;
@@ -206,7 +216,6 @@
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.08);
       color: rgba(241,245,249,0.95);
-      white-space: nowrap;
     }
     @media (max-width: 860px){
       .meta-grid{
@@ -256,18 +265,17 @@
       </a>
       <a href="../updates.xri">updates.xri</a>
     </header>
-
     <div class="card hero">
       <h1><span class="grad">Package</span> Archives</h1>
-      <p><span class="status-ok">Ready:</span> Published package archives: 3.</p>
+      <p><span class="status-ok">Ready:</span> Published package archives: 5.</p>
       <div class="meta-grid">
         <div class="meta-item">
           <span class="meta-label">Latest release</span>
-          <span class="meta-value">v1.0.4</span>
+          <span class="meta-value">v1.1.0</span>
         </div>
         <div class="meta-item">
           <span class="meta-label">Published at</span>
-          <span class="meta-value">2026-02-18 04:19:42 UTC</span>
+          <span class="meta-value">2026-03-12 17:47:04 UTC</span>
         </div>
         <div class="meta-item">
           <span class="meta-label">Platforms in latest release</span>
@@ -276,36 +284,25 @@
       </div>
       <p class="meta-note">PixInsight selects the correct package for your operating system from <a href="../updates.xri"><code>updates.xri</code></a>.</p>
     </div>
-
     <div class="card">
-      <h2>Latest Release Packages (v1.0.4)</h2>
+      <h2>Latest Release Packages (v1.1.0)</h2>
       <ul class="package-list">
-        <li class="package-item">
-          <div class="package-main">
-            <span class="pill">Windows x64</span>
-            <a href="PIAdvisor-windows-x64-1.0.4-20260218041942.zip"><code>PIAdvisor-windows-x64-1.0.4-20260218041942.zip</code></a>
-          </div>
-          <span class="package-meta">2026-02-18 04:19:42 UTC</span>
-        </li>
-        <li class="package-item">
-          <div class="package-main">
-            <span class="pill">Linux x64</span>
-            <a href="PIAdvisor-linux-x64-1.0.4-20260218041942.zip"><code>PIAdvisor-linux-x64-1.0.4-20260218041942.zip</code></a>
-          </div>
-          <span class="package-meta">2026-02-18 04:19:42 UTC</span>
-        </li>
+      <li class="package-item"><div class="package-main"><span class="pill">Windows x64</span><a href="PIAdvisor-windows-x64-1.1.0-20260312174704.zip"><code>PIAdvisor-windows-x64-1.1.0-20260312174704.zip</code></a></div><span class="package-meta">2026-03-12 17:47:04 UTC</span></li>
+      <li class="package-item"><div class="package-main"><span class="pill">Linux x64</span><a href="PIAdvisor-linux-x64-1.1.0-20260312174704.zip"><code>PIAdvisor-linux-x64-1.1.0-20260312174704.zip</code></a></div><span class="package-meta">2026-03-12 17:47:04 UTC</span></li>
       </ul>
     </div>
-
     <div class="card">
-      <h2>What's New (v1.0.4)</h2>
-      <p>Stability and cross-platform release improvements.</p>
+      <h2>What's New (v1.1.0)</h2>
+      <p>Image-based chat is more natural, more reliable, and backed by stronger context handling.</p>
       <ul>
-        <li>One update feed now publishes both Windows and Linux packages.</li>
+      <li>Image attachments now behave like part of the conversation, including draft removal before send and reopen-and-retry from earlier turns.</li>
+      <li>PIAdvisor now gives priority to the newest attached image, while older images stay available as supporting context.</li>
+      <li>PIAdvisor now builds cleaner, more consistent context from your image, workspace, and processing history, which improves response quality.</li>
+      <li>Casual image-sharing turns feel more natural, while explicit requests for review or next steps still get full structured guidance.</li>
+      <li>Default system prompt updates are now safer: untouched defaults can upgrade on release, while custom prompts are preserved.</li>
       </ul>
       <p><b>Changelog:</b> <a href="https://github.com/phatwila/PIAdvisor-Source/releases">https://github.com/phatwila/PIAdvisor-Source/releases</a></p>
     </div>
-
     <div class="card">
       <h2>Archive History</h2>
       <table aria-label="Package archive history">
@@ -318,24 +315,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td data-label="Release Date">2026-02-18 04:19:42 UTC</td>
-            <td data-label="Platform"><span class="pill subtle">Windows x64</span></td>
-            <td data-label="Version"><code>1.0.4</code></td>
-            <td data-label="Package"><a href="PIAdvisor-windows-x64-1.0.4-20260218041942.zip"><code>PIAdvisor-windows-x64-1.0.4-20260218041942.zip</code></a></td>
-          </tr>
-          <tr>
-            <td data-label="Release Date">2026-02-18 04:19:42 UTC</td>
-            <td data-label="Platform"><span class="pill subtle">Linux x64</span></td>
-            <td data-label="Version"><code>1.0.4</code></td>
-            <td data-label="Package"><a href="PIAdvisor-linux-x64-1.0.4-20260218041942.zip"><code>PIAdvisor-linux-x64-1.0.4-20260218041942.zip</code></a></td>
-          </tr>
-          <tr>
-            <td data-label="Release Date">2026-02-13 21:46:17 UTC</td>
-            <td data-label="Platform"><span class="pill subtle">Legacy package</span></td>
-            <td data-label="Version"><code>1.0.3</code></td>
-            <td data-label="Package"><a href="PIAdvisor-1.0.3-20260213214617.zip"><code>PIAdvisor-1.0.3-20260213214617.zip</code></a></td>
-          </tr>
+        <tr><td data-label="Release Date">2026-03-12 17:47:04 UTC</td><td data-label="Platform"><span class="pill subtle">Windows x64</span></td><td data-label="Version"><code>1.1.0</code></td><td data-label="Package"><a href="PIAdvisor-windows-x64-1.1.0-20260312174704.zip"><code>PIAdvisor-windows-x64-1.1.0-20260312174704.zip</code></a></td></tr>
+        <tr><td data-label="Release Date">2026-03-12 17:47:04 UTC</td><td data-label="Platform"><span class="pill subtle">Linux x64</span></td><td data-label="Version"><code>1.1.0</code></td><td data-label="Package"><a href="PIAdvisor-linux-x64-1.1.0-20260312174704.zip"><code>PIAdvisor-linux-x64-1.1.0-20260312174704.zip</code></a></td></tr>
+        <tr><td data-label="Release Date">2026-02-18 04:19:42 UTC</td><td data-label="Platform"><span class="pill subtle">Windows x64</span></td><td data-label="Version"><code>1.0.4</code></td><td data-label="Package"><a href="PIAdvisor-windows-x64-1.0.4-20260218041942.zip"><code>PIAdvisor-windows-x64-1.0.4-20260218041942.zip</code></a></td></tr>
+        <tr><td data-label="Release Date">2026-02-18 04:19:42 UTC</td><td data-label="Platform"><span class="pill subtle">Linux x64</span></td><td data-label="Version"><code>1.0.4</code></td><td data-label="Package"><a href="PIAdvisor-linux-x64-1.0.4-20260218041942.zip"><code>PIAdvisor-linux-x64-1.0.4-20260218041942.zip</code></a></td></tr>
+        <tr><td data-label="Release Date">2026-02-13 21:46:17 UTC</td><td data-label="Platform"><span class="pill subtle">Legacy package</span></td><td data-label="Version"><code>1.0.3</code></td><td data-label="Package"><a href="PIAdvisor-1.0.3-20260213214617.zip"><code>PIAdvisor-1.0.3-20260213214617.zip</code></a></td></tr>
         </tbody>
       </table>
     </div>

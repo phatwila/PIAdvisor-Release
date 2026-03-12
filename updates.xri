@@ -3,37 +3,45 @@
    <!-- PIAdvisor PixInsight Update Repository -->
    <description>
       <p>PIAdvisor update feed for PixInsight.</p>
-      <p>Status: Public package v1.0.4 published on 2026-02-18 04:19:42 UTC.</p>
-      <p>Stability and cross-platform release improvements.</p>
+      <p>Status: Public package v1.1.0 published on 2026-03-12 17:47:04 UTC.</p>
+      <p>Image-based chat is more natural, more reliable, and backed by stronger context handling.</p>
       <p>Changelog: https://github.com/phatwila/PIAdvisor-Source/releases</p>
    </description>
    <platform os="windows" arch="x64" version="1.8.9:1.9.99">
-      <package fileName="packages/PIAdvisor-windows-x64-1.0.4-20260218041942.zip" sha1="0aa2489a8bfa3c47e1658b28cc707de6a9d36369" releaseDate="20260218041942" type="module">
-         <title>PIAdvisor Module v1.0.4</title>
+      <package fileName="packages/PIAdvisor-windows-x64-1.1.0-20260312174704.zip" sha1="25b1f8ef9077e089a550dea4b3e1ce7712b43ec2" releaseDate="20260312174704" type="module">
+         <title>PIAdvisor Module v1.1.0</title>
          <remove>bin/PIAdvisor-pxm.dll
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Stability and cross-platform release improvements.</p>
+            <p>Image-based chat is more natural, more reliable, and backed by stronger context handling.</p>
             <p>Highlights:</p>
-            <p>- One update feed now publishes both Windows and Linux packages.</p>
+            <p>- Image attachments now behave like part of the conversation, including draft removal before send and reopen-and-retry from earlier turns.</p>
+            <p>- PIAdvisor now gives priority to the newest attached image, while older images stay available as supporting context.</p>
+            <p>- PIAdvisor now builds cleaner, more consistent context from your image, workspace, and processing history, which improves response quality.</p>
+            <p>- Casual image-sharing turns feel more natural, while explicit requests for review or next steps still get full structured guidance.</p>
+            <p>- Default system prompt updates are now safer: untouched defaults can upgrade on release, while custom prompts are preserved.</p>
             <p>Changelog: https://github.com/phatwila/PIAdvisor-Source/releases</p>
          </description>
       </package>
    </platform>
    <platform os="linux" arch="x64" version="1.8.9:1.9.99">
-      <package fileName="packages/PIAdvisor-linux-x64-1.0.4-20260218041942.zip" sha1="2afd62e921edfb92ec0af7707ea7645ae779effb" type="module" releaseDate="20260218041942">
-         <title>PIAdvisor Module v1.0.4</title>
+      <package fileName="packages/PIAdvisor-linux-x64-1.1.0-20260312174704.zip" sha1="ec4014372518a9dac9fa867de2334e71338e6922" type="module" releaseDate="20260312174704">
+         <title>PIAdvisor Module v1.1.0</title>
          <remove>bin/PIAdvisor-pxm.so
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Stability and cross-platform release improvements.</p>
+            <p>Image-based chat is more natural, more reliable, and backed by stronger context handling.</p>
             <p>Highlights:</p>
-            <p>- One update feed now publishes both Windows and Linux packages.</p>
+            <p>- Image attachments now behave like part of the conversation, including draft removal before send and reopen-and-retry from earlier turns.</p>
+            <p>- PIAdvisor now gives priority to the newest attached image, while older images stay available as supporting context.</p>
+            <p>- PIAdvisor now builds cleaner, more consistent context from your image, workspace, and processing history, which improves response quality.</p>
+            <p>- Casual image-sharing turns feel more natural, while explicit requests for review or next steps still get full structured guidance.</p>
+            <p>- Default system prompt updates are now safer: untouched defaults can upgrade on release, while custom prompts are preserved.</p>
             <p>Changelog: https://github.com/phatwila/PIAdvisor-Source/releases</p>
          </description>
       </package>
    </platform>
 </xri>
-<Signature developerId="RayDetwiler" timestamp="2026-02-18T04:19:44.677Z" encoding="Base64">Gh6aWUFMIYKGYWrYuOfjIc7z+Q0c/J4NKLaoMPb13VXJmG87hNLo8KLNJLUPE4DqsBG0MM0CXhM1n9Me+m6VAw==</Signature>
+<Signature developerId="RayDetwiler" timestamp="2026-03-12T17:47:06.213Z" encoding="Base64">+Yh3ZzRwkq2NapI/f+jum8r79KTPkPpZngW5F9ME8sapyA1aQhhLfopX+uLQnnOppuWr/VQgRXklfKUyDySyBQ==</Signature>

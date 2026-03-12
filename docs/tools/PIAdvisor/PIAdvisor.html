@@ -75,6 +75,7 @@
 <li class="pidoc_tocSubitem"><a href="#__parameter015__">3.15&emsp;Formatting Template (Markdown)</a></li>
 <li class="pidoc_tocSubitem"><a href="#__parameter016__">3.16&emsp;Enable Streaming</a></li>
 <li class="pidoc_tocSubitem"><a href="#__parameter017__">3.17&emsp;System Prompt</a></li>
+<li class="pidoc_tocSubitem"><a href="#__parameter018__">3.18&emsp;Installed Version</a></li>
 </ul>
 <li class="pidoc_tocItem"><a href="#__Usage__">4&emsp;Usage</a>
 <ul>
@@ -280,7 +281,7 @@
 <p>OpenAI</p>
 </dt>
 <dd>
-<p>The official OpenAI API (api.openai.com). Use <em>Models</em> to fetch available model ids.</p>
+<p>The official OpenAI API (api.openai.com). Use <em>Fetch Models</em> to load available model ids.</p>
 </dd>
 <dt>
 <p>OpenRouter</p>
@@ -326,7 +327,7 @@
       <div id="__parameter004__">
 <div class="pidoc_parameter">
    <h4 class="pidoc_parameterTitle">3.4&emsp;Model</h4>
-<p>The model identifier to use (e.g., &quot;gpt-4o&quot;, &quot;gemini-2.5-pro&quot;, &quot;openrouter/auto&quot;, &quot;llama3.2&quot;). Click <em>Models</em> to fetch the list of available models from your provider.</p>
+<p>The model identifier to use (e.g., &quot;gpt-4o&quot;, &quot;gemini-2.5-pro&quot;, &quot;openrouter/auto&quot;, &quot;llama3.2&quot;). Click <em>Fetch Models</em> to load the list of available models from your provider.</p>
 <p>For local servers, the model name must match exactly what you have loaded.</p>
 </div>
 
@@ -383,7 +384,7 @@
       <div id="__parameter012__">
 <div class="pidoc_parameter">
    <h4 class="pidoc_parameterTitle">3.12&emsp;Visual Memory Limit</h4>
-<p>Controls how many recent attached images are retained in the conversation context. <em>0</em> disables visual memory. Default: 5 (Free) / 6 (Pro). Max: 5 (Free) / 20 (Pro).</p>
+<p>Controls how many recent attached images are retained as historical reference in the conversation. <em>0</em> disables visual memory. PIAdvisor still focuses on the newest images attached in the current turn first. Default: 5 (Free) / 6 (Pro). Max: 5 (Free) / 20 (Pro).</p>
 </div>
 
       </div>
@@ -423,6 +424,13 @@
 </div>
 
       </div>
+      <div id="__parameter018__">
+<div class="pidoc_parameter">
+   <h4 class="pidoc_parameterTitle">3.18&emsp;Installed Version</h4>
+<p>The <em>Installed version</em> line in <em>LLM Settings</em> shows the public PIAdvisor release you are running. Hover it to see the full build identifier when support or debugging needs the exact build.</p>
+</div>
+
+      </div>
    </div>
 </div>
 
@@ -435,12 +443,13 @@
 
 <ol class="pidoc_list">
 <li>Open PIAdvisor from <em>Process &gt; PIAdvisor</em> or the Process Explorer.</li>
-<li>Go to the <em>Settings</em> section (bottom of the panel).</li>
+<li>Open the <em>LLM Settings</em> section near the bottom of the panel.</li>
 <li>Select a <em>Provider</em> (e.g., OpenAI, OpenRouter, Google Gemini, or OpenAI-compatible for local models).</li>
 <li>Enter your <em>API Key</em> (cloud providers require a key; local models may use &quot;no-key&quot; or be empty).</li>
-<li>Click <em>Models</em> to fetch available models, then select one.</li>
+<li>Click <em>Fetch Models</em> to load available models, then select one.</li>
 <li>Click <em>Test</em> to verify your settings.</li>
 <li>Click <em>Save</em> to persist your configuration.</li>
+<li>Check the <em>Installed version</em> line in <em>LLM Settings</em> when you want to confirm which release is running.</li>
 </ol>
 
 </div>
@@ -456,6 +465,7 @@
 <li>The response appears in the chat transcript. Clickable tool links (e.g., <em>SPCC</em>, <em>BlurXTerminator</em>) launch processes directly.</li>
 </ol>
 
+<p>If you simply share an image (&quot;Here's the red channel&quot;), PIAdvisor may answer briefly and conversationally. If you want a detailed review, ask directly for analysis, advice, or next steps.</p>
 </div>
 
 <div class="pidoc_subsection" id="__Usage_:_Using_Workspace_Mode_Pro__">
@@ -484,16 +494,18 @@
 <p>Attach View</p>
 </dt>
 <dd>
-<p>Captures the currently selected view as a PNG and attaches it to your next message.</p>
+<p>Queues a resized copy of the currently selected PixInsight view for your next message.</p>
 </dd>
 <dt>
 <p>Screenshot</p>
 </dt>
 <dd>
-<p>Load an image file from disk to attach. Useful for annotated screenshots or reference images from other sources.</p>
+<p>Loads an image file from disk. Useful for screenshots, annotations, reference images, or examples from outside PixInsight.</p>
 </dd>
 </dl>
 
+<p>Queued attachments appear in the chat composer and can be removed before you send. When sent, they appear inline with your message in the transcript.</p>
+<p>PIAdvisor keeps a rolling visual memory of recent images, but it gives the newest images attached in the current turn priority over older ones. If you remove an image from a previous user turn, PIAdvisor reopens that turn so you can continue the conversation from that point.</p>
 <p>Attachments are resized to the <em>Vision max pixels</em> limit before sending to control bandwidth and cost.</p>
 </div>
 
@@ -565,7 +577,7 @@
 
 <div class="pidoc_subsection" id="__Licensing_:_Trial_Licenses__">
    <h4 class="pidoc_subsectionTitle">5.3&emsp;Trial Licenses</h4>
-<p>Trials are time-limited Pro licenses (typically 30 days). Trial keys are delivered by email and are never shown in the UI or API responses.</p>
+<p>Trials are time-limited Pro licenses (currently 60 days). Trial keys are delivered by email and are never shown in the UI or API responses.</p>
 </div>
 
 <div class="pidoc_subsection" id="__Licensing_:_Deactivating_a_Device__">
@@ -592,7 +604,7 @@
    <h3 class="pidoc_sectionTitle">6&emsp;Model Selection</h3>
    <p class="pidoc_sectionToggleButton" onclick="pidoc_toggleSection( 'Model_Selection', this );">[hide]</p>
    <div id="Model_Selection">
-<p>Use the <em>Models</em> button to fetch the available model list from your provider. If your provider does not support model listing, enter the exact model id manually.</p>
+<p>Use the <em>Fetch Models</em> button to load the available model list from your provider. If your provider does not support model listing, enter the exact model id manually.</p>
 <p>If you just need a starting point, these defaults are commonly used:</p>
 
 <ul class="pidoc_list">
@@ -635,7 +647,7 @@
 <p>&quot;Model not found&quot;</p>
 </dt>
 <dd>
-<p>The model name doesn't match what's available. Click <em>Models</em> to see available options.</p>
+<p>The model name doesn't match what's available. Click <em>Fetch Models</em> to see available options.</p>
 </dd>
 </dl>
 
@@ -657,14 +669,14 @@
 <p>For support requests, use <em>Export Debug</em> in the toolbar (Dev builds only). This creates a folder containing:</p>
 
 <ul class="pidoc_list">
-<li>Context snapshot (flat_kv format)</li>
-<li>Prompt and settings (API key redacted)</li>
-<li>Last request/response and streaming diagnostics</li>
-<li>Attachments and metadata (if present)</li>
-<li>UI/worker logs for the last request</li>
+<li>The prepared context snapshot used for the last request</li>
+<li>Prompt, request metadata, and settings with API keys redacted</li>
+<li>Last request/response exports plus streaming diagnostics when available</li>
+<li>Attachment files and attachment metadata for the relevant turn</li>
+<li>UI and worker logs for the last request</li>
 </ul>
 
-<p>Share this bundle when reporting issues.</p>
+<p>Share this bundle when reporting issues or when support asks which image or request PIAdvisor actually used.</p>
 </div>
 
    </div>
@@ -698,7 +710,7 @@
 </div>
 
 <div id="footer">
-   <p>Generated by the PixInsight Documentation Compiler script version 1.7.1 on 2026-02-05 21:52:33 UTC</p>
+   <p>Generated by the PixInsight Documentation Compiler script version 1.7.1 on 2026-03-12 01:31:56 UTC</p>
 </div>
 <br/>
 <br/>

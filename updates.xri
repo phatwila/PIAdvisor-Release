@@ -5,6 +5,7 @@
       <p>PIAdvisor update feed for PixInsight.</p>
       <p>Status: Public package v1.1.0 published on 2026-03-12 17:47:04 UTC.</p>
       <p>Image-based chat is more natural, more reliable, and backed by stronger context handling.</p>
+      <p>Changelog: https://github.com/phatwila/PIAdvisor-Source/releases</p>
    </description>
    <platform os="windows" arch="x64" version="1.8.9:1.9.99">
       <package fileName="packages/PIAdvisor-windows-x64-1.1.0-20260312174704.zip" sha1="25b1f8ef9077e089a550dea4b3e1ce7712b43ec2" releaseDate="20260312174704" type="module">
@@ -20,6 +21,7 @@ doc/tools/PIAdvisor/PIAdvisor.html</remove>
             <p>- PIAdvisor now builds cleaner, more consistent context from your image, workspace, and processing history, which improves response quality.</p>
             <p>- Casual image-sharing turns feel more natural, while explicit requests for review or next steps still get full structured guidance.</p>
             <p>- Default system prompt updates are now safer: untouched defaults can upgrade on release, while custom prompts are preserved.</p>
+            <p>Changelog: https://github.com/phatwila/PIAdvisor-Source/releases</p>
          </description>
       </package>
    </platform>
@@ -37,6 +39,7 @@ doc/tools/PIAdvisor/PIAdvisor.html</remove>
             <p>- PIAdvisor now builds cleaner, more consistent context from your image, workspace, and processing history, which improves response quality.</p>
             <p>- Casual image-sharing turns feel more natural, while explicit requests for review or next steps still get full structured guidance.</p>
             <p>- Default system prompt updates are now safer: untouched defaults can upgrade on release, while custom prompts are preserved.</p>
+            <p>Changelog: https://github.com/phatwila/PIAdvisor-Source/releases</p>
          </description>
       </package>
    </platform>

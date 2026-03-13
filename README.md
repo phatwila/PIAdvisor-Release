@@ -26,5 +26,4 @@ Update feed for **PIAdvisor**, an AI-powered processing assistant for [PixInsigh
 ## Links
 
 - **Website:** [piadvisor.net](https://piadvisor.net)
-- **Changelog:** [PIAdvisor-Source/releases](https://github.com/phatwila/PIAdvisor-Source/releases)
 - **Package browser:** [packages/](https://phatwila.github.io/PIAdvisor-Release/packages/)

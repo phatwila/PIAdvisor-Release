@@ -267,15 +267,15 @@
     </header>
     <div class="card hero">
       <h1><span class="grad">Package</span> Archives</h1>
-      <p><span class="status-ok">Ready:</span> Published package archives: 5.</p>
+      <p><span class="status-ok">Ready:</span> Published package archives: 7.</p>
       <div class="meta-grid">
         <div class="meta-item">
           <span class="meta-label">Latest release</span>
-          <span class="meta-value">v1.1.0</span>
+          <span class="meta-value">v1.1.1</span>
         </div>
         <div class="meta-item">
           <span class="meta-label">Published at</span>
-          <span class="meta-value">2026-03-12 17:47:04 UTC</span>
+          <span class="meta-value">2026-03-14 23:26:48 UTC</span>
         </div>
         <div class="meta-item">
           <span class="meta-label">Platforms in latest release</span>
@@ -285,23 +285,22 @@
       <p class="meta-note">PixInsight selects the correct package for your operating system from <a href="../updates.xri"><code>updates.xri</code></a>.</p>
     </div>
     <div class="card">
-      <h2>Latest Release Packages (v1.1.0)</h2>
+      <h2>Latest Release Packages (v1.1.1)</h2>
       <ul class="package-list">
-      <li class="package-item"><div class="package-main"><span class="pill">Windows x64</span><a href="PIAdvisor-windows-x64-1.1.0-20260312174704.zip"><code>PIAdvisor-windows-x64-1.1.0-20260312174704.zip</code></a></div><span class="package-meta">2026-03-12 17:47:04 UTC</span></li>
-      <li class="package-item"><div class="package-main"><span class="pill">Linux x64</span><a href="PIAdvisor-linux-x64-1.1.0-20260312174704.zip"><code>PIAdvisor-linux-x64-1.1.0-20260312174704.zip</code></a></div><span class="package-meta">2026-03-12 17:47:04 UTC</span></li>
+      <li class="package-item"><div class="package-main"><span class="pill">Windows x64</span><a href="PIAdvisor-windows-x64-1.1.1-20260314232648.zip"><code>PIAdvisor-windows-x64-1.1.1-20260314232648.zip</code></a></div><span class="package-meta">2026-03-14 23:26:48 UTC</span></li>
+      <li class="package-item"><div class="package-main"><span class="pill">Linux x64</span><a href="PIAdvisor-linux-x64-1.1.1-20260314232648.zip"><code>PIAdvisor-linux-x64-1.1.1-20260314232648.zip</code></a></div><span class="package-meta">2026-03-14 23:26:48 UTC</span></li>
       </ul>
     </div>
     <div class="card">
-      <h2>What's New (v1.1.0)</h2>
-      <p>Image-based chat is more natural, more reliable, and backed by stronger context handling.</p>
+      <h2>What's New (v1.1.1)</h2>
+      <p>Stability update for image-heavy chats, earlier-turn rewrites, and cross-platform release packaging.</p>
       <ul>
-      <li>Image attachments now behave like part of the conversation, including draft removal before send and reopen-and-retry from earlier turns.</li>
-      <li>PIAdvisor now gives priority to the newest attached image, while older images stay available as supporting context.</li>
-      <li>PIAdvisor now builds cleaner, more consistent context from your image, workspace, and processing history, which improves response quality.</li>
-      <li>Casual image-sharing turns feel more natural, while explicit requests for review or next steps still get full structured guidance.</li>
-      <li>Default system prompt updates are now safer: untouched defaults can upgrade on release, while custom prompts are preserved.</li>
+      <li>Fixed a crash path when sending new comparison images in chats that already retained earlier image context.</li>
+      <li>Refactored image send preparation so current-turn PRIMARY images and retained REFERENCE images are validated and rolled over consistently before each request.</li>
+      <li>Earlier-turn edit sessions now restore attachment state more reliably, and debug bundles now report the actual images sent on each turn.</li>
+<li>Retained image history now rolls forward safely at the configured limit, so comparing one image after another in the same chat stays stable.</li>
       </ul>
-      <p><b>Full changelog:</b> <a href="https://piadvisor.net/changelog/" rel="noopener">https://piadvisor.net/changelog/</a></p>
+      <p><b>Changelog:</b> <a href="https://piadvisor.net/changelog/">https://piadvisor.net/changelog/</a></p>
     </div>
     <div class="card">
       <h2>Archive History</h2>
@@ -315,6 +314,8 @@
           </tr>
         </thead>
         <tbody>
+        <tr><td data-label="Release Date">2026-03-14 23:26:48 UTC</td><td data-label="Platform"><span class="pill subtle">Windows x64</span></td><td data-label="Version"><code>1.1.1</code></td><td data-label="Package"><a href="PIAdvisor-windows-x64-1.1.1-20260314232648.zip"><code>PIAdvisor-windows-x64-1.1.1-20260314232648.zip</code></a></td></tr>
+        <tr><td data-label="Release Date">2026-03-14 23:26:48 UTC</td><td data-label="Platform"><span class="pill subtle">Linux x64</span></td><td data-label="Version"><code>1.1.1</code></td><td data-label="Package"><a href="PIAdvisor-linux-x64-1.1.1-20260314232648.zip"><code>PIAdvisor-linux-x64-1.1.1-20260314232648.zip</code></a></td></tr>
         <tr><td data-label="Release Date">2026-03-12 17:47:04 UTC</td><td data-label="Platform"><span class="pill subtle">Windows x64</span></td><td data-label="Version"><code>1.1.0</code></td><td data-label="Package"><a href="PIAdvisor-windows-x64-1.1.0-20260312174704.zip"><code>PIAdvisor-windows-x64-1.1.0-20260312174704.zip</code></a></td></tr>
         <tr><td data-label="Release Date">2026-03-12 17:47:04 UTC</td><td data-label="Platform"><span class="pill subtle">Linux x64</span></td><td data-label="Version"><code>1.1.0</code></td><td data-label="Package"><a href="PIAdvisor-linux-x64-1.1.0-20260312174704.zip"><code>PIAdvisor-linux-x64-1.1.0-20260312174704.zip</code></a></td></tr>
         <tr><td data-label="Release Date">2026-02-18 04:19:42 UTC</td><td data-label="Platform"><span class="pill subtle">Windows x64</span></td><td data-label="Version"><code>1.0.4</code></td><td data-label="Package"><a href="PIAdvisor-windows-x64-1.0.4-20260218041942.zip"><code>PIAdvisor-windows-x64-1.0.4-20260218041942.zip</code></a></td></tr>

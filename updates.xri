@@ -3,43 +3,41 @@
    <!-- PIAdvisor PixInsight Update Repository -->
    <description>
       <p>PIAdvisor update feed for PixInsight.</p>
-      <p>Status: Public package v1.1.1 published on 2026-03-15 00:55:18 UTC.</p>
-      <p>Stability update for image-heavy chats, earlier-turn rewrites, and cross-platform release packaging.</p>
+      <p>Status: Public package v1.1.2 published on 2026-03-15 21:25:51 UTC.</p>
+      <p>Updater hotfix for PIAdvisor repository installs and reinstalls after the 1.1.1 release.</p>
       <p>Changelog: https://piadvisor.net/changelog/</p>
    </description>
    <platform os="windows" arch="x64" version="1.8.9:1.9.99">
-      <package fileName="packages/PIAdvisor-windows-x64-1.1.1-20260315005518.zip" sha1="0b08e2f23016686c2f31d626916b9f92d13a15a5" releaseDate="20260315005518" type="module">
-         <title>PIAdvisor Module v1.1.1</title>
+      <package fileName="packages/PIAdvisor-windows-x64-1.1.2-20260315212551.zip" sha1="0890d0735e48c0ac6914e168320d989990ad0143" releaseDate="20260315212551" type="module">
+         <title>PIAdvisor Module v1.1.2</title>
          <remove>bin/PIAdvisor-pxm.dll
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Stability update for image-heavy chats, earlier-turn rewrites, and cross-platform release packaging.</p>
+            <p>Updater hotfix for PIAdvisor repository installs and reinstalls after the 1.1.1 release.</p>
             <p>Highlights:</p>
-            <p>- Fixed a crash path when sending new comparison images in chats that already retained earlier image context.</p>
-            <p>- Refactored image send preparation so current-turn PRIMARY images and retained REFERENCE images are validated and rolled over consistently before each request.</p>
-            <p>- Earlier-turn edit sessions now restore attachment state more reliably, and debug bundles now report the actual images sent on each turn.</p>
-            <p>- Retained image history now rolls forward safely at the configured limit, so comparing one image after another in the same chat stays stable.</p>
+            <p>- Published a fresh 1.1.2 package so PixInsight sees a new update instead of relying on the reissued 1.1.1 history.</p>
+            <p>- Corrected repository signing and packaging flow for release publishes.</p>
+            <p>- If PIAdvisor still does not appear after refresh, use Reset Updates once, restart PixInsight, and check the repository again.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
    <platform os="linux" arch="x64" version="1.8.9:1.9.99">
-      <package fileName="packages/PIAdvisor-linux-x64-1.1.1-20260315005518.zip" sha1="200968d62177890a873f930b5c77e0b199ae1099" type="module" releaseDate="20260315005518">
-         <title>PIAdvisor Module v1.1.1</title>
+      <package fileName="packages/PIAdvisor-linux-x64-1.1.2-20260315212551.zip" sha1="3d47682f99677e3d50770743b462bdc0431942ca" type="module" releaseDate="20260315212551">
+         <title>PIAdvisor Module v1.1.2</title>
          <remove>bin/PIAdvisor-pxm.so
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Stability update for image-heavy chats, earlier-turn rewrites, and cross-platform release packaging.</p>
+            <p>Updater hotfix for PIAdvisor repository installs and reinstalls after the 1.1.1 release.</p>
             <p>Highlights:</p>
-            <p>- Fixed a crash path when sending new comparison images in chats that already retained earlier image context.</p>
-            <p>- Refactored image send preparation so current-turn PRIMARY images and retained REFERENCE images are validated and rolled over consistently before each request.</p>
-            <p>- Earlier-turn edit sessions now restore attachment state more reliably, and debug bundles now report the actual images sent on each turn.</p>
-            <p>- Retained image history now rolls forward safely at the configured limit, so comparing one image after another in the same chat stays stable.</p>
+            <p>- Published a fresh 1.1.2 package so PixInsight sees a new update instead of relying on the reissued 1.1.1 history.</p>
+            <p>- Corrected repository signing and packaging flow for release publishes.</p>
+            <p>- If PIAdvisor still does not appear after refresh, use Reset Updates once, restart PixInsight, and check the repository again.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
 </xri>
-<Signature developerId="RayDetwiler" timestamp="2026-03-15T00:55:21.148Z" encoding="Base64">6Te35X8wBO+sgXzZ/8Zj7VNPSPq102WaKIUwiqlWgrBk4+hA13EoS01wrjuxgiO0pOysKK3wkPlukHyPyNoADw==</Signature>
+<Signature developerId="RayDetwiler" timestamp="2026-03-15T21:25:52.772Z" encoding="Base64">0KZMTKQP699IOVPsVhHEmZuw69nGr1WtGgb8ghEs05Dw14Bh4ZmB92U6k1C1ciVUNZsZ2n0+VyvoxSjpAsInDQ==</Signature>

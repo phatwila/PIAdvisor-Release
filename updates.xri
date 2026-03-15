@@ -3,12 +3,12 @@
    <!-- PIAdvisor PixInsight Update Repository -->
    <description>
       <p>PIAdvisor update feed for PixInsight.</p>
-      <p>Status: Public package v1.1.1 published on 2026-03-14 23:26:48 UTC.</p>
+      <p>Status: Public package v1.1.1 published on 2026-03-15 00:55:18 UTC.</p>
       <p>Stability update for image-heavy chats, earlier-turn rewrites, and cross-platform release packaging.</p>
       <p>Changelog: https://piadvisor.net/changelog/</p>
    </description>
    <platform os="windows" arch="x64" version="1.8.9:1.9.99">
-      <package fileName="packages/PIAdvisor-windows-x64-1.1.1-20260314232648.zip" sha1="b58f02ece6f31b05c69d41b8289aef6313e618f7" releaseDate="20260314232648" type="module">
+      <package fileName="packages/PIAdvisor-windows-x64-1.1.1-20260315005518.zip" sha1="0b08e2f23016686c2f31d626916b9f92d13a15a5" releaseDate="20260315005518" type="module">
          <title>PIAdvisor Module v1.1.1</title>
          <remove>bin/PIAdvisor-pxm.dll
 bin/PIAdvisor-pxm.xsgn
@@ -25,7 +25,7 @@ doc/tools/PIAdvisor/PIAdvisor.html</remove>
       </package>
    </platform>
    <platform os="linux" arch="x64" version="1.8.9:1.9.99">
-      <package fileName="packages/PIAdvisor-linux-x64-1.1.1-20260314232648.zip" sha1="189df76744a1a60ecaaa016afadccb7de033d114" type="module" releaseDate="20260314232648">
+      <package fileName="packages/PIAdvisor-linux-x64-1.1.1-20260315005518.zip" sha1="200968d62177890a873f930b5c77e0b199ae1099" type="module" releaseDate="20260315005518">
          <title>PIAdvisor Module v1.1.1</title>
          <remove>bin/PIAdvisor-pxm.so
 bin/PIAdvisor-pxm.xsgn
@@ -42,4 +42,4 @@ doc/tools/PIAdvisor/PIAdvisor.html</remove>
       </package>
    </platform>
 </xri>
-<Signature developerId="4886550287059908" timestamp="2026-03-15T00:17:38.982Z" encoding="Base64">yx9BgObapzMLkf10UXqIR4xm3R3UsuXmX/LIJIwbH1k8SgSq6CdbTZNmSkYN6e/MvqM7a858L4QaUDPkt6pDBg==</Signature>
+<Signature developerId="RayDetwiler" timestamp="2026-03-15T00:55:21.148Z" encoding="Base64">6Te35X8wBO+sgXzZ/8Zj7VNPSPq102WaKIUwiqlWgrBk4+hA13EoS01wrjuxgiO0pOysKK3wkPlukHyPyNoADw==</Signature>

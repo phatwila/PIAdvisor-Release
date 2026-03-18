@@ -3,41 +3,45 @@
    <!-- PIAdvisor PixInsight Update Repository -->
    <description>
       <p>PIAdvisor update feed for PixInsight.</p>
-      <p>Status: Public package v1.1.2 published on 2026-03-15 21:25:51 UTC.</p>
-      <p>Updater hotfix for PIAdvisor repository installs and reinstalls after the 1.1.1 release.</p>
+      <p>Status: Public package v1.2.0 published on 2026-03-18 21:05:24 UTC.</p>
+      <p>Major context and chat reliability upgrade with stronger workspace reasoning, cleaner send-time capture, and safer long-session behavior.</p>
       <p>Changelog: https://piadvisor.net/changelog/</p>
    </description>
    <platform os="windows" arch="x64" version="1.8.9:1.9.99">
-      <package fileName="packages/PIAdvisor-windows-x64-1.1.2-20260315212551.zip" sha1="0890d0735e48c0ac6914e168320d989990ad0143" releaseDate="20260315212551" type="module">
-         <title>PIAdvisor Module v1.1.2</title>
+      <package fileName="packages/PIAdvisor-windows-x64-1.2.0-20260318210524.zip" sha1="def03035127780a1eb770811d21b849df1492a9c" releaseDate="20260318210524" type="module">
+         <title>PIAdvisor Module v1.2.0</title>
          <remove>bin/PIAdvisor-pxm.dll
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Updater hotfix for PIAdvisor repository installs and reinstalls after the 1.1.1 release.</p>
+            <p>Major context and chat reliability upgrade with stronger workspace reasoning, cleaner send-time capture, and safer long-session behavior.</p>
             <p>Highlights:</p>
-            <p>- Published a fresh 1.1.2 package so PixInsight sees a new update instead of relying on the reissued 1.1.1 history.</p>
-            <p>- Corrected repository signing and packaging flow for release publishes.</p>
-            <p>- If PIAdvisor still does not appear after refresh, use Reset Updates once, restart PixInsight, and check the repository again.</p>
+            <p>- Rebuilt context packing around an active-first, priority-aware workspace model that preserves key metadata, workflow state, and derived-image lineage before trimming noise.</p>
+            <p>- Workspace snapshot display is now pull-based, while Send still captures a fresh workspace context and long chat sessions recover more reliably after cancel, edit, and attachment changes.</p>
+            <p>- Derived-image reasoning is more trustworthy: combined outputs now retain compact source-lineage keys, and workflow flags are explicitly marked as local-history only.</p>
+            <p>- Rich chat formatting is more resilient, with restored template ordering, tolerant callouts, broader bullet support, and steadier heading behavior in the chat UI.</p>
+            <p>- Large sessions behave more predictably under load, with cleaner workspace capture and safer recovery after cancel, edit, and attachment changes.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
    <platform os="linux" arch="x64" version="1.8.9:1.9.99">
-      <package fileName="packages/PIAdvisor-linux-x64-1.1.2-20260315212551.zip" sha1="3d47682f99677e3d50770743b462bdc0431942ca" type="module" releaseDate="20260315212551">
-         <title>PIAdvisor Module v1.1.2</title>
+      <package fileName="packages/PIAdvisor-linux-x64-1.2.0-20260318210524.zip" sha1="8fc6c843fac3c502cdca7cedc1e179da4e8dffac" type="module" releaseDate="20260318210524">
+         <title>PIAdvisor Module v1.2.0</title>
          <remove>bin/PIAdvisor-pxm.so
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Updater hotfix for PIAdvisor repository installs and reinstalls after the 1.1.1 release.</p>
+            <p>Major context and chat reliability upgrade with stronger workspace reasoning, cleaner send-time capture, and safer long-session behavior.</p>
             <p>Highlights:</p>
-            <p>- Published a fresh 1.1.2 package so PixInsight sees a new update instead of relying on the reissued 1.1.1 history.</p>
-            <p>- Corrected repository signing and packaging flow for release publishes.</p>
-            <p>- If PIAdvisor still does not appear after refresh, use Reset Updates once, restart PixInsight, and check the repository again.</p>
+            <p>- Rebuilt context packing around an active-first, priority-aware workspace model that preserves key metadata, workflow state, and derived-image lineage before trimming noise.</p>
+            <p>- Workspace snapshot display is now pull-based, while Send still captures a fresh workspace context and long chat sessions recover more reliably after cancel, edit, and attachment changes.</p>
+            <p>- Derived-image reasoning is more trustworthy: combined outputs now retain compact source-lineage keys, and workflow flags are explicitly marked as local-history only.</p>
+            <p>- Rich chat formatting is more resilient, with restored template ordering, tolerant callouts, broader bullet support, and steadier heading behavior in the chat UI.</p>
+            <p>- Large sessions behave more predictably under load, with cleaner workspace capture and safer recovery after cancel, edit, and attachment changes.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
 </xri>
-<Signature developerId="RayDetwiler" timestamp="2026-03-15T21:25:52.772Z" encoding="Base64">0KZMTKQP699IOVPsVhHEmZuw69nGr1WtGgb8ghEs05Dw14Bh4ZmB92U6k1C1ciVUNZsZ2n0+VyvoxSjpAsInDQ==</Signature>
+<Signature developerId="RayDetwiler" timestamp="2026-03-18T21:05:26.822Z" encoding="Base64">po9kiXSPT4m1zv4HbjhHzAQT5Q+SVs9cHsgA90jrj6+savhQqrJ+svKTADwQrsvtitX0hf3bKr9bpDKCfOXxDw==</Signature>

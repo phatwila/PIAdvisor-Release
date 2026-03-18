@@ -267,15 +267,15 @@
     </header>
     <div class="card hero">
       <h1><span class="grad">Package</span> Archives</h1>
-      <p><span class="status-ok">Ready:</span> Published package archives: 9.</p>
+      <p><span class="status-ok">Ready:</span> Published package archives: 11.</p>
       <div class="meta-grid">
         <div class="meta-item">
           <span class="meta-label">Latest release</span>
-          <span class="meta-value">v1.1.2</span>
+          <span class="meta-value">v1.2.0</span>
         </div>
         <div class="meta-item">
           <span class="meta-label">Published at</span>
-          <span class="meta-value">2026-03-15 21:25:51 UTC</span>
+          <span class="meta-value">2026-03-18 21:05:24 UTC</span>
         </div>
         <div class="meta-item">
           <span class="meta-label">Platforms in latest release</span>
@@ -285,19 +285,21 @@
       <p class="meta-note">PixInsight selects the correct package for your operating system from <a href="../updates.xri"><code>updates.xri</code></a>.</p>
     </div>
     <div class="card">
-      <h2>Latest Release Packages (v1.1.2)</h2>
+      <h2>Latest Release Packages (v1.2.0)</h2>
       <ul class="package-list">
-      <li class="package-item"><div class="package-main"><span class="pill">Windows x64</span><a href="PIAdvisor-windows-x64-1.1.2-20260315212551.zip"><code>PIAdvisor-windows-x64-1.1.2-20260315212551.zip</code></a></div><span class="package-meta">2026-03-15 21:25:51 UTC</span></li>
-      <li class="package-item"><div class="package-main"><span class="pill">Linux x64</span><a href="PIAdvisor-linux-x64-1.1.2-20260315212551.zip"><code>PIAdvisor-linux-x64-1.1.2-20260315212551.zip</code></a></div><span class="package-meta">2026-03-15 21:25:51 UTC</span></li>
+      <li class="package-item"><div class="package-main"><span class="pill">Windows x64</span><a href="PIAdvisor-windows-x64-1.2.0-20260318210524.zip"><code>PIAdvisor-windows-x64-1.2.0-20260318210524.zip</code></a></div><span class="package-meta">2026-03-18 21:05:24 UTC</span></li>
+      <li class="package-item"><div class="package-main"><span class="pill">Linux x64</span><a href="PIAdvisor-linux-x64-1.2.0-20260318210524.zip"><code>PIAdvisor-linux-x64-1.2.0-20260318210524.zip</code></a></div><span class="package-meta">2026-03-18 21:05:24 UTC</span></li>
       </ul>
     </div>
     <div class="card">
-      <h2>What's New (v1.1.2)</h2>
-      <p>Updater hotfix for PIAdvisor repository installs and reinstalls after the 1.1.1 release.</p>
+      <h2>What's New (v1.2.0)</h2>
+      <p>Major context and chat reliability upgrade with stronger workspace reasoning, cleaner send-time capture, and safer long-session behavior.</p>
       <ul>
-      <li>Published a fresh 1.1.2 package so PixInsight sees a new update instead of relying on the reissued 1.1.1 history.</li>
-      <li>Corrected repository signing and packaging flow for release publishes.</li>
-      <li>If PIAdvisor still does not appear after refresh, use Reset Updates once, restart PixInsight, and check the repository again.</li>
+      <li>Rebuilt context packing around an active-first, priority-aware workspace model that preserves key metadata, workflow state, and derived-image lineage before trimming noise.</li>
+      <li>Workspace snapshot display is now pull-based, while Send still captures a fresh workspace context and long chat sessions recover more reliably after cancel, edit, and attachment changes.</li>
+      <li>Derived-image reasoning is more trustworthy: combined outputs now retain compact source-lineage keys, and workflow flags are explicitly marked as local-history only.</li>
+      <li>Rich chat formatting is more resilient, with restored template ordering, tolerant callouts, broader bullet support, and steadier heading behavior in the chat UI.</li>
+      <li>Large sessions behave more predictably under load, with cleaner workspace capture and safer recovery after cancel, edit, and attachment changes.</li>
       </ul>
       <p><b>Changelog:</b> <a href="https://piadvisor.net/changelog/">https://piadvisor.net/changelog/</a></p>
     </div>
@@ -313,6 +315,8 @@
           </tr>
         </thead>
         <tbody>
+        <tr><td data-label="Release Date">2026-03-18 21:05:24 UTC</td><td data-label="Platform"><span class="pill subtle">Windows x64</span></td><td data-label="Version"><code>1.2.0</code></td><td data-label="Package"><a href="PIAdvisor-windows-x64-1.2.0-20260318210524.zip"><code>PIAdvisor-windows-x64-1.2.0-20260318210524.zip</code></a></td></tr>
+        <tr><td data-label="Release Date">2026-03-18 21:05:24 UTC</td><td data-label="Platform"><span class="pill subtle">Linux x64</span></td><td data-label="Version"><code>1.2.0</code></td><td data-label="Package"><a href="PIAdvisor-linux-x64-1.2.0-20260318210524.zip"><code>PIAdvisor-linux-x64-1.2.0-20260318210524.zip</code></a></td></tr>
         <tr><td data-label="Release Date">2026-03-15 21:25:51 UTC</td><td data-label="Platform"><span class="pill subtle">Windows x64</span></td><td data-label="Version"><code>1.1.2</code></td><td data-label="Package"><a href="PIAdvisor-windows-x64-1.1.2-20260315212551.zip"><code>PIAdvisor-windows-x64-1.1.2-20260315212551.zip</code></a></td></tr>
         <tr><td data-label="Release Date">2026-03-15 21:25:51 UTC</td><td data-label="Platform"><span class="pill subtle">Linux x64</span></td><td data-label="Version"><code>1.1.2</code></td><td data-label="Package"><a href="PIAdvisor-linux-x64-1.1.2-20260315212551.zip"><code>PIAdvisor-linux-x64-1.1.2-20260315212551.zip</code></a></td></tr>
         <tr><td data-label="Release Date">2026-03-15 00:55:18 UTC</td><td data-label="Platform"><span class="pill subtle">Windows x64</span></td><td data-label="Version"><code>1.1.1</code></td><td data-label="Package"><a href="PIAdvisor-windows-x64-1.1.1-20260315005518.zip"><code>PIAdvisor-windows-x64-1.1.1-20260315005518.zip</code></a></td></tr>

@@ -2,7 +2,7 @@
 
 Update feed for **PIAdvisor**, an AI-powered processing assistant for [PixInsight](https://pixinsight.com).
 
-**Current release:** v1.0.3 · Windows x64 · PixInsight 1.8.9–1.9.x
+**Current release:** v1.3.0 · Windows and Linux x64 · PixInsight 1.8.9–1.9.x
 
 ## Install
 

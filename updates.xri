@@ -3,11 +3,11 @@
    <!-- PIAdvisor PixInsight Update Repository -->
    <description>
       <p>PIAdvisor update feed for PixInsight.</p>
-      <p>Status: Public package v1.3.0 published on 2026-06-12 04:14:52 UTC.</p>
-      <p>System prompt v8.6, PixInsight 1.9.4 support, and a more stable chat experience.</p>
+      <p>Status: Public package v1.3.1 published on 2026-09-24 18:12:03 UTC.</p>
+      <p>PixInsight 1.9.5 support for Windows and Linux.</p>
       <p>Changelog: https://piadvisor.net/changelog/</p>
    </description>
-   <platform os="windows" arch="x64" version="1.8.9:1.9.99">
+   <platform os="windows" arch="x64" version="1.8.9:1.9.4">
       <package fileName="packages/PIAdvisor-windows-x64-1.3.0-20260612041452.zip" sha1="5930656f4dea6fb3dfb2777d66ce83b704d4423f" releaseDate="20260612041452" type="module">
          <title>PIAdvisor Module v1.3.0</title>
          <remove>bin/PIAdvisor-pxm.dll
@@ -28,7 +28,7 @@ doc/tools/PIAdvisor/PIAdvisor.html</remove>
          </description>
       </package>
    </platform>
-   <platform os="linux" arch="x64" version="1.8.9:1.9.99">
+   <platform os="linux" arch="x64" version="1.8.9:1.9.4">
       <package fileName="packages/PIAdvisor-linux-x64-1.3.0-20260612041452.zip" sha1="10228bde42de6a27df2a90ce2050ee429d8ef0ab" type="module" releaseDate="20260612041452">
          <title>PIAdvisor Module v1.3.0</title>
          <remove>bin/PIAdvisor-pxm.so
@@ -49,5 +49,39 @@ doc/tools/PIAdvisor/PIAdvisor.html</remove>
          </description>
       </package>
    </platform>
+   <platform os="windows" arch="x64" version="1.9.5:1.9.99">
+      <package fileName="packages/PIAdvisor-windows-x64-1.3.1-20260924181203.zip" sha1="9e9add32964f00ce65a9ecea62af18828e48a614" type="module" releaseDate="20260924181203">
+         <title>PIAdvisor Module v1.3.1</title>
+         <remove>bin/PIAdvisor-pxm.dll
+bin/PIAdvisor-pxm.xsgn
+doc/tools/PIAdvisor/PIAdvisor.html</remove>
+         <description>
+            <p>PixInsight 1.9.5 support for Windows and Linux.</p>
+            <p>Highlights:</p>
+            <p>- Built with the PixInsight 1.9.5 class library. PIAdvisor reads plate solutions in the new XISF astrometric solution format, so solved images again report their center, scale, rotation, and field of view.</p>
+            <p>- Processing history reads process names reliably in PixInsight 1.9.5, and SubframeSelector steps now show their settings in history previews.</p>
+            <p>- Known PixInsight 1.9.5 issue: images saved by SubframeSelector in earlier versions print console errors such as &apos;SubframeSelector.sortProperty: Unknown enumeration element&apos; when they open. PixInsight prints these errors, not PIAdvisor. The image loads normally.</p>
+            <p>- PixInsight 1.9.4 users stay on PIAdvisor 1.3.0.</p>
+            <p>Changelog: https://piadvisor.net/changelog/</p>
+         </description>
+      </package>
+   </platform>
+   <platform os="linux" arch="x64" version="1.9.5:1.9.99">
+      <package fileName="packages/PIAdvisor-linux-x64-1.3.1-20260924181203.zip" sha1="6e683446896df9e9705543293d7e9b16652f9bd3" type="module" releaseDate="20260924181203">
+         <title>PIAdvisor Module v1.3.1</title>
+         <remove>bin/PIAdvisor-pxm.so
+bin/PIAdvisor-pxm.xsgn
+doc/tools/PIAdvisor/PIAdvisor.html</remove>
+         <description>
+            <p>PixInsight 1.9.5 support for Windows and Linux.</p>
+            <p>Highlights:</p>
+            <p>- Built with the PixInsight 1.9.5 class library. PIAdvisor reads plate solutions in the new XISF astrometric solution format, so solved images again report their center, scale, rotation, and field of view.</p>
+            <p>- Processing history reads process names reliably in PixInsight 1.9.5, and SubframeSelector steps now show their settings in history previews.</p>
+            <p>- Known PixInsight 1.9.5 issue: images saved by SubframeSelector in earlier versions print console errors such as &apos;SubframeSelector.sortProperty: Unknown enumeration element&apos; when they open. PixInsight prints these errors, not PIAdvisor. The image loads normally.</p>
+            <p>- PixInsight 1.9.4 users stay on PIAdvisor 1.3.0.</p>
+            <p>Changelog: https://piadvisor.net/changelog/</p>
+         </description>
+      </package>
+   </platform>
 </xri>
-<Signature developerId="RayDetwiler" timestamp="2026-06-12T04:14:55.418Z" encoding="Base64">Zrm4Yaqn6l51Pp+chFKHp2cSbWc0PmiWnYq6f/0VgAEnuC19YGome9imBCsB9rz7EFQKjNDUMbsy+Wwny3wtAg==</Signature>
+<Signature developerId="RayDetwiler" timestamp="2026-09-24T18:12:08.702Z" encoding="Base64">Wg0z+NtiF9uw8uttkZi/rHEyhi4DN6Y9weG3RZZ1B2hU7AvkpVfw4oGREZGbJA+ZxvM+WNQA2ZC6qfIBO4bNBQ==</Signature>

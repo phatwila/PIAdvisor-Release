@@ -267,15 +267,15 @@
     </header>
     <div class="card hero">
       <h1><span class="grad">Package</span> Archives</h1>
-      <p><span class="status-ok">Ready:</span> Published package archives: 13.</p>
+      <p><span class="status-ok">Ready:</span> Published package archives: 15.</p>
       <div class="meta-grid">
         <div class="meta-item">
           <span class="meta-label">Latest release</span>
-          <span class="meta-value">v1.3.0</span>
+          <span class="meta-value">v1.3.1</span>
         </div>
         <div class="meta-item">
           <span class="meta-label">Published at</span>
-          <span class="meta-value">2026-06-12 04:14:52 UTC</span>
+          <span class="meta-value">2026-09-24 18:12:03 UTC</span>
         </div>
         <div class="meta-item">
           <span class="meta-label">Platforms in latest release</span>
@@ -285,24 +285,20 @@
       <p class="meta-note">PixInsight selects the correct package for your operating system from <a href="../updates.xri"><code>updates.xri</code></a>.</p>
     </div>
     <div class="card">
-      <h2>Latest Release Packages (v1.3.0)</h2>
+      <h2>Latest Release Packages (v1.3.1)</h2>
       <ul class="package-list">
-      <li class="package-item"><div class="package-main"><span class="pill">Windows x64</span><a href="PIAdvisor-windows-x64-1.3.0-20260612041452.zip"><code>PIAdvisor-windows-x64-1.3.0-20260612041452.zip</code></a></div><span class="package-meta">2026-06-12 04:14:52 UTC</span></li>
-      <li class="package-item"><div class="package-main"><span class="pill">Linux x64</span><a href="PIAdvisor-linux-x64-1.3.0-20260612041452.zip"><code>PIAdvisor-linux-x64-1.3.0-20260612041452.zip</code></a></div><span class="package-meta">2026-06-12 04:14:52 UTC</span></li>
+      <li class="package-item"><div class="package-main"><span class="pill">Windows x64</span><a href="PIAdvisor-windows-x64-1.3.1-20260924181203.zip"><code>PIAdvisor-windows-x64-1.3.1-20260924181203.zip</code></a></div><span class="package-meta">2026-09-24 18:12:03 UTC</span></li>
+      <li class="package-item"><div class="package-main"><span class="pill">Linux x64</span><a href="PIAdvisor-linux-x64-1.3.1-20260924181203.zip"><code>PIAdvisor-linux-x64-1.3.1-20260924181203.zip</code></a></div><span class="package-meta">2026-09-24 18:12:03 UTC</span></li>
       </ul>
     </div>
     <div class="card">
-      <h2>What's New (v1.3.0)</h2>
-      <p>System prompt v8.6, PixInsight 1.9.4 support, and a more stable chat experience.</p>
+      <h2>What's New (v1.3.1)</h2>
+      <p>PixInsight 1.9.5 support for Windows and Linux.</p>
       <ul>
-      <li>Major system prompt upgrade (v8.6): one canonical prompt with operation-first workflows, installed-tool capability routing, and tiered parameter guidance. Untouched stock prompts upgrade automatically; if PIAdvisor offers a prompt upgrade at startup, accept it for the best results. Prompt source: https://github.com/phatwila/piadvisor-prompts</li>
-      <li>PixInsight 1.9.4 support, including V8-safe processing-history capture and removal of the ProcessContainer.at() deprecation warning.</li>
-      <li>Replaced the chat composer with a true plain-text editor: pasting from the Process Console or dark-themed editors can no longer carry source colors, fonts, or backgrounds. Ctrl+Enter sends; Shift+Enter inserts a newline.</li>
-      <li>More stable transcript rendering in long sessions: batched renders at send time, generation-guarded updates after edits and rebuilds, and attachment preview cards inline in the conversation.</li>
-      <li>Fixed conversation edit/replay synchronization so edited earlier turns prune stale visible messages and match the LLM history.</li>
-      <li>New guided welcome message that walks through load, ask, and read steps with live tool-link and callout examples.</li>
-      <li>Snappier UI: control states now refresh only when something actually changed, removing per-keystroke churn.</li>
-      <li>Startup diagnostics now show edition, public version, and system-prompt state; fixed chat hyperlink behavior after assistant replies.</li>
+      <li>Built with the PixInsight 1.9.5 class library. PIAdvisor reads plate solutions in the new XISF astrometric solution format, so solved images again report their center, scale, rotation, and field of view.</li>
+      <li>Processing history reads process names reliably in PixInsight 1.9.5, and SubframeSelector steps now show their settings in history previews.</li>
+      <li>Known PixInsight 1.9.5 issue: images saved by SubframeSelector in earlier versions print console errors such as &#39;SubframeSelector.sortProperty: Unknown enumeration element&#39; when they open. PixInsight prints these errors, not PIAdvisor. The image loads normally.</li>
+      <li>PixInsight 1.9.4 users stay on PIAdvisor 1.3.0.</li>
       </ul>
       <p><b>Changelog:</b> <a href="https://piadvisor.net/changelog/">https://piadvisor.net/changelog/</a></p>
     </div>
@@ -318,6 +314,8 @@
           </tr>
         </thead>
         <tbody>
+        <tr><td data-label="Release Date">2026-09-24 18:12:03 UTC</td><td data-label="Platform"><span class="pill subtle">Windows x64</span></td><td data-label="Version"><code>1.3.1</code></td><td data-label="Package"><a href="PIAdvisor-windows-x64-1.3.1-20260924181203.zip"><code>PIAdvisor-windows-x64-1.3.1-20260924181203.zip</code></a></td></tr>
+        <tr><td data-label="Release Date">2026-09-24 18:12:03 UTC</td><td data-label="Platform"><span class="pill subtle">Linux x64</span></td><td data-label="Version"><code>1.3.1</code></td><td data-label="Package"><a href="PIAdvisor-linux-x64-1.3.1-20260924181203.zip"><code>PIAdvisor-linux-x64-1.3.1-20260924181203.zip</code></a></td></tr>
         <tr><td data-label="Release Date">2026-06-12 04:14:52 UTC</td><td data-label="Platform"><span class="pill subtle">Windows x64</span></td><td data-label="Version"><code>1.3.0</code></td><td data-label="Package"><a href="PIAdvisor-windows-x64-1.3.0-20260612041452.zip"><code>PIAdvisor-windows-x64-1.3.0-20260612041452.zip</code></a></td></tr>
         <tr><td data-label="Release Date">2026-06-12 04:14:52 UTC</td><td data-label="Platform"><span class="pill subtle">Linux x64</span></td><td data-label="Version"><code>1.3.0</code></td><td data-label="Package"><a href="PIAdvisor-linux-x64-1.3.0-20260612041452.zip"><code>PIAdvisor-linux-x64-1.3.0-20260612041452.zip</code></a></td></tr>
         <tr><td data-label="Release Date">2026-03-18 21:05:24 UTC</td><td data-label="Platform"><span class="pill subtle">Windows x64</span></td><td data-label="Version"><code>1.2.0</code></td><td data-label="Package"><a href="PIAdvisor-windows-x64-1.2.0-20260318210524.zip"><code>PIAdvisor-windows-x64-1.2.0-20260318210524.zip</code></a></td></tr>

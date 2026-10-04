@@ -3,85 +3,105 @@
    <!-- PIAdvisor PixInsight Update Repository -->
    <description>
       <p>PIAdvisor update feed for PixInsight.</p>
-      <p>Status: Public package v1.3.1 published on 2026-09-24 18:12:03 UTC.</p>
-      <p>PixInsight 1.9.5 support for Windows and Linux.</p>
+      <p>Status: Public package v1.4.0 published on 2026-10-04 20:50:07 UTC.</p>
+      <p>Modernized support for all four AI providers, with clearer and more reliable responses.</p>
       <p>Changelog: https://piadvisor.net/changelog/</p>
    </description>
    <platform os="windows" arch="x64" version="1.8.9:1.9.4">
-      <package fileName="packages/PIAdvisor-windows-x64-1.3.0-20260612041452.zip" sha1="5930656f4dea6fb3dfb2777d66ce83b704d4423f" releaseDate="20260612041452" type="module">
-         <title>PIAdvisor Module v1.3.0</title>
+      <package fileName="packages/PIAdvisor-windows-x64-1.4.0-20261004204852.zip" sha1="81136bfa4f24b81a9b0e778f123ccaae55fdc8b3" releaseDate="20261004204852" type="module">
+         <title>PIAdvisor Module v1.4.0</title>
          <remove>bin/PIAdvisor-pxm.dll
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>System prompt v8.6, PixInsight 1.9.4 support, and a more stable chat experience.</p>
+            <p>Modernized support for all four AI providers, with clearer and more reliable responses.</p>
             <p>Highlights:</p>
-            <p>- Major system prompt upgrade (v8.6): one canonical prompt with operation-first workflows, installed-tool capability routing, and tiered parameter guidance. Untouched stock prompts upgrade automatically; if PIAdvisor offers a prompt upgrade at startup, accept it for the best results. Prompt source: https://github.com/phatwila/piadvisor-prompts</p>
-            <p>- PixInsight 1.9.4 support, including V8-safe processing-history capture and removal of the ProcessContainer.at() deprecation warning.</p>
-            <p>- Replaced the chat composer with a true plain-text editor: pasting from the Process Console or dark-themed editors can no longer carry source colors, fonts, or backgrounds. Ctrl+Enter sends; Shift+Enter inserts a newline.</p>
-            <p>- More stable transcript rendering in long sessions: batched renders at send time, generation-guarded updates after edits and rebuilds, and attachment preview cards inline in the conversation.</p>
-            <p>- Fixed conversation edit/replay synchronization so edited earlier turns prune stale visible messages and match the LLM history.</p>
-            <p>- New guided welcome message that walks through load, ask, and read steps with live tool-link and callout examples.</p>
-            <p>- Snappier UI: control states now refresh only when something actually changed, removing per-keystroke churn.</p>
-            <p>- Startup diagnostics now show edition, public version, and system-prompt state; fixed chat hyperlink behavior after assistant replies.</p>
+            <p>- Modernized support for OpenAI, Gemini, OpenRouter, and OpenAI-compatible local servers. Saved models, keys, endpoints, and prompts carry over unchanged.</p>
+            <p>- Model-aware requests: PIAdvisor matches the token limit, reasoning effort, temperature, and image support to the selected model. If a model cannot read images, PIAdvisor says so instead of showing a provider error.</p>
+            <p>- Clearer outcomes: refusals, exhausted output budgets, interrupted streams, rate limits, and provider overloads each show a plain message. A provider that completes with no text shows a notice instead of an empty reply.</p>
+            <p>- When a reply fails partway, including during an automatic continuation, the text received so far stays in the conversation.</p>
+            <p>- Cancel stops stalled requests within seconds, even when the server goes silent. A chat turn stops after 5 minutes, and a connection test after 60 seconds.</p>
+            <p>- Test Connection now checks that the selected model returns a real answer.</p>
+            <p>- Model suggestions now list current models for each provider, and model lists show when they come from the cache.</p>
+            <p>- Local servers: PIAdvisor recognizes Ollama, reads each model&apos;s capabilities, and selects the only available chat model when none is chosen. It never downloads models, and new local configurations no longer start with a preset model name.</p>
+            <p>- Export can save provider metadata only (models, timing, token usage, and outcome) as JSON, without prompts or replies.</p>
+            <p>- Supports PixInsight 1.9.5 and PixInsight 1.8.9 through 1.9.4, with a separate build for each. PixInsight 1.9.4 users move from PIAdvisor 1.3.0 to 1.4.0.</p>
+            <p>- SubframeSelector settings in processing-history previews require PixInsight 1.9.5. Earlier versions list SubframeSelector steps without their settings, as in 1.3.0.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
    <platform os="linux" arch="x64" version="1.8.9:1.9.4">
-      <package fileName="packages/PIAdvisor-linux-x64-1.3.0-20260612041452.zip" sha1="10228bde42de6a27df2a90ce2050ee429d8ef0ab" type="module" releaseDate="20260612041452">
-         <title>PIAdvisor Module v1.3.0</title>
+      <package fileName="packages/PIAdvisor-linux-x64-1.4.0-20261004204852.zip" sha1="d47b269268f652957745a14edb386dd67744a6ed" type="module" releaseDate="20261004204852">
+         <title>PIAdvisor Module v1.4.0</title>
          <remove>bin/PIAdvisor-pxm.so
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>System prompt v8.6, PixInsight 1.9.4 support, and a more stable chat experience.</p>
+            <p>Modernized support for all four AI providers, with clearer and more reliable responses.</p>
             <p>Highlights:</p>
-            <p>- Major system prompt upgrade (v8.6): one canonical prompt with operation-first workflows, installed-tool capability routing, and tiered parameter guidance. Untouched stock prompts upgrade automatically; if PIAdvisor offers a prompt upgrade at startup, accept it for the best results. Prompt source: https://github.com/phatwila/piadvisor-prompts</p>
-            <p>- PixInsight 1.9.4 support, including V8-safe processing-history capture and removal of the ProcessContainer.at() deprecation warning.</p>
-            <p>- Replaced the chat composer with a true plain-text editor: pasting from the Process Console or dark-themed editors can no longer carry source colors, fonts, or backgrounds. Ctrl+Enter sends; Shift+Enter inserts a newline.</p>
-            <p>- More stable transcript rendering in long sessions: batched renders at send time, generation-guarded updates after edits and rebuilds, and attachment preview cards inline in the conversation.</p>
-            <p>- Fixed conversation edit/replay synchronization so edited earlier turns prune stale visible messages and match the LLM history.</p>
-            <p>- New guided welcome message that walks through load, ask, and read steps with live tool-link and callout examples.</p>
-            <p>- Snappier UI: control states now refresh only when something actually changed, removing per-keystroke churn.</p>
-            <p>- Startup diagnostics now show edition, public version, and system-prompt state; fixed chat hyperlink behavior after assistant replies.</p>
+            <p>- Modernized support for OpenAI, Gemini, OpenRouter, and OpenAI-compatible local servers. Saved models, keys, endpoints, and prompts carry over unchanged.</p>
+            <p>- Model-aware requests: PIAdvisor matches the token limit, reasoning effort, temperature, and image support to the selected model. If a model cannot read images, PIAdvisor says so instead of showing a provider error.</p>
+            <p>- Clearer outcomes: refusals, exhausted output budgets, interrupted streams, rate limits, and provider overloads each show a plain message. A provider that completes with no text shows a notice instead of an empty reply.</p>
+            <p>- When a reply fails partway, including during an automatic continuation, the text received so far stays in the conversation.</p>
+            <p>- Cancel stops stalled requests within seconds, even when the server goes silent. A chat turn stops after 5 minutes, and a connection test after 60 seconds.</p>
+            <p>- Test Connection now checks that the selected model returns a real answer.</p>
+            <p>- Model suggestions now list current models for each provider, and model lists show when they come from the cache.</p>
+            <p>- Local servers: PIAdvisor recognizes Ollama, reads each model&apos;s capabilities, and selects the only available chat model when none is chosen. It never downloads models, and new local configurations no longer start with a preset model name.</p>
+            <p>- Export can save provider metadata only (models, timing, token usage, and outcome) as JSON, without prompts or replies.</p>
+            <p>- Supports PixInsight 1.9.5 and PixInsight 1.8.9 through 1.9.4, with a separate build for each. PixInsight 1.9.4 users move from PIAdvisor 1.3.0 to 1.4.0.</p>
+            <p>- SubframeSelector settings in processing-history previews require PixInsight 1.9.5. Earlier versions list SubframeSelector steps without their settings, as in 1.3.0.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
    <platform os="windows" arch="x64" version="1.9.5:1.9.99">
-      <package fileName="packages/PIAdvisor-windows-x64-1.3.1-20260924181203.zip" sha1="9e9add32964f00ce65a9ecea62af18828e48a614" type="module" releaseDate="20260924181203">
-         <title>PIAdvisor Module v1.3.1</title>
+      <package fileName="packages/PIAdvisor-windows-x64-1.4.0-20261004205007.zip" sha1="adeab90d2b3c199d0a816d22cdc31bed8fe1975e" type="module" releaseDate="20261004205007">
+         <title>PIAdvisor Module v1.4.0</title>
          <remove>bin/PIAdvisor-pxm.dll
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>PixInsight 1.9.5 support for Windows and Linux.</p>
+            <p>Modernized support for all four AI providers, with clearer and more reliable responses.</p>
             <p>Highlights:</p>
-            <p>- Built with the PixInsight 1.9.5 class library. PIAdvisor reads plate solutions in the new XISF astrometric solution format, so solved images again report their center, scale, rotation, and field of view.</p>
-            <p>- Processing history reads process names reliably in PixInsight 1.9.5, and SubframeSelector steps now show their settings in history previews.</p>
-            <p>- Known PixInsight 1.9.5 issue: images saved by SubframeSelector in earlier versions print console errors such as &apos;SubframeSelector.sortProperty: Unknown enumeration element&apos; when they open. PixInsight prints these errors, not PIAdvisor. The image loads normally.</p>
-            <p>- PixInsight 1.9.4 users stay on PIAdvisor 1.3.0.</p>
+            <p>- Modernized support for OpenAI, Gemini, OpenRouter, and OpenAI-compatible local servers. Saved models, keys, endpoints, and prompts carry over unchanged.</p>
+            <p>- Model-aware requests: PIAdvisor matches the token limit, reasoning effort, temperature, and image support to the selected model. If a model cannot read images, PIAdvisor says so instead of showing a provider error.</p>
+            <p>- Clearer outcomes: refusals, exhausted output budgets, interrupted streams, rate limits, and provider overloads each show a plain message. A provider that completes with no text shows a notice instead of an empty reply.</p>
+            <p>- When a reply fails partway, including during an automatic continuation, the text received so far stays in the conversation.</p>
+            <p>- Cancel stops stalled requests within seconds, even when the server goes silent. A chat turn stops after 5 minutes, and a connection test after 60 seconds.</p>
+            <p>- Test Connection now checks that the selected model returns a real answer.</p>
+            <p>- Model suggestions now list current models for each provider, and model lists show when they come from the cache.</p>
+            <p>- Local servers: PIAdvisor recognizes Ollama, reads each model&apos;s capabilities, and selects the only available chat model when none is chosen. It never downloads models, and new local configurations no longer start with a preset model name.</p>
+            <p>- Export can save provider metadata only (models, timing, token usage, and outcome) as JSON, without prompts or replies.</p>
+            <p>- Supports PixInsight 1.9.5 and PixInsight 1.8.9 through 1.9.4, with a separate build for each. PixInsight 1.9.4 users move from PIAdvisor 1.3.0 to 1.4.0.</p>
+            <p>- SubframeSelector settings in processing-history previews require PixInsight 1.9.5. Earlier versions list SubframeSelector steps without their settings, as in 1.3.0.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
    <platform os="linux" arch="x64" version="1.9.5:1.9.99">
-      <package fileName="packages/PIAdvisor-linux-x64-1.3.1-20260924181203.zip" sha1="6e683446896df9e9705543293d7e9b16652f9bd3" type="module" releaseDate="20260924181203">
-         <title>PIAdvisor Module v1.3.1</title>
+      <package fileName="packages/PIAdvisor-linux-x64-1.4.0-20261004205007.zip" sha1="0b604c097f5cef4a330b76ab4508690e869e56e6" type="module" releaseDate="20261004205007">
+         <title>PIAdvisor Module v1.4.0</title>
          <remove>bin/PIAdvisor-pxm.so
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>PixInsight 1.9.5 support for Windows and Linux.</p>
+            <p>Modernized support for all four AI providers, with clearer and more reliable responses.</p>
             <p>Highlights:</p>
-            <p>- Built with the PixInsight 1.9.5 class library. PIAdvisor reads plate solutions in the new XISF astrometric solution format, so solved images again report their center, scale, rotation, and field of view.</p>
-            <p>- Processing history reads process names reliably in PixInsight 1.9.5, and SubframeSelector steps now show their settings in history previews.</p>
-            <p>- Known PixInsight 1.9.5 issue: images saved by SubframeSelector in earlier versions print console errors such as &apos;SubframeSelector.sortProperty: Unknown enumeration element&apos; when they open. PixInsight prints these errors, not PIAdvisor. The image loads normally.</p>
-            <p>- PixInsight 1.9.4 users stay on PIAdvisor 1.3.0.</p>
+            <p>- Modernized support for OpenAI, Gemini, OpenRouter, and OpenAI-compatible local servers. Saved models, keys, endpoints, and prompts carry over unchanged.</p>
+            <p>- Model-aware requests: PIAdvisor matches the token limit, reasoning effort, temperature, and image support to the selected model. If a model cannot read images, PIAdvisor says so instead of showing a provider error.</p>
+            <p>- Clearer outcomes: refusals, exhausted output budgets, interrupted streams, rate limits, and provider overloads each show a plain message. A provider that completes with no text shows a notice instead of an empty reply.</p>
+            <p>- When a reply fails partway, including during an automatic continuation, the text received so far stays in the conversation.</p>
+            <p>- Cancel stops stalled requests within seconds, even when the server goes silent. A chat turn stops after 5 minutes, and a connection test after 60 seconds.</p>
+            <p>- Test Connection now checks that the selected model returns a real answer.</p>
+            <p>- Model suggestions now list current models for each provider, and model lists show when they come from the cache.</p>
+            <p>- Local servers: PIAdvisor recognizes Ollama, reads each model&apos;s capabilities, and selects the only available chat model when none is chosen. It never downloads models, and new local configurations no longer start with a preset model name.</p>
+            <p>- Export can save provider metadata only (models, timing, token usage, and outcome) as JSON, without prompts or replies.</p>
+            <p>- Supports PixInsight 1.9.5 and PixInsight 1.8.9 through 1.9.4, with a separate build for each. PixInsight 1.9.4 users move from PIAdvisor 1.3.0 to 1.4.0.</p>
+            <p>- SubframeSelector settings in processing-history previews require PixInsight 1.9.5. Earlier versions list SubframeSelector steps without their settings, as in 1.3.0.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
 </xri>
-<Signature developerId="RayDetwiler" timestamp="2026-09-24T18:12:08.702Z" encoding="Base64">Wg0z+NtiF9uw8uttkZi/rHEyhi4DN6Y9weG3RZZ1B2hU7AvkpVfw4oGREZGbJA+ZxvM+WNQA2ZC6qfIBO4bNBQ==</Signature>
+<Signature developerId="RayDetwiler" timestamp="2026-10-04T20:50:10.519Z" encoding="Base64">Gu6Sy7B5SU3hnrpS4PLhK0SV0dKR3xIZ8kwQiXziyS/fR4FEsUCi7gHRHRMFPm1B7SSgcFi7pPa/IWbRjZhpBw==</Signature>

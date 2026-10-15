@@ -4,323 +4,142 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>PIAdvisor Packages</title>
-  <meta name="description" content="Platform-specific package archives for PIAdvisor PixInsight releases."/>
-  <link rel="icon" type="image/svg+xml" href="../pia-logo.svg"/>
+  <meta name="description" content="Platform packages and release history of PIAdvisor for PixInsight."/>
+  <link rel="icon" type="image/svg+xml" href="../pia-mark.svg"/>
+  <link rel="stylesheet" href="../site.css"/>
   <style>
-    :root{
-      --accent-blue: #60a5fa;
-      --accent-purple: #c084fc;
-      --accent-gradient: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-      --bg-darkest: #0a0e1a;
-      --card: rgba(30, 41, 59, 0.55);
-      --card-border: rgba(255, 255, 255, 0.08);
-      --text: #f1f5f9;
-      --muted: #94a3b8;
-      --good: #34d399;
-      --shadow: 0 14px 40px rgba(0,0,0,.55);
-      --radius: 18px;
-    }
-    @font-face {
-      font-family: "Atkinson";
-      src: url("../fonts/atkinson-regular.woff") format("woff");
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: "Atkinson";
-      src: url("../fonts/atkinson-bold.woff") format("woff");
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
-    }
-    *{ box-sizing: border-box; }
-    body{
-      margin: 0;
-      font-family: "Atkinson", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-      color: var(--text);
-      background: var(--bg-darkest);
-      background-image:
-        radial-gradient(ellipse 70% 55% at 12% 18%, rgba(96, 165, 250, 0.12) 0%, transparent 58%),
-        radial-gradient(ellipse 55% 45% at 88% 82%, rgba(192, 132, 252, 0.09) 0%, transparent 60%);
-    }
-    .wrap{
-      max-width: 920px;
-      margin: 0 auto;
-      padding: 44px 20px 64px;
-    }
-    a{ color: var(--accent-blue); text-decoration: none; }
-    a:hover{ color: var(--accent-purple); }
-    header{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-    .brand{
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--text);
-      text-decoration: none;
-    }
-    .brand img{
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      box-shadow: 0 10px 22px rgba(0,0,0,.35);
-    }
-    .brand strong{ letter-spacing: -0.02em; }
-    .brand span{ display: block; color: var(--muted); font-size: 0.95rem; margin-top: 2px; }
-    .card{
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius);
-      background: var(--card);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(14px);
-      padding: 20px;
-      margin-bottom: 14px;
-    }
-    .hero{ margin-bottom: 18px; }
-    h1{
-      margin: 0 0 8px;
-      font-size: clamp(1.8rem, 4vw, 2.4rem);
-      letter-spacing: -0.03em;
-    }
-    h2{
-      margin: 0;
-      font-size: 1.1rem;
-      letter-spacing: -0.01em;
-    }
-    .grad{
-      background: var(--accent-gradient);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    p{ margin: 10px 0 0; color: var(--muted); line-height: 1.55; }
-    .meta-grid{
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 14px;
-    }
-    .meta-item{
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 12px;
-      padding: 12px;
-      background: rgba(15,23,42,.35);
-    }
-    .meta-label{
-      display: block;
-      font-size: .82rem;
-      color: var(--muted);
-      margin-bottom: 4px;
-    }
-    .meta-value{
-      display: block;
-      color: var(--text);
-      font-weight: 700;
-      line-height: 1.3;
-      word-break: break-word;
-    }
-    .meta-note{
-      margin-top: 12px;
-      font-size: .92rem;
-    }
-    .status-ok{
-      color: var(--good);
-      font-weight: 700;
-    }
-    .package-list{
-      list-style: none;
-      margin: 12px 0 0;
-      padding: 0;
-      display: grid;
-      gap: 10px;
-    }
+    .section{ margin-top: clamp(2.5rem, 2rem + 3vw, 4rem); }
+    .section h2{ margin-bottom: 1rem; }
+    .package-list{ list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
     .package-item{
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 12px;
-      padding: 10px 12px;
-      background: rgba(15,23,42,.35);
+      gap: 1rem;
+      padding: 0.9rem 0;
+      border-top: 1px solid var(--line);
     }
-    .package-main{
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-      min-width: 0;
-    }
-    .package-meta{
-      color: var(--muted);
-      font-size: .86rem;
-      white-space: nowrap;
-    }
-    .package-empty{
-      color: var(--muted);
-      border: 1px dashed rgba(255,255,255,0.2);
-      border-radius: 12px;
-      padding: 10px 12px;
-      background: rgba(15,23,42,.2);
-    }
+    .package-item:first-child{ border-top: 0; padding-top: 0; }
+    .package-item:last-child{ padding-bottom: 0; }
+    .package-main{ display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem; min-width: 0; }
+    .package-main code{ overflow-wrap: anywhere; }
+    .package-meta{ color: var(--fg-3); font-family: var(--font-mono); font-size: 0.8rem; white-space: nowrap; }
+    .package-empty{ color: var(--fg-3); }
     .pill{
       display: inline-block;
-      font-size: .78rem;
-      font-weight: 700;
-      letter-spacing: .01em;
-      border-radius: 999px;
-      padding: 3px 9px;
-      color: #0b1220;
-      background: linear-gradient(135deg, #93c5fd, #c4b5fd);
-    }
-    .pill.subtle{
-      color: var(--text);
-      background: rgba(255,255,255,0.09);
-      border: 1px solid rgba(255,255,255,0.15);
-    }
-    ul{ margin: 12px 0 0; padding-left: 18px; }
-    li{ margin: 8px 0; color: var(--muted); }
-    table{
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 12px;
-    }
-    th, td{
-      text-align: left;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      padding: 10px 8px;
-      color: var(--muted);
-      vertical-align: top;
-    }
-    th{
-      font-size: .84rem;
-      text-transform: uppercase;
-      letter-spacing: .04em;
-      color: rgba(241,245,249,.9);
-      font-weight: 700;
-    }
-    td code{
+      padding: 0.15rem 0.55rem;
+      border: 1px solid rgba(79, 208, 193, 0.35);
+      border-radius: 4px;
+      background: var(--oiii-tint);
+      color: var(--oiii-strong);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
       white-space: nowrap;
     }
-    code{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 0.95em;
-      padding: 2px 7px;
-      border-radius: 8px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: rgba(241,245,249,0.95);
-    }
-    @media (max-width: 860px){
-      .meta-grid{
-        grid-template-columns: 1fr;
-      }
-      .package-item{
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .package-meta{
-        white-space: normal;
-      }
-      table, thead, tbody, th, td, tr{
-        display: block;
-      }
-      thead{
-        display: none;
-      }
-      tr{
-        border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 12px;
-        padding: 8px 10px;
-        margin-bottom: 8px;
-        background: rgba(15,23,42,.3);
-      }
-      td{
-        border: 0;
-        padding: 6px 0;
-      }
-      td::before{
-        content: attr(data-label) ": ";
-        color: rgba(241,245,249,.9);
-        font-weight: 700;
-      }
+    .pill.subtle{ border-color: var(--line-2); background: transparent; color: var(--fg-2); }
+    .notes ul{ margin: 1rem 0 0; padding-left: 1.1rem; color: var(--fg-2); }
+    .notes li + li{ margin-top: 0.5rem; }
+    .notes p{ margin-top: 1rem; }
+    .notes b{ color: var(--fg); font-weight: 560; }
+    .table-wrap{ overflow-x: auto; }
+    table{ width: 100%; border-collapse: collapse; }
+    th, td{ padding: 0.7rem 0.75rem 0.7rem 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; color: var(--fg-2); }
+    th{ color: var(--fg-3); font-family: var(--font-mono); font-size: 0.75rem; font-weight: 400; letter-spacing: 0.02em; }
+    tbody tr:last-child td{ border-bottom: 0; }
+    td code{ white-space: nowrap; }
+    .count{ margin: 0 0 1rem; color: var(--fg-3); font-size: 0.9rem; }
+    @media (max-width: 700px){
+      .package-item{ flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+      table, thead, tbody, th, td, tr{ display: block; }
+      thead{ display: none; }
+      tr{ padding: 0.75rem 0; border-bottom: 1px solid var(--line); }
+      tbody tr:last-child{ border-bottom: 0; }
+      td{ border: 0; padding: 0.2rem 0; }
+      td::before{ content: attr(data-label) ": "; color: var(--fg-3); font-family: var(--font-mono); font-size: 0.75rem; }
+      td code{ white-space: normal; overflow-wrap: anywhere; }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <a class="brand" href="../index.html">
-        <img src="../pia-logo.svg" alt="PIAdvisor"/>
-        <div>
-          <strong>PIAdvisor</strong>
-          <span>packages/</span>
-        </div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../">
+        <img src="../pia-mark.svg" alt="" width="28" height="28"/>
+        <span>PIAdvisor</span>
+        <small>packages/</small>
       </a>
-      <a href="../updates.xri">updates.xri</a>
-    </header>
-    <div class="card hero">
-      <h1><span class="grad">Package</span> Archives</h1>
-      <p><span class="status-ok">Ready:</span> Published package archives: 19.</p>
+      <nav class="site-nav" aria-label="Main">
+        <a href="../">Download</a>
+        <a href="https://piadvisor.net/changelog/">Changelog</a>
+        <a href="../docs/">Documentation</a>
+        <a href="../updates.xri">updates.xri</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <span class="eyebrow">Packages</span>
+      <h1>Release packages</h1>
+      <p class="lede">PixInsight selects the package for your system from <a href="../updates.xri"><code>updates.xri</code></a>. To install PIAdvisor, <a href="../">add the repository in PixInsight</a>. You only need these files to check a release by hand.</p>
       <div class="meta-grid">
-        <div class="meta-item">
-          <span class="meta-label">Latest release</span>
-          <span class="meta-value">v1.4.0</span>
-        </div>
-        <div class="meta-item">
-          <span class="meta-label">Published at</span>
-          <span class="meta-value">2026-10-04 20:50:07 UTC</span>
-        </div>
-        <div class="meta-item">
-          <span class="meta-label">Platforms in latest release</span>
-          <span class="meta-value">Windows x64, Linux x64</span>
-        </div>
+        <div><span class="field-label">Latest release</span><span class="meta-value">v1.5.0</span></div>
+        <div><span class="field-label">Published (UTC)</span><span class="meta-value">2026-10-15 17:29:09 UTC</span></div>
+        <div><span class="field-label">Platforms</span><span class="meta-value">Windows x64, Linux x64</span></div>
       </div>
-      <p class="meta-note">PixInsight selects the correct package for your operating system from <a href="../updates.xri"><code>updates.xri</code></a>.</p>
-    </div>
-    <div class="card">
-      <h2>Latest Release Packages (v1.4.0)</h2>
-      <ul class="package-list">
-      <li class="package-item"><div class="package-main"><span class="pill">Windows x64</span><a href="PIAdvisor-windows-x64-1.4.0-20261004205007.zip"><code>PIAdvisor-windows-x64-1.4.0-20261004205007.zip</code></a></div><span class="package-meta">2026-10-04 20:50:07 UTC</span></li>
-      <li class="package-item"><div class="package-main"><span class="pill">Linux x64</span><a href="PIAdvisor-linux-x64-1.4.0-20261004205007.zip"><code>PIAdvisor-linux-x64-1.4.0-20261004205007.zip</code></a></div><span class="package-meta">2026-10-04 20:50:07 UTC</span></li>
-      </ul>
-    </div>
-    <div class="card">
-      <h2>What's New (v1.4.0)</h2>
-      <p>Modernized support for all four AI providers, with clearer and more reliable responses.</p>
-      <ul>
-      <li>Modernized support for OpenAI, Gemini, OpenRouter, and OpenAI-compatible local servers. Saved models, keys, endpoints, and prompts carry over unchanged.</li>
-      <li>Model-aware requests: PIAdvisor matches the token limit, reasoning effort, temperature, and image support to the selected model. If a model cannot read images, PIAdvisor says so instead of showing a provider error.</li>
-      <li>Clearer outcomes: refusals, exhausted output budgets, interrupted streams, rate limits, and provider overloads each show a plain message. A provider that completes with no text shows a notice instead of an empty reply.</li>
-      <li>When a reply fails partway, including during an automatic continuation, the text received so far stays in the conversation.</li>
-      <li>Cancel stops stalled requests within seconds, even when the server goes silent. A chat turn stops after 5 minutes, and a connection test after 60 seconds.</li>
-      <li>Test Connection now checks that the selected model returns a real answer.</li>
-      <li>Model suggestions now list current models for each provider, and model lists show when they come from the cache.</li>
-      <li>Local servers: PIAdvisor recognizes Ollama, reads each model&#39;s capabilities, and selects the only available chat model when none is chosen. It never downloads models, and new local configurations no longer start with a preset model name.</li>
-      <li>Export can save provider metadata only (models, timing, token usage, and outcome) as JSON, without prompts or replies.</li>
-      <li>Supports PixInsight 1.9.5 and PixInsight 1.8.9 through 1.9.4, with a separate build for each. PixInsight 1.9.4 users move from PIAdvisor 1.3.0 to 1.4.0.</li>
-      <li>SubframeSelector settings in processing-history previews require PixInsight 1.9.5. Earlier versions list SubframeSelector steps without their settings, as in 1.3.0.</li>
-      </ul>
+
+      <section class="section" aria-labelledby="latest-title">
+        <h2 id="latest-title">Packages for v1.5.0</h2>
+        <div class="panel">
+          <ul class="package-list">
+      <li class="package-item"><div class="package-main"><span class="pill">Windows x64</span><a href="PIAdvisor-windows-x64-1.5.0-20261015172909.zip"><code>PIAdvisor-windows-x64-1.5.0-20261015172909.zip</code></a></div><span class="package-meta">2026-10-15 17:29:09 UTC</span></li>
+      <li class="package-item"><div class="package-main"><span class="pill">Linux x64</span><a href="PIAdvisor-linux-x64-1.5.0-20261015172909.zip"><code>PIAdvisor-linux-x64-1.5.0-20261015172909.zip</code></a></div><span class="package-meta">2026-10-15 17:29:09 UTC</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="notes-title">
+        <h2 id="notes-title">What is new in v1.5.0</h2>
+        <div class="panel notes">
+          <p style="margin-top: 0;">A rebuilt chat, live image measurements, and easier image sharing on Windows and Linux.</p>
+          <ul>
+      <li>macOS support is coming soon.</li>
+      <li>Rebuilt the chat and message input: full-width messages, matching PixInsight light and dark themes, clearer message controls, and one-click Markdown copying. New Chat shows a welcome guide with provider setup and formatting examples.</li>
+      <li>Long conversations load older messages as you scroll and keep your reading position.</li>
+      <li>Live image measurements. With &quot;Let the advisor fetch image data&quot; on, PIAdvisor can measure your open images during a reply: star FWHM and eccentricity, background noise and gradients, statistics, stretch predictions, history entries, process parameters and FITS keywords. Star measurements use PixInsight&#39;s built-in star detection and PSF fitting. Measurements run in the background and never change your images.</li>
+      <li>A live Checking line shows what PIAdvisor is measuring. Show measured values opens the exact results, and follow-up questions keep key measurements until the image changes. In each measuring round, PIAdvisor can take several measurements at once. Free allows 2 rounds per reply. Pro and Trial allow up to 12.</li>
+      <li>Exact settings come from your installation: before PIAdvisor suggests settings for a process, it can read that process&#39;s parameter names, ranges and options from your PixInsight.</li>
+      <li>Paste PNG or JPEG screenshots directly into the chat input with Ctrl+V on Windows and Linux. Images appear in the draft attachment ribbon without sending or replacing your text. You can also send an image without a written message.</li>
+      <li>Click an attached image to open a separate, resizable viewer. Click to zoom around the pointer, drag to pan, then click again to fit the whole image. Originals stay local at their imported or captured resolution; the model receives resized images. Imports run in the background.</li>
+      <li>Each reply shows how long it took, including measuring.</li>
+      <li>A line under each reply shows token usage, cached tokens and request count; OpenRouter also reports cost. Conversation requests reuse provider prompt caching where supported to reduce repeated processing and cost.</li>
+      <li>About my setup in LLM Settings saves your gear and preferences, such as processes you avoid, and includes them with every request.</li>
+      <li>Updated advisor guidance names problems first and backs findings with measurements.</li>
+      <li>If you changed the system prompt or the formatting template, PIAdvisor offers the new prompts at startup and saves a copy of yours first.</li>
+      <li>Better provider compatibility and clearer error messages.</li>
+      <li>Fixes for measuring, message text, history-preview privacy and license activation.</li>
+          </ul>
       <p><b>Changelog:</b> <a href="https://piadvisor.net/changelog/">https://piadvisor.net/changelog/</a></p>
-    </div>
-    <div class="card">
-      <h2>Archive History</h2>
-      <table aria-label="Package archive history">
-        <thead>
-          <tr>
-            <th>Release Date (UTC)</th>
-            <th>Platform</th>
-            <th>Version</th>
-            <th>Package</th>
-          </tr>
-        </thead>
-        <tbody>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="history-title">
+        <h2 id="history-title">Release history</h2>
+        <p class="count">23 package archives.</p>
+        <div class="panel table-wrap">
+          <table aria-labelledby="history-title">
+            <thead>
+              <tr>
+                <th>Release date (UTC)</th>
+                <th>Platform</th>
+                <th>Version</th>
+                <th>Package</th>
+              </tr>
+            </thead>
+            <tbody>
+        <tr><td data-label="Release Date">2026-10-15 17:29:09 UTC</td><td data-label="Platform"><span class="pill subtle">Windows x64</span></td><td data-label="Version"><code>1.5.0</code></td><td data-label="Package"><a href="PIAdvisor-windows-x64-1.5.0-20261015172909.zip"><code>PIAdvisor-windows-x64-1.5.0-20261015172909.zip</code></a></td></tr>
+        <tr><td data-label="Release Date">2026-10-15 17:29:09 UTC</td><td data-label="Platform"><span class="pill subtle">Linux x64</span></td><td data-label="Version"><code>1.5.0</code></td><td data-label="Package"><a href="PIAdvisor-linux-x64-1.5.0-20261015172909.zip"><code>PIAdvisor-linux-x64-1.5.0-20261015172909.zip</code></a></td></tr>
+        <tr><td data-label="Release Date">2026-10-15 17:28:18 UTC</td><td data-label="Platform"><span class="pill subtle">Windows x64</span></td><td data-label="Version"><code>1.5.0</code></td><td data-label="Package"><a href="PIAdvisor-windows-x64-1.5.0-20261015172818.zip"><code>PIAdvisor-windows-x64-1.5.0-20261015172818.zip</code></a></td></tr>
+        <tr><td data-label="Release Date">2026-10-15 17:28:18 UTC</td><td data-label="Platform"><span class="pill subtle">Linux x64</span></td><td data-label="Version"><code>1.5.0</code></td><td data-label="Package"><a href="PIAdvisor-linux-x64-1.5.0-20261015172818.zip"><code>PIAdvisor-linux-x64-1.5.0-20261015172818.zip</code></a></td></tr>
         <tr><td data-label="Release Date">2026-10-04 20:50:07 UTC</td><td data-label="Platform"><span class="pill subtle">Windows x64</span></td><td data-label="Version"><code>1.4.0</code></td><td data-label="Package"><a href="PIAdvisor-windows-x64-1.4.0-20261004205007.zip"><code>PIAdvisor-windows-x64-1.4.0-20261004205007.zip</code></a></td></tr>
         <tr><td data-label="Release Date">2026-10-04 20:50:07 UTC</td><td data-label="Platform"><span class="pill subtle">Linux x64</span></td><td data-label="Version"><code>1.4.0</code></td><td data-label="Package"><a href="PIAdvisor-linux-x64-1.4.0-20261004205007.zip"><code>PIAdvisor-linux-x64-1.4.0-20261004205007.zip</code></a></td></tr>
         <tr><td data-label="Release Date">2026-10-04 20:48:52 UTC</td><td data-label="Platform"><span class="pill subtle">Windows x64</span></td><td data-label="Version"><code>1.4.0</code></td><td data-label="Package"><a href="PIAdvisor-windows-x64-1.4.0-20261004204852.zip"><code>PIAdvisor-windows-x64-1.4.0-20261004204852.zip</code></a></td></tr>
@@ -340,9 +159,17 @@
         <tr><td data-label="Release Date">2026-02-18 04:19:42 UTC</td><td data-label="Platform"><span class="pill subtle">Windows x64</span></td><td data-label="Version"><code>1.0.4</code></td><td data-label="Package"><a href="PIAdvisor-windows-x64-1.0.4-20260218041942.zip"><code>PIAdvisor-windows-x64-1.0.4-20260218041942.zip</code></a></td></tr>
         <tr><td data-label="Release Date">2026-02-18 04:19:42 UTC</td><td data-label="Platform"><span class="pill subtle">Linux x64</span></td><td data-label="Version"><code>1.0.4</code></td><td data-label="Package"><a href="PIAdvisor-linux-x64-1.0.4-20260218041942.zip"><code>PIAdvisor-linux-x64-1.0.4-20260218041942.zip</code></a></td></tr>
         <tr><td data-label="Release Date">2026-02-13 21:46:17 UTC</td><td data-label="Platform"><span class="pill subtle">Legacy package</span></td><td data-label="Version"><code>1.0.3</code></td><td data-label="Package"><a href="PIAdvisor-1.0.3-20260213214617.zip"><code>PIAdvisor-1.0.3-20260213214617.zip</code></a></td></tr>
-        </tbody>
-      </table>
+            </tbody>
+          </table>
+        </div>
+      </section>
     </div>
-  </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; PIAdvisor. Built for PixInsight. <a href="https://piadvisor.net/">piadvisor.net</a></p>
+      <p>PixInsight is a trademark of Pleiades Astrophoto S.L. PIAdvisor is an independent module and is not affiliated with or endorsed by Pleiades Astrophoto.</p>
+    </div>
+  </footer>
 </body>
 </html>

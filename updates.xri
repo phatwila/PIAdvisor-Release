@@ -3,105 +3,121 @@
    <!-- PIAdvisor PixInsight Update Repository -->
    <description>
       <p>PIAdvisor update feed for PixInsight.</p>
-      <p>Status: Public package v1.4.0 published on 2026-10-04 20:50:07 UTC.</p>
-      <p>Modernized support for all four AI providers, with clearer and more reliable responses.</p>
+      <p>Status: Public package v1.5.0 published on 2026-10-15 17:29:09 UTC.</p>
+      <p>A rebuilt chat, live image measurements, and easier image sharing on Windows and Linux.</p>
       <p>Changelog: https://piadvisor.net/changelog/</p>
    </description>
    <platform os="windows" arch="x64" version="1.8.9:1.9.4">
-      <package fileName="packages/PIAdvisor-windows-x64-1.4.0-20261004204852.zip" sha1="81136bfa4f24b81a9b0e778f123ccaae55fdc8b3" releaseDate="20261004204852" type="module">
-         <title>PIAdvisor Module v1.4.0</title>
+      <package fileName="packages/PIAdvisor-windows-x64-1.5.0-20261015172818.zip" sha1="c56372d5425bda65107a17ddea722eb6de476b17" releaseDate="20261015172818" type="module">
+         <title>PIAdvisor Module v1.5.0</title>
          <remove>bin/PIAdvisor-pxm.dll
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Modernized support for all four AI providers, with clearer and more reliable responses.</p>
+            <p>A rebuilt chat, live image measurements, and easier image sharing on Windows and Linux.</p>
             <p>Highlights:</p>
-            <p>- Modernized support for OpenAI, Gemini, OpenRouter, and OpenAI-compatible local servers. Saved models, keys, endpoints, and prompts carry over unchanged.</p>
-            <p>- Model-aware requests: PIAdvisor matches the token limit, reasoning effort, temperature, and image support to the selected model. If a model cannot read images, PIAdvisor says so instead of showing a provider error.</p>
-            <p>- Clearer outcomes: refusals, exhausted output budgets, interrupted streams, rate limits, and provider overloads each show a plain message. A provider that completes with no text shows a notice instead of an empty reply.</p>
-            <p>- When a reply fails partway, including during an automatic continuation, the text received so far stays in the conversation.</p>
-            <p>- Cancel stops stalled requests within seconds, even when the server goes silent. A chat turn stops after 5 minutes, and a connection test after 60 seconds.</p>
-            <p>- Test Connection now checks that the selected model returns a real answer.</p>
-            <p>- Model suggestions now list current models for each provider, and model lists show when they come from the cache.</p>
-            <p>- Local servers: PIAdvisor recognizes Ollama, reads each model&apos;s capabilities, and selects the only available chat model when none is chosen. It never downloads models, and new local configurations no longer start with a preset model name.</p>
-            <p>- Export can save provider metadata only (models, timing, token usage, and outcome) as JSON, without prompts or replies.</p>
-            <p>- Supports PixInsight 1.9.5 and PixInsight 1.8.9 through 1.9.4, with a separate build for each. PixInsight 1.9.4 users move from PIAdvisor 1.3.0 to 1.4.0.</p>
-            <p>- SubframeSelector settings in processing-history previews require PixInsight 1.9.5. Earlier versions list SubframeSelector steps without their settings, as in 1.3.0.</p>
+            <p>- macOS support is coming soon.</p>
+            <p>- Rebuilt the chat and message input: full-width messages, matching PixInsight light and dark themes, clearer message controls, and one-click Markdown copying. New Chat shows a welcome guide with provider setup and formatting examples.</p>
+            <p>- Long conversations load older messages as you scroll and keep your reading position.</p>
+            <p>- Live image measurements. With &quot;Let the advisor fetch image data&quot; on, PIAdvisor can measure your open images during a reply: star FWHM and eccentricity, background noise and gradients, statistics, stretch predictions, history entries, process parameters and FITS keywords. Star measurements use PixInsight&apos;s built-in star detection and PSF fitting. Measurements run in the background and never change your images.</p>
+            <p>- A live Checking line shows what PIAdvisor is measuring. Show measured values opens the exact results, and follow-up questions keep key measurements until the image changes. In each measuring round, PIAdvisor can take several measurements at once. Free allows 2 rounds per reply. Pro and Trial allow up to 12.</p>
+            <p>- Exact settings come from your installation: before PIAdvisor suggests settings for a process, it can read that process&apos;s parameter names, ranges and options from your PixInsight.</p>
+            <p>- Paste PNG or JPEG screenshots directly into the chat input with Ctrl+V on Windows and Linux. Images appear in the draft attachment ribbon without sending or replacing your text. You can also send an image without a written message.</p>
+            <p>- Click an attached image to open a separate, resizable viewer. Click to zoom around the pointer, drag to pan, then click again to fit the whole image. Originals stay local at their imported or captured resolution; the model receives resized images. Imports run in the background.</p>
+            <p>- Each reply shows how long it took, including measuring.</p>
+            <p>- A line under each reply shows token usage, cached tokens and request count; OpenRouter also reports cost. Conversation requests reuse provider prompt caching where supported to reduce repeated processing and cost.</p>
+            <p>- About my setup in LLM Settings saves your gear and preferences, such as processes you avoid, and includes them with every request.</p>
+            <p>- Updated advisor guidance names problems first and backs findings with measurements.</p>
+            <p>- If you changed the system prompt or the formatting template, PIAdvisor offers the new prompts at startup and saves a copy of yours first.</p>
+            <p>- Better provider compatibility and clearer error messages.</p>
+            <p>- Fixes for measuring, message text, history-preview privacy and license activation.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
    <platform os="linux" arch="x64" version="1.8.9:1.9.4">
-      <package fileName="packages/PIAdvisor-linux-x64-1.4.0-20261004204852.zip" sha1="d47b269268f652957745a14edb386dd67744a6ed" type="module" releaseDate="20261004204852">
-         <title>PIAdvisor Module v1.4.0</title>
+      <package fileName="packages/PIAdvisor-linux-x64-1.5.0-20261015172818.zip" sha1="eed75dff9e6bd662d3c37f802242a9d4fefeaa3f" type="module" releaseDate="20261015172818">
+         <title>PIAdvisor Module v1.5.0</title>
          <remove>bin/PIAdvisor-pxm.so
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Modernized support for all four AI providers, with clearer and more reliable responses.</p>
+            <p>A rebuilt chat, live image measurements, and easier image sharing on Windows and Linux.</p>
             <p>Highlights:</p>
-            <p>- Modernized support for OpenAI, Gemini, OpenRouter, and OpenAI-compatible local servers. Saved models, keys, endpoints, and prompts carry over unchanged.</p>
-            <p>- Model-aware requests: PIAdvisor matches the token limit, reasoning effort, temperature, and image support to the selected model. If a model cannot read images, PIAdvisor says so instead of showing a provider error.</p>
-            <p>- Clearer outcomes: refusals, exhausted output budgets, interrupted streams, rate limits, and provider overloads each show a plain message. A provider that completes with no text shows a notice instead of an empty reply.</p>
-            <p>- When a reply fails partway, including during an automatic continuation, the text received so far stays in the conversation.</p>
-            <p>- Cancel stops stalled requests within seconds, even when the server goes silent. A chat turn stops after 5 minutes, and a connection test after 60 seconds.</p>
-            <p>- Test Connection now checks that the selected model returns a real answer.</p>
-            <p>- Model suggestions now list current models for each provider, and model lists show when they come from the cache.</p>
-            <p>- Local servers: PIAdvisor recognizes Ollama, reads each model&apos;s capabilities, and selects the only available chat model when none is chosen. It never downloads models, and new local configurations no longer start with a preset model name.</p>
-            <p>- Export can save provider metadata only (models, timing, token usage, and outcome) as JSON, without prompts or replies.</p>
-            <p>- Supports PixInsight 1.9.5 and PixInsight 1.8.9 through 1.9.4, with a separate build for each. PixInsight 1.9.4 users move from PIAdvisor 1.3.0 to 1.4.0.</p>
-            <p>- SubframeSelector settings in processing-history previews require PixInsight 1.9.5. Earlier versions list SubframeSelector steps without their settings, as in 1.3.0.</p>
+            <p>- macOS support is coming soon.</p>
+            <p>- Rebuilt the chat and message input: full-width messages, matching PixInsight light and dark themes, clearer message controls, and one-click Markdown copying. New Chat shows a welcome guide with provider setup and formatting examples.</p>
+            <p>- Long conversations load older messages as you scroll and keep your reading position.</p>
+            <p>- Live image measurements. With &quot;Let the advisor fetch image data&quot; on, PIAdvisor can measure your open images during a reply: star FWHM and eccentricity, background noise and gradients, statistics, stretch predictions, history entries, process parameters and FITS keywords. Star measurements use PixInsight&apos;s built-in star detection and PSF fitting. Measurements run in the background and never change your images.</p>
+            <p>- A live Checking line shows what PIAdvisor is measuring. Show measured values opens the exact results, and follow-up questions keep key measurements until the image changes. In each measuring round, PIAdvisor can take several measurements at once. Free allows 2 rounds per reply. Pro and Trial allow up to 12.</p>
+            <p>- Exact settings come from your installation: before PIAdvisor suggests settings for a process, it can read that process&apos;s parameter names, ranges and options from your PixInsight.</p>
+            <p>- Paste PNG or JPEG screenshots directly into the chat input with Ctrl+V on Windows and Linux. Images appear in the draft attachment ribbon without sending or replacing your text. You can also send an image without a written message.</p>
+            <p>- Click an attached image to open a separate, resizable viewer. Click to zoom around the pointer, drag to pan, then click again to fit the whole image. Originals stay local at their imported or captured resolution; the model receives resized images. Imports run in the background.</p>
+            <p>- Each reply shows how long it took, including measuring.</p>
+            <p>- A line under each reply shows token usage, cached tokens and request count; OpenRouter also reports cost. Conversation requests reuse provider prompt caching where supported to reduce repeated processing and cost.</p>
+            <p>- About my setup in LLM Settings saves your gear and preferences, such as processes you avoid, and includes them with every request.</p>
+            <p>- Updated advisor guidance names problems first and backs findings with measurements.</p>
+            <p>- If you changed the system prompt or the formatting template, PIAdvisor offers the new prompts at startup and saves a copy of yours first.</p>
+            <p>- Better provider compatibility and clearer error messages.</p>
+            <p>- Fixes for measuring, message text, history-preview privacy and license activation.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
    <platform os="windows" arch="x64" version="1.9.5:1.9.99">
-      <package fileName="packages/PIAdvisor-windows-x64-1.4.0-20261004205007.zip" sha1="adeab90d2b3c199d0a816d22cdc31bed8fe1975e" type="module" releaseDate="20261004205007">
-         <title>PIAdvisor Module v1.4.0</title>
+      <package fileName="packages/PIAdvisor-windows-x64-1.5.0-20261015172909.zip" sha1="79147579a7b35ccaf46faee375ee5431800b3645" type="module" releaseDate="20261015172909">
+         <title>PIAdvisor Module v1.5.0</title>
          <remove>bin/PIAdvisor-pxm.dll
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Modernized support for all four AI providers, with clearer and more reliable responses.</p>
+            <p>A rebuilt chat, live image measurements, and easier image sharing on Windows and Linux.</p>
             <p>Highlights:</p>
-            <p>- Modernized support for OpenAI, Gemini, OpenRouter, and OpenAI-compatible local servers. Saved models, keys, endpoints, and prompts carry over unchanged.</p>
-            <p>- Model-aware requests: PIAdvisor matches the token limit, reasoning effort, temperature, and image support to the selected model. If a model cannot read images, PIAdvisor says so instead of showing a provider error.</p>
-            <p>- Clearer outcomes: refusals, exhausted output budgets, interrupted streams, rate limits, and provider overloads each show a plain message. A provider that completes with no text shows a notice instead of an empty reply.</p>
-            <p>- When a reply fails partway, including during an automatic continuation, the text received so far stays in the conversation.</p>
-            <p>- Cancel stops stalled requests within seconds, even when the server goes silent. A chat turn stops after 5 minutes, and a connection test after 60 seconds.</p>
-            <p>- Test Connection now checks that the selected model returns a real answer.</p>
-            <p>- Model suggestions now list current models for each provider, and model lists show when they come from the cache.</p>
-            <p>- Local servers: PIAdvisor recognizes Ollama, reads each model&apos;s capabilities, and selects the only available chat model when none is chosen. It never downloads models, and new local configurations no longer start with a preset model name.</p>
-            <p>- Export can save provider metadata only (models, timing, token usage, and outcome) as JSON, without prompts or replies.</p>
-            <p>- Supports PixInsight 1.9.5 and PixInsight 1.8.9 through 1.9.4, with a separate build for each. PixInsight 1.9.4 users move from PIAdvisor 1.3.0 to 1.4.0.</p>
-            <p>- SubframeSelector settings in processing-history previews require PixInsight 1.9.5. Earlier versions list SubframeSelector steps without their settings, as in 1.3.0.</p>
+            <p>- macOS support is coming soon.</p>
+            <p>- Rebuilt the chat and message input: full-width messages, matching PixInsight light and dark themes, clearer message controls, and one-click Markdown copying. New Chat shows a welcome guide with provider setup and formatting examples.</p>
+            <p>- Long conversations load older messages as you scroll and keep your reading position.</p>
+            <p>- Live image measurements. With &quot;Let the advisor fetch image data&quot; on, PIAdvisor can measure your open images during a reply: star FWHM and eccentricity, background noise and gradients, statistics, stretch predictions, history entries, process parameters and FITS keywords. Star measurements use PixInsight&apos;s built-in star detection and PSF fitting. Measurements run in the background and never change your images.</p>
+            <p>- A live Checking line shows what PIAdvisor is measuring. Show measured values opens the exact results, and follow-up questions keep key measurements until the image changes. In each measuring round, PIAdvisor can take several measurements at once. Free allows 2 rounds per reply. Pro and Trial allow up to 12.</p>
+            <p>- Exact settings come from your installation: before PIAdvisor suggests settings for a process, it can read that process&apos;s parameter names, ranges and options from your PixInsight.</p>
+            <p>- Paste PNG or JPEG screenshots directly into the chat input with Ctrl+V on Windows and Linux. Images appear in the draft attachment ribbon without sending or replacing your text. You can also send an image without a written message.</p>
+            <p>- Click an attached image to open a separate, resizable viewer. Click to zoom around the pointer, drag to pan, then click again to fit the whole image. Originals stay local at their imported or captured resolution; the model receives resized images. Imports run in the background.</p>
+            <p>- Each reply shows how long it took, including measuring.</p>
+            <p>- A line under each reply shows token usage, cached tokens and request count; OpenRouter also reports cost. Conversation requests reuse provider prompt caching where supported to reduce repeated processing and cost.</p>
+            <p>- About my setup in LLM Settings saves your gear and preferences, such as processes you avoid, and includes them with every request.</p>
+            <p>- Updated advisor guidance names problems first and backs findings with measurements.</p>
+            <p>- If you changed the system prompt or the formatting template, PIAdvisor offers the new prompts at startup and saves a copy of yours first.</p>
+            <p>- Better provider compatibility and clearer error messages.</p>
+            <p>- Fixes for measuring, message text, history-preview privacy and license activation.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
    <platform os="linux" arch="x64" version="1.9.5:1.9.99">
-      <package fileName="packages/PIAdvisor-linux-x64-1.4.0-20261004205007.zip" sha1="0b604c097f5cef4a330b76ab4508690e869e56e6" type="module" releaseDate="20261004205007">
-         <title>PIAdvisor Module v1.4.0</title>
+      <package fileName="packages/PIAdvisor-linux-x64-1.5.0-20261015172909.zip" sha1="96c108fc476fbac6e08f21ce54db8ebb4c3795fa" type="module" releaseDate="20261015172909">
+         <title>PIAdvisor Module v1.5.0</title>
          <remove>bin/PIAdvisor-pxm.so
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Modernized support for all four AI providers, with clearer and more reliable responses.</p>
+            <p>A rebuilt chat, live image measurements, and easier image sharing on Windows and Linux.</p>
             <p>Highlights:</p>
-            <p>- Modernized support for OpenAI, Gemini, OpenRouter, and OpenAI-compatible local servers. Saved models, keys, endpoints, and prompts carry over unchanged.</p>
-            <p>- Model-aware requests: PIAdvisor matches the token limit, reasoning effort, temperature, and image support to the selected model. If a model cannot read images, PIAdvisor says so instead of showing a provider error.</p>
-            <p>- Clearer outcomes: refusals, exhausted output budgets, interrupted streams, rate limits, and provider overloads each show a plain message. A provider that completes with no text shows a notice instead of an empty reply.</p>
-            <p>- When a reply fails partway, including during an automatic continuation, the text received so far stays in the conversation.</p>
-            <p>- Cancel stops stalled requests within seconds, even when the server goes silent. A chat turn stops after 5 minutes, and a connection test after 60 seconds.</p>
-            <p>- Test Connection now checks that the selected model returns a real answer.</p>
-            <p>- Model suggestions now list current models for each provider, and model lists show when they come from the cache.</p>
-            <p>- Local servers: PIAdvisor recognizes Ollama, reads each model&apos;s capabilities, and selects the only available chat model when none is chosen. It never downloads models, and new local configurations no longer start with a preset model name.</p>
-            <p>- Export can save provider metadata only (models, timing, token usage, and outcome) as JSON, without prompts or replies.</p>
-            <p>- Supports PixInsight 1.9.5 and PixInsight 1.8.9 through 1.9.4, with a separate build for each. PixInsight 1.9.4 users move from PIAdvisor 1.3.0 to 1.4.0.</p>
-            <p>- SubframeSelector settings in processing-history previews require PixInsight 1.9.5. Earlier versions list SubframeSelector steps without their settings, as in 1.3.0.</p>
+            <p>- macOS support is coming soon.</p>
+            <p>- Rebuilt the chat and message input: full-width messages, matching PixInsight light and dark themes, clearer message controls, and one-click Markdown copying. New Chat shows a welcome guide with provider setup and formatting examples.</p>
+            <p>- Long conversations load older messages as you scroll and keep your reading position.</p>
+            <p>- Live image measurements. With &quot;Let the advisor fetch image data&quot; on, PIAdvisor can measure your open images during a reply: star FWHM and eccentricity, background noise and gradients, statistics, stretch predictions, history entries, process parameters and FITS keywords. Star measurements use PixInsight&apos;s built-in star detection and PSF fitting. Measurements run in the background and never change your images.</p>
+            <p>- A live Checking line shows what PIAdvisor is measuring. Show measured values opens the exact results, and follow-up questions keep key measurements until the image changes. In each measuring round, PIAdvisor can take several measurements at once. Free allows 2 rounds per reply. Pro and Trial allow up to 12.</p>
+            <p>- Exact settings come from your installation: before PIAdvisor suggests settings for a process, it can read that process&apos;s parameter names, ranges and options from your PixInsight.</p>
+            <p>- Paste PNG or JPEG screenshots directly into the chat input with Ctrl+V on Windows and Linux. Images appear in the draft attachment ribbon without sending or replacing your text. You can also send an image without a written message.</p>
+            <p>- Click an attached image to open a separate, resizable viewer. Click to zoom around the pointer, drag to pan, then click again to fit the whole image. Originals stay local at their imported or captured resolution; the model receives resized images. Imports run in the background.</p>
+            <p>- Each reply shows how long it took, including measuring.</p>
+            <p>- A line under each reply shows token usage, cached tokens and request count; OpenRouter also reports cost. Conversation requests reuse provider prompt caching where supported to reduce repeated processing and cost.</p>
+            <p>- About my setup in LLM Settings saves your gear and preferences, such as processes you avoid, and includes them with every request.</p>
+            <p>- Updated advisor guidance names problems first and backs findings with measurements.</p>
+            <p>- If you changed the system prompt or the formatting template, PIAdvisor offers the new prompts at startup and saves a copy of yours first.</p>
+            <p>- Better provider compatibility and clearer error messages.</p>
+            <p>- Fixes for measuring, message text, history-preview privacy and license activation.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
 </xri>
-<Signature developerId="RayDetwiler" timestamp="2026-10-04T20:50:10.519Z" encoding="Base64">Gu6Sy7B5SU3hnrpS4PLhK0SV0dKR3xIZ8kwQiXziyS/fR4FEsUCi7gHRHRMFPm1B7SSgcFi7pPa/IWbRjZhpBw==</Signature>
+<Signature developerId="RayDetwiler" timestamp="2026-10-15T17:29:12.140Z" encoding="Base64">5yYvDzwNhDSjdUipVf3qJpQZucu96YG2mQuWmoaxOgxTDxNcC0w55dFzZJETOKdRKcYKSQMEuVuLnJq8/sAKDA==</Signature>

@@ -3,430 +3,172 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>PIAdvisor Update Repository</title>
-  <meta name="description" content="PixInsight update repository for PIAdvisor (updates.xri + packages)."/>
-  <link rel="icon" type="image/svg+xml" href="pia-logo.svg"/>
+  <title>Download PIAdvisor</title>
+  <meta name="description" content="Install PIAdvisor in PixInsight through the PixInsight update system. Add the repository once, and PixInsight installs the module and its updates."/>
+  <link rel="icon" type="image/svg+xml" href="pia-mark.svg"/>
+  <link rel="preload" href="fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin/>
+  <link rel="stylesheet" href="site.css"/>
   <style>
-    :root{
-      --accent-blue: #60a5fa;
-      --accent-purple: #c084fc;
-      --accent-gradient: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-      --bg-darkest: #0a0e1a;
-      --bg-dark: #0f172a;
-      --panel: rgba(15, 23, 42, 0.72);
-      --panel-2: rgba(2, 6, 23, 0.56);
-      --card-border: rgba(255, 255, 255, 0.10);
-      --text: #f1f5f9;
-      --muted: #94a3b8;
-      --shadow: 0 18px 44px rgba(0,0,0,.55);
-      --shadow-sm: 0 10px 22px rgba(0,0,0,.35);
-      --radius: 18px;
-    }
-
-    @font-face {
-      font-family: "Atkinson";
-      src: url("fonts/atkinson-regular.woff") format("woff");
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: "Atkinson";
-      src: url("fonts/atkinson-bold.woff") format("woff");
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    *{ box-sizing: border-box; }
-    html, body{ height: 100%; }
-
-    body{
-      margin: 0;
-      font-family: "Atkinson", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(1000px 600px at 12% 15%, rgba(96, 165, 250, 0.18), transparent 60%),
-        radial-gradient(900px 540px at 88% 82%, rgba(192, 132, 252, 0.14), transparent 62%),
-        var(--bg-darkest);
-      overflow-x: hidden;
-    }
-
-    /* Static stars (no animations; avoids compositor artifacts on hover). */
-    body::before{
-      content: "";
-      position: fixed;
-      inset: -20vh -20vw;
-      background:
-        radial-gradient(circle at 18% 78%, rgba(255,255,255,0.10) 0 1px, transparent 2px),
-        radial-gradient(circle at 62% 12%, rgba(255,255,255,0.08) 0 1px, transparent 2px),
-        radial-gradient(circle at 84% 36%, rgba(255,255,255,0.07) 0 1px, transparent 2px),
-        radial-gradient(circle at 42% 52%, rgba(255,255,255,0.06) 0 1px, transparent 2px),
-        radial-gradient(circle at 74% 68%, rgba(255,255,255,0.07) 0 1px, transparent 2px);
-      pointer-events: none;
-      opacity: 0.45;
-    }
-
-    .wrap{
-      position: relative;
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 48px 20px 72px;
-    }
-
-    header{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 8px 0 32px;
-      animation: fadeIn 520ms ease-out both;
-    }
-
-    @keyframes fadeIn{
-      from{ opacity: 0; transform: translateY(8px); }
-      to{ opacity: 1; transform: translateY(0); }
-    }
-
-    .brand{
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: var(--text);
-    }
-
-    .brand img{
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      box-shadow: 0 10px 22px rgba(0,0,0,.35);
-    }
-
-    .brand-title{
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
-    }
-
-    .brand-title strong{
-      font-size: 1.15rem;
-      letter-spacing: -0.02em;
-    }
-
-    .brand-title span{
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .pill{
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 12px;
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 999px;
-      background: rgba(2, 6, 23, 0.55);
-      color: var(--muted);
-      font-size: 0.95rem;
-      white-space: nowrap;
-    }
-
-    .pill-group{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      justify-content: flex-end;
-    }
-
-    .pill-link{
-      color: var(--text);
-      text-decoration: none;
-      cursor: pointer;
-      transition: border-color 160ms ease, background 160ms ease, color 160ms ease, box-shadow 160ms ease;
-    }
-
-    .pill-link:hover{
-      border-color: rgba(255,255,255,0.18);
-      background: rgba(2, 6, 23, 0.70);
-      box-shadow: var(--shadow-sm);
-      color: var(--text);
-    }
-
-    .pill-link:focus-visible{
-      outline: 2px solid rgba(96, 165, 250, 0.85);
-      outline-offset: 3px;
-    }
-
-    main{
-      animation: fadeIn 520ms ease-out both;
-      animation-delay: 80ms;
-    }
-
-    .hero{
-      padding: 28px;
-      border: 1px solid var(--card-border);
+    .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+    .hero .meta-grid { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr) minmax(0, 1fr); }
+    .hero .meta-value { font-size: 0.85rem; }
+    .hero h1 { margin-bottom: 1.25rem; }
+    .repo-row { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+    .repo-url {
+      flex: 1 1 18rem;
+      min-width: 0;
+      padding: 0.7rem 0.9rem;
+      border: 1px solid var(--line-2);
       border-radius: var(--radius);
-      background: var(--panel);
-      box-shadow: var(--shadow);
-    }
-
-    h1{
-      margin: 0;
-      font-size: clamp(2rem, 5vw, 3.1rem);
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-    }
-
-    .grad{
-      background: var(--accent-gradient);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    p{
-      margin: 14px 0 0;
-      color: var(--muted);
-      font-size: 1.05rem;
-      line-height: 1.55;
-      max-width: 72ch;
-    }
-
-    .hint{
-      display: inline-block;
-      margin-top: 6px;
-      color: rgba(148,163,184,0.82);
-      font-size: 0.98rem;
-    }
-
-    .grid{
-      margin-top: 22px;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-    }
-
-    .card{
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 14px;
-      background: var(--panel-2);
-      padding: 14px 14px;
-    }
-
-    .card h2{
-      margin: 0 0 8px;
-      font-size: 1.02rem;
-      letter-spacing: -0.01em;
-    }
-
-    .row{
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .row.buttons{
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      align-items: stretch;
-    }
-
-    .row.buttons .btn{
-      width: 100%;
-    }
-
-    a{
-      color: var(--accent-blue);
-      text-decoration: none;
-      transition: color 160ms ease;
-    }
-    a:not(.btn):hover{ color: var(--accent-purple); }
-    a:focus-visible{
-      outline: 2px solid rgba(96, 165, 250, 0.85);
-      outline-offset: 3px;
-    }
-
-    code{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 0.95em;
-      padding: 2px 7px;
-      border-radius: 8px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: rgba(241,245,249,0.95);
-    }
-
-    .repo-url code{
+      background: var(--ink-0);
+      color: var(--oiii-strong);
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
       overflow-wrap: anywhere;
-      word-break: break-word;
+      user-select: all;
     }
-
-    .btn-compact{
-      padding: 8px 12px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      background: rgba(2, 6, 23, 0.60);
-      backdrop-filter: none;
+    .copy-status { min-height: 1.4em; margin: 0.6rem 0 0; color: var(--fg-3); font-size: 0.85rem; }
+    .steps { list-style: none; margin: 0; padding: 0; counter-reset: step; display: grid; gap: 0; }
+    .steps li {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 2.5rem minmax(0, 1fr);
+      gap: 0.75rem;
+      padding: 1.1rem 0;
+      border-top: 1px solid var(--line);
+      color: var(--fg-2);
     }
-    .btn-compact:hover{
-      box-shadow: var(--shadow-sm);
+    .steps li:first-child { border-top: 0; padding-top: 0; }
+    .steps li:last-child { padding-bottom: 0; }
+    .steps li::before {
+      content: counter(step, decimal-leading-zero);
+      color: var(--oiii);
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      padding-top: 0.1rem;
     }
-
-    .copy-status{
-      color: rgba(148,163,184,0.85);
-      font-size: 0.95rem;
+    .steps strong { color: var(--fg); font-weight: 560; }
+    .section { margin-top: clamp(3rem, 2rem + 4vw, 5rem); }
+    .two-col { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+    .two-col .panel + .panel { margin-top: 0; }
+    .plain-list { margin: 0; padding-left: 1.1rem; color: var(--fg-2); }
+    .plain-list li + li { margin-top: 0.4rem; }
+    .contents { margin: 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 0.6rem 1.25rem; }
+    .contents dt { font-family: var(--font-mono); font-size: 0.9rem; }
+    .contents dd { margin: 0; color: var(--fg-2); }
+    @media (max-width: 860px) {
+      .hero, .two-col { grid-template-columns: 1fr; }
     }
-
-    .btn{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 11px 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(2, 6, 23, 0.55);
-      color: var(--text);
-      font-weight: 700;
-      cursor: pointer;
-      transition: border-color 140ms ease, background 140ms ease, box-shadow 140ms ease;
+    @media (max-width: 700px) {
+      .hero .meta-grid { grid-template-columns: 1fr; }
     }
-    .btn:not(.btn-primary):hover{
-      border-color: rgba(255,255,255,0.18);
-      background: rgba(2, 6, 23, 0.70);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .btn:focus-visible{
-      outline: 2px solid rgba(96, 165, 250, 0.85);
-      outline-offset: 3px;
-    }
-
-    .btn-primary{
-      border: none;
-      background: var(--accent-gradient);
-      color: #0a0e1a;
-      box-shadow: 0 10px 26px rgba(96, 165, 250, 0.18), 0 12px 30px rgba(192, 132, 252, 0.12);
-    }
-
-    .btn-primary:hover{
-      background: var(--accent-gradient);
-      color: #0a0e1a;
-      box-shadow: 0 14px 34px rgba(96, 165, 250, 0.20), 0 16px 40px rgba(192, 132, 252, 0.14);
-    }
-
-    .btn-secondary{
-      background: rgba(2, 6, 23, 0.55);
-    }
-
-    footer{
-      margin-top: 18px;
-      color: rgba(148,163,184,0.75);
-      font-size: 0.95rem;
-      padding: 20px 2px 0;
-    }
-
-    @media (min-width: 780px){
-      .grid{ grid-template-columns: 1fr 1fr; }
-      .hero{ padding: 34px; }
-    }
-
-    @media (max-width: 640px){
-      .wrap{ padding: 32px 16px 56px; }
-      header{
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
-      .pill-group{
-        width: 100%;
-        justify-content: flex-start;
-      }
-      .pill{
-        font-size: 0.9rem;
-        padding: 8px 10px;
-      }
-      .pill-link{
-        font-size: 0.9rem;
-      }
+    @media (max-width: 480px) {
+      .contents { grid-template-columns: 1fr; gap: 0.2rem; }
+      .contents dd { margin-bottom: 0.6rem; }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <a class="brand" href="https://piadvisor.net" rel="noopener">
-        <img src="pia-logo.svg" alt="PIAdvisor"/>
-        <div class="brand-title">
-          <strong>PIAdvisor</strong>
-          <span>PixInsight update repository</span>
-        </div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="https://piadvisor.net/">
+        <img src="pia-mark.svg" alt="" width="28" height="28"/>
+        <span>PIAdvisor</span>
+        <small>update repository</small>
       </a>
-      <div class="pill-group">
-        <div class="pill">
-          <span>Entry point:</span>
-          <a href="updates.xri"><code>updates.xri</code></a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="https://piadvisor.net/">Website</a>
+        <a href="https://piadvisor.net/changelog/">Changelog</a>
+        <a href="docs/">Documentation</a>
+        <a href="packages/">Packages</a>
+        <a href="https://github.com/phatwila/PIAdvisor-Release">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero" aria-labelledby="title">
+        <div>
+          <span class="eyebrow">Download</span>
+          <h1 id="title">Install PIAdvisor in PixInsight</h1>
+          <p class="lede">PIAdvisor installs through the PixInsight update system. Add this repository once. PixInsight then installs the module and every later update for you.</p>
         </div>
-        <a class="pill pill-link" href="docs/">Documentation</a>
-        <a class="pill pill-link" href="https://piadvisor.net/changelog/" rel="noopener">Changelog</a>
-      </div>
-    </header>
-
-    <main>
-      <section class="hero">
-        <h1><span class="grad">PIAdvisor</span> releases for PixInsight</h1>
-        <p>
-          This repository is intentionally minimal: it hosts the signed update manifest and the ZIP packages
-          PixInsight installs. You don’t need to browse anything here unless you’re verifying the feed.
-        </p>
-
-        <div class="grid">
-          <div class="card">
-            <h2>For PixInsight users</h2>
-            <p style="margin-top: 0;">
-              Add this repository URL in PixInsight:
-              <span class="hint">Resources &gt; Updates &gt; Manage Repositories... &gt; Add</span>
-            </p>
-            <div class="row repo-url">
-              <code id="repoUrl">https://phatwila.github.io/PIAdvisor-Release/</code>
-              <button class="btn btn-compact" type="button" id="copyRepoUrl" aria-label="Copy repository URL">Copy</button>
-              <span class="copy-status" id="copyStatus" aria-live="polite"></span>
-            </div>
+        <div class="panel">
+          <span class="field-label" id="repo-label">Repository URL</span>
+          <div class="repo-row">
+            <code class="repo-url" id="repoUrl" aria-labelledby="repo-label">https://phatwila.github.io/PIAdvisor-Release/</code>
+            <button class="btn btn-primary" type="button" id="copyRepoUrl">Copy</button>
           </div>
-          <div class="card">
-            <h2>Feed contents</h2>
-            <div class="row buttons">
-              <a class="btn btn-primary" href="updates.xri">Open updates.xri</a>
-              <a class="btn btn-secondary" href="packages/">Browse packages/</a>
-            </div>
-            <p style="margin-top: 10px;">
-              Packages deploy relative to the PixInsight installation root (e.g., <code>bin/</code>, <code>doc/tools/</code>).
-            </p>
+          <p class="copy-status" id="copyStatus" aria-live="polite"></p>
+          <div class="meta-grid" id="release">
+            <div><span class="field-label">Latest release</span><span class="meta-value" id="relVersion"><a href="packages/">See packages</a></span></div>
+            <div><span class="field-label">Platforms</span><span class="meta-value" id="relPlatforms">Windows x64, Linux x64</span></div>
+            <div><span class="field-label">Published</span><span class="meta-value" id="relDate">See packages</span></div>
           </div>
         </div>
-
-        <footer>
-          <div>Prefer the main site? <a href="https://piadvisor.net" rel="noopener">piadvisor.net</a> · <a href="https://piadvisor.net/changelog/" rel="noopener">public changelog</a></div>
-        </footer>
       </section>
-    </main>
-  </div>
-  <script type="text/javascript">
-    (function(){
+
+      <section class="section" aria-labelledby="steps-title">
+        <h2 id="steps-title">Install in four steps</h2>
+        <div class="panel">
+          <ol class="steps">
+            <li><span>In PixInsight, select <strong>Resources &gt; Updates &gt; Manage Repositories</strong>.</span></li>
+            <li><span>Click <strong>Add</strong>, paste the repository URL, then click <strong>OK</strong>.</span></li>
+            <li><span>Select <strong>Resources &gt; Updates &gt; Check for Updates</strong>. Apply the update, then restart PixInsight.</span></li>
+            <li><span>Open <strong>Process &gt; PIAdvisor &gt; PIAdvisor</strong>. In <strong>LLM Settings</strong>, select your provider, type your API key and click <strong>Fetch Models</strong>. The <a href="docs/">documentation</a> has the details.</span></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section two-col" aria-label="Requirements and editions">
+        <div class="panel">
+          <h3>Requirements</h3>
+          <ul class="plain-list">
+            <li>PixInsight 1.8.9 or later on Windows or Linux (x64). macOS support is coming soon.</li>
+            <li>An API key from OpenAI, OpenRouter or Google Gemini, or a local model server such as Ollama or LM Studio. Your provider bills hosted usage directly.</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Free and Pro</h3>
+          <p>One module runs both editions. To activate Pro or a free 60-day trial, click the Preferences (wrench) button in the PIAdvisor panel and type your license key.</p>
+          <div class="cta-group">
+            <a class="btn btn-secondary" href="https://piadvisor.net/#pricing">Compare editions</a>
+            <a class="btn btn-secondary" href="https://piadvisor.net/#trial">Start a free trial</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="contents-title">
+        <h2 id="contents-title">Repository contents</h2>
+        <div class="panel">
+          <dl class="contents">
+            <dt><a href="updates.xri">updates.xri</a></dt>
+            <dd>The signed manifest that the PixInsight updater reads.</dd>
+            <dt><a href="packages/">packages/</a></dt>
+            <dd>The module package for each platform, with the release history.</dd>
+            <dt><a href="docs/">docs/</a></dt>
+            <dd>The reference documentation. PixInsight shows the same pages in its documentation browser.</dd>
+          </dl>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; PIAdvisor. Built for PixInsight. <a href="https://piadvisor.net/">piadvisor.net</a> &middot; <a href="https://piadvisor.net/privacy/">Privacy</a> &middot; <a href="mailto:support@piadvisor.net">support@piadvisor.net</a></p>
+      <p>PixInsight is a trademark of Pleiades Astrophoto S.L. PIAdvisor is an independent module and is not affiliated with or endorsed by Pleiades Astrophoto.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
       var codeEl = document.getElementById("repoUrl");
       var btn = document.getElementById("copyRepoUrl");
       var statusEl = document.getElementById("copyStatus");
-      if (!codeEl || !btn) return;
 
-      function setStatus(msg){
-        if (!statusEl) return;
-        statusEl.textContent = msg || "";
-      }
-
-      function fallbackCopy(text){
+      function fallbackCopy(text) {
         try {
           var ta = document.createElement("textarea");
           ta.value = text;
@@ -443,31 +185,56 @@
         }
       }
 
-      btn.addEventListener("click", function(){
+      btn.addEventListener("click", function () {
         var text = (codeEl.textContent || "").trim();
-        if (!text) return;
-
-        setStatus("");
-        var original = btn.textContent;
-        btn.disabled = true;
-        btn.textContent = "Copying...";
-
-        var done = function(ok){
-          btn.disabled = false;
-          btn.textContent = ok ? "Copied" : "Copy failed";
-          setStatus(ok ? "Copied to clipboard." : "Copy failed - please copy the URL manually.");
-          window.setTimeout(function(){
-            btn.textContent = original;
-            setStatus("");
-          }, 1400);
+        var done = function (ok) {
+          btn.textContent = ok ? "Copied" : "Copy";
+          statusEl.textContent = ok ? "The URL is on your clipboard." : "Copy failed. Select the URL and copy it.";
+          window.setTimeout(function () { btn.textContent = "Copy"; statusEl.textContent = ""; }, 2000);
         };
-
-        if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
-          navigator.clipboard.writeText(text).then(function(){ done(true); }, function(){ done(fallbackCopy(text)); });
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(fallbackCopy(text)); });
         } else {
           done(fallbackCopy(text));
         }
       });
+
+      // The latest release comes from the manifest, so this page needs no edit per release.
+      if (!window.fetch || !window.DOMParser) return;
+      fetch("updates.xri", { cache: "no-cache" }).then(function (r) {
+        if (!r.ok) throw new Error(String(r.status));
+        return r.text();
+      }).then(function (xml) {
+        var doc = new DOMParser().parseFromString(xml, "application/xml");
+        var items = [];
+        var platforms = doc.getElementsByTagName("platform");
+        for (var i = 0; i < platforms.length; i++) {
+          var os = platforms[i].getAttribute("os") || "";
+          var arch = platforms[i].getAttribute("arch") || "";
+          var packages = platforms[i].getElementsByTagName("package");
+          for (var j = 0; j < packages.length; j++) {
+            var name = packages[j].getAttribute("fileName") || "";
+            var version = (name.match(/-(\d+\.\d+\.\d+)-\d{14}\.zip$/) || [])[1];
+            var stamp = packages[j].getAttribute("releaseDate") || "";
+            if (version && /^\d{14}$/.test(stamp)) items.push({ os: os, arch: arch, version: version, stamp: stamp });
+          }
+        }
+        if (!items.length) return;
+        items.sort(function (a, b) { return b.stamp.localeCompare(a.stamp); });
+        var latest = items[0];
+        var names = { windows: "Windows", linux: "Linux", macosx: "macOS", freebsd: "FreeBSD" };
+        var seen = {};
+        var labels = [];
+        items.forEach(function (it) {
+          if (it.version !== latest.version) return;
+          var label = (names[it.os] || it.os) + " " + it.arch;
+          if (!seen[label]) { seen[label] = true; labels.push(label); }
+        });
+        document.getElementById("relVersion").textContent = "v" + latest.version;
+        document.getElementById("relPlatforms").textContent = labels.join(", ");
+        var s = latest.stamp;
+        document.getElementById("relDate").textContent = s.slice(0, 4) + "-" + s.slice(4, 6) + "-" + s.slice(6, 8);
+      }).catch(function () { /* The static fallback text stays. */ });
     })();
   </script>
 </body>

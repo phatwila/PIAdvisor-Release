@@ -27,6 +27,17 @@
       overflow-wrap: anywhere;
       user-select: all;
     }
+    .mac-notice {
+      display: flex; align-items: center; gap: 0.75rem 1rem; flex-wrap: wrap;
+      margin: 0 0 clamp(1.5rem, 1rem + 2vw, 2.5rem);
+      padding: 0.85rem 1.1rem;
+      border: 1px solid var(--oiii);
+      border-radius: var(--radius);
+      background: var(--oiii-tint);
+      color: var(--fg);
+    }
+    .mac-notice strong { color: var(--oiii-strong); font-weight: 600; }
+    .mac-notice span { color: var(--fg-2); }
     .copy-status { min-height: 1.4em; margin: 0.6rem 0 0; color: var(--fg-3); font-size: 0.85rem; }
     .steps { list-style: none; margin: 0; padding: 0; counter-reset: step; display: grid; gap: 0; }
     .steps li {
@@ -88,11 +99,15 @@
 
   <main>
     <div class="container">
+      <p class="mac-notice" role="note">
+        <strong>New in 1.6: PIAdvisor runs on Mac.</strong>
+        <span>Macs with Apple silicon and PixInsight 1.9.5 or later use the same repository URL. <a href="https://piadvisor.net/changelog/#v1-6-0">What's new</a></span>
+      </p>
       <section class="hero" aria-labelledby="title">
         <div>
           <span class="eyebrow">Download</span>
           <h1 id="title">Install PIAdvisor in PixInsight</h1>
-          <p class="lede">PIAdvisor installs through the PixInsight update system. Add this repository once. PixInsight then installs the module and every later update for you.</p>
+          <p class="lede">PIAdvisor installs through the PixInsight update system on Windows, Linux and Mac. Add this repository once. PixInsight then installs the module and every later update for you.</p>
         </div>
         <div class="panel">
           <span class="field-label" id="repo-label">Repository URL</span>
@@ -103,7 +118,7 @@
           <p class="copy-status" id="copyStatus" aria-live="polite"></p>
           <div class="meta-grid" id="release">
             <div><span class="field-label">Latest release</span><span class="meta-value" id="relVersion"><a href="packages/">See packages</a></span></div>
-            <div><span class="field-label">Platforms</span><span class="meta-value" id="relPlatforms">Windows x64, Linux x64</span></div>
+            <div><span class="field-label">Platforms</span><span class="meta-value" id="relPlatforms">Windows x64, Linux x64, Mac (Apple silicon)</span></div>
             <div><span class="field-label">Published</span><span class="meta-value" id="relDate">See packages</span></div>
           </div>
         </div>
@@ -125,7 +140,8 @@
         <div class="panel">
           <h3>Requirements</h3>
           <ul class="plain-list">
-            <li>PixInsight 1.8.9 or later on Windows or Linux (x64). macOS support is coming soon.</li>
+            <li>Windows or Linux (x64): PixInsight 1.8.9 or later.</li>
+            <li>Mac with Apple silicon: PixInsight 1.9.5 or later. PIAdvisor does not support Intel Macs.</li>
             <li>An API key from OpenAI, OpenRouter or Google Gemini, or a local model server such as Ollama or LM Studio. Your provider bills hosted usage directly.</li>
           </ul>
         </div>
@@ -205,7 +221,11 @@
         if (!r.ok) throw new Error(String(r.status));
         return r.text();
       }).then(function (xml) {
-        var doc = new DOMParser().parseFromString(xml, "application/xml");
+        // The signature follows the closed <xri> element, so parse only that element.
+        var body = xml.match(/<xri[\s>][\s\S]*?<\/xri>/);
+        if (!body) throw new Error("No xri element in updates.xri");
+        var doc = new DOMParser().parseFromString(body[0], "application/xml");
+        if (doc.getElementsByTagName("parsererror").length) throw new Error("Malformed updates.xri");
         var items = [];
         var platforms = doc.getElementsByTagName("platform");
         for (var i = 0; i < platforms.length; i++) {
@@ -222,12 +242,12 @@
         if (!items.length) return;
         items.sort(function (a, b) { return b.stamp.localeCompare(a.stamp); });
         var latest = items[0];
-        var names = { windows: "Windows", linux: "Linux", macosx: "macOS", freebsd: "FreeBSD" };
+        var names = { windows: "Windows", linux: "Linux", macosx: "Mac", freebsd: "FreeBSD" };
         var seen = {};
         var labels = [];
         items.forEach(function (it) {
           if (it.version !== latest.version) return;
-          var label = (names[it.os] || it.os) + " " + it.arch;
+          var label = it.os === "macosx" && it.arch === "arm64" ? "Mac (Apple silicon)" : (names[it.os] || it.os) + " " + it.arch;
           if (!seen[label]) { seen[label] = true; labels.push(label); }
         });
         document.getElementById("relVersion").textContent = "v" + latest.version;

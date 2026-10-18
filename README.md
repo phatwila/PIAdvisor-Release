@@ -1,6 +1,14 @@
 # PIAdvisor update repository
 
-PixInsight update repository for **PIAdvisor**, a processing assistant that works inside [PixInsight](https://pixinsight.com). Windows and Linux (x64), PixInsight 1.8.9 or later.
+PixInsight update repository for **PIAdvisor**, a processing assistant that works inside [PixInsight](https://pixinsight.com).
+
+**New in 1.6: PIAdvisor runs on Mac.** Macs with Apple silicon use the same repository URL.
+
+| Platform | PixInsight |
+| :--- | :--- |
+| Windows x64 | 1.8.9 or later |
+| Linux x64 | 1.8.9 or later |
+| Mac with Apple silicon | 1.9.5 or later |
 
 Download page: <https://phatwila.github.io/PIAdvisor-Release/>
 
@@ -15,6 +23,8 @@ Download page: <https://phatwila.github.io/PIAdvisor-Release/>
 
 3. Select **Resources > Updates > Check for Updates**. Apply the update, then restart PixInsight.
 4. Open **Process > PIAdvisor > PIAdvisor** and set your provider in **LLM Settings**.
+
+The steps are the same on every platform. PIAdvisor does not support Intel Macs. If you need Intel Mac support, tell us at support@piadvisor.net.
 
 ## Contents
 

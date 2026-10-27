@@ -63,7 +63,7 @@
 <li class="pidoc_tocSubitem"><a href="#__parameter003__">3.3&emsp;API key</a></li>
 <li class="pidoc_tocSubitem"><a href="#__parameter004__">3.4&emsp;Model</a></li>
 <li class="pidoc_tocSubitem"><a href="#__parameter005__">3.5&emsp;Enable visual analysis</a></li>
-<li class="pidoc_tocSubitem"><a href="#__parameter006__">3.6&emsp;Vision max pixels</a></li>
+<li class="pidoc_tocSubitem"><a href="#__parameter006__">3.6&emsp;Image size</a></li>
 <li class="pidoc_tocSubitem"><a href="#__parameter007__">3.7&emsp;Image limit</a></li>
 <li class="pidoc_tocSubitem"><a href="#__parameter008__">3.8&emsp;Include history snapshot</a></li>
 <li class="pidoc_tocSubitem"><a href="#__parameter009__">3.9&emsp;History steps</a></li>
@@ -118,6 +118,7 @@
    <p class="pidoc_sectionToggleButton" onclick="pidoc_toggleSection( 'Introduction', this );">[hide]</p>
    <div id="Introduction">
 <p>PIAdvisor connects PixInsight to an AI model through OpenAI, OpenRouter, Google Gemini, or a local OpenAI-compatible server such as Ollama or LM Studio. For each question, PIAdvisor collects context from your open images: FITS keywords, processing history, astrometric solution, screen stretch and image statistics. It sends this context with your question, so the answer applies to your image and not to an average image.</p>
+<p>PIAdvisor supports Windows and Linux on x64 with PixInsight 1.8.9 or later, and Apple silicon Macs with PixInsight 1.9.5 or later. Intel Macs are not supported.</p>
 <p>Typical questions:</p>
 
 <ul class="pidoc_list">
@@ -158,11 +159,11 @@
 </td>
 </tr>
 <tr>
-<td><p>Vision max pixels</p>
+<td><p>Image size</p>
 </td>
 <td><p>Up to 1024</p>
 </td>
-<td><p>Up to 2048</p>
+<td><p>Up to 6000 (default 2048; model-dependent)</p>
 </td>
 </tr>
 <tr>
@@ -184,9 +185,9 @@
 <tr>
 <td><p>Tool rounds</p>
 </td>
-<td><p>2 per reply</p>
+<td><p>0 to 2 per reply</p>
 </td>
-<td><p>1 to 12 per reply (default 4)</p>
+<td><p>0 to 12 per reply (default 4)</p>
 </td>
 </tr>
 <tr>
@@ -199,7 +200,7 @@
 </tr>
 </table>
 
-<p>A trial is a Pro license for 30 days. When a trial ends, PIAdvisor returns to the Free limits and tells you at startup.</p>
+<p>A trial is a Pro license for 30 days. When a trial ends, the next question uses the Free limits. At the next start, PIAdvisor tells you that the trial ended, with a summary of what you used when one was recorded.</p>
 </div>
 
    </div>
@@ -230,7 +231,7 @@
 <p>Context Snapshot</p>
 </dt>
 <dd>
-<p>The prepared image context that goes with your next question. Open this section to see exactly what the model receives.</p>
+<p>A preview of the captured image context. The context is refreshed when you send and can be shortened to fit the request.</p>
 </dd>
 <dt>
 <p>LLM Settings</p>
@@ -262,7 +263,7 @@
 <p>Measurements</p>
 </dt>
 <dd>
-<p>The model can measure your open images while it answers: star FWHM and eccentricity, background noise and gradients, statistics, stretch previews, history steps, process parameters and FITS keywords. The tools only read data.</p>
+<p>The model can measure your open images while it answers: star FWHM and eccentricity, background noise and gradients, statistics and lightness, stretch and curve previews, history steps, process parameters, installed process documentation and FITS keywords. The tools only read data.</p>
 </dd>
 <dt>
 <p>Image attachments</p>
@@ -412,8 +413,8 @@
       </div>
       <div id="__parameter006__">
 <div class="pidoc_parameter">
-   <h4 class="pidoc_parameterTitle">3.6&emsp;Vision max pixels</h4>
-<p>The largest side, in pixels, of each image that PIAdvisor sends to the model. The values are 512, 768, 1024, 1536 and 2048. Free: up to 1024. Pro and Trial: up to 2048, default 2048. Larger values show more detail and use more tokens.</p>
+   <h4 class="pidoc_parameterTitle">3.6&emsp;Image size</h4>
+<p>The largest side, in pixels, of each image that PIAdvisor sends to the model. The values are 512, 768, 1024, 1536, 2048 and <em>Full resolution (up to 6000 px)</em>. Free: up to 1024. Pro and Trial: all values, default 2048. Full resolution goes full size only to models that read it; other models get the 2048 px copy. The request's size budget can reduce the delivered size further. Larger values show more detail and use more tokens.</p>
 </div>
 
       </div>
@@ -462,14 +463,14 @@
       <div id="__parameter013__">
 <div class="pidoc_parameter">
    <h4 class="pidoc_parameterTitle">3.13&emsp;Tool rounds</h4>
-<p>The most measuring rounds in one answer. In each round, the model can request up to 6 measurements. Free: 2. Pro and Trial: 1 to 12, default 4. Most answers use one round. Each round sends the earlier results of the answer again, so more rounds use more tokens. When the results become large, PIAdvisor tells the model to answer with the data it has.</p>
+<p>The most measuring rounds in one answer. Set this to 0 to turn off data tools for that answer. Free allows 0 to 2 rounds; Pro and Trial allow 0 to 12 (default 4). In each round, the model can request up to 6 measurements in Free or 32 in Pro and Trial. Documentation reads do not use these slots. Most answers use one round. Each round sends the earlier results of the answer again, so more rounds use more tokens. When the results become large, PIAdvisor tells the model to answer with the data it has.</p>
 </div>
 
       </div>
       <div id="__parameter014__">
 <div class="pidoc_parameter">
    <h4 class="pidoc_parameterTitle">3.14&emsp;About my setup</h4>
-<p>Your equipment and preferences, sent with each question so that you do not repeat them. For example: <em>Mono LRGB and narrowband, 0.9&quot;/px. I do not use ML-based processes. I follow a video course; keep its tool order.</em> PIAdvisor does not recommend processes that you say you avoid. At most 600 characters.</p>
+<p>Your equipment and preferences, sent with each question so that you do not repeat them. For example: <em>Mono LRGB and narrowband, 0.9&quot;/px. I do not use ML-based processes. I follow a video course; keep its tool order.</em> Name the processes you want the advisor to avoid. At most 600 characters.</p>
 </div>
 
       </div>
@@ -525,7 +526,7 @@
       <div id="__parameter018__">
 <div class="pidoc_parameter">
    <h4 class="pidoc_parameterTitle">3.18&emsp;Installed version</h4>
-<p>The <em>Installed version</em> line at the bottom of <em>LLM Settings</em> shows the PIAdvisor release that you use and the state of the prompts, for example <span class="pidoc_code">Installed version: 1.5.0 | Prompt: default v8.8</span>. Point to it to see the full build identifier. Give this identifier when you ask for support.</p>
+<p>The <em>Installed version</em> line at the bottom of <em>LLM Settings</em> shows the PIAdvisor release that you use and the state of the prompts, for example <span class="pidoc_code">Installed version: 1.7.0 | Prompt: default v8.22</span>. Point to it to see the full build identifier. Give this identifier when you ask for support.</p>
 </div>
 
       </div>
@@ -564,14 +565,14 @@
 
 <p>Click <em>Cancel</em> to stop a reply. Click <em>New Chat</em> to start a new conversation.</p>
 <p>Point to a message to show its buttons. <em>Copy</em> copies the message as Markdown. Your own messages also have <em>Edit</em>: change the text or the attached images, then click <em>Apply Edit</em>. The edited message replaces that turn and all later turns. <em>Cancel Edit</em> restores the conversation.</p>
-<p>Answers name problems first, the most serious first. PIAdvisor praises a step only when a measurement or the image shows that it worked, and it does not grade your image. If you only share an image (&quot;Here is the red channel&quot;), the answer is short. For a full review, ask for analysis, advice or next steps.</p>
+<p>The built-in prompt asks for problems first, the most serious first, and for praise only when a measurement or the image shows that a step worked. Model answers can still be wrong. If you only share an image (&quot;Here is the red channel&quot;), the answer is short. For a full review, ask for analysis, advice or next steps.</p>
 <p>When ImageSolver, SPCC or WBPP fails, paste the error text from the Process Console into your question. PIAdvisor cannot read the console, PixInsight preferences or WBPP log files. It checks what the open image shows: the image scale from the FITS keywords, the start coordinates and the stars.</p>
 </div>
 
 <div class="pidoc_subsection" id="__Usage_:_Choosing_the_Image__">
    <h4 class="pidoc_subsectionTitle">4.3&emsp;Choosing the Image</h4>
 <p>The image selector in the toolbar follows the active image window. To keep the context on one image while you work in other windows, select that image in the list, or click the pin button. Click the pin button again to follow the active image.</p>
-<p>Open the <em>Context Snapshot</em> section to see the context that goes with your next question. The first line shows the mode, the number of images, the active image and the capture time.</p>
+<p>Open the <em>Context Snapshot</em> section to inspect the captured image context. The first line shows the mode, the number of images, the active image and the capture time.</p>
 </div>
 
 <div class="pidoc_subsection" id="__Usage_:_Using_Workspace_Mode_Pro__">
@@ -595,7 +596,7 @@
 <p>Attach View</p>
 </dt>
 <dd>
-<p>Attaches the visible area of the selected or pinned image window, as it shows on screen with its screen stretch. This is a screen capture, not the full-resolution image.</p>
+<p>Attaches the visible region of the selected or pinned image, rendered from its pixels with the screen stretch and the <em>Image size</em> limit. A preview, a busy view or a full render queue uses a screen capture instead.</p>
 </dd>
 <dt>
 <p>Screenshot</p>
@@ -612,7 +613,7 @@
 </dl>
 
 <p>Attached images show as cards above the message box. Click the remove button on a card to remove that image before you send. Images load in the background; wait until loading finishes before you send or edit a message.</p>
-<p>PIAdvisor resizes each image to the <em>Vision max pixels</em> limit before it sends it. Smaller images are not enlarged. The original image stays on your computer. Click an image in the chat to open it in the <em>Attachment Viewer</em>: click to zoom, drag to move, and click again to fit. <em>Fit</em> resets the view. <em>Close</em> or Escape returns to the chat.</p>
+<p>PIAdvisor resizes each image to the <em>Image size</em> limit before it sends it. Smaller images are not enlarged. The original image stays on your computer. Click an image in the chat to open it in the <em>Attachment Viewer</em>: click to zoom, drag to move, and click again to fit. <em>Fit</em> resets the view. <em>Close</em> or Escape returns to the chat.</p>
 <p>Earlier images stay in the conversation up to the <em>Image limit</em>. The newest images have priority. To remove an image from a sent message, click <em>Edit</em> on that message, remove the image, then click <em>Apply Edit</em>.</p>
 </div>
 
@@ -654,8 +655,8 @@
 <div class="pidoc_subsection" id="__Usage_:_Letting_PIAdvisor_Measure__">
    <h4 class="pidoc_subsectionTitle">4.7&emsp;Letting PIAdvisor Measure</h4>
 <p>Some answers need a number that you would otherwise look up yourself, for example the FWHM from SubframeSelector, the statistics of a region, or the number of frames from the FITS keywords. With <em>Let the advisor fetch image data</em> on, the model gets these numbers with read-only tools while it answers.</p>
-<p>A line above the answer, for example <span class="pidoc_code">[Checking: stars (Image01)...]</span>, shows what the model measures. When the answer is complete, click <em>Show measured values</em> to see the exact values the model received. <em>Show parameters</em> lists the process parameters the model looked up. Later questions in the same chat reuse the key values, for example FWHM and noise. When you process an image after a measurement, PIAdvisor tells the model to measure again.</p>
-<p>In PIAdvisor Free, the model measures only the image in the context: the selected or pinned image and its previews. To compare two images in Free, ask about the first image, select the second image in the image list, and ask again. The values from the first answer stay in the chat. With a Pro or trial license, Workspace Mode measures all open images in one question.</p>
+<p>A line above the answer, for example <span class="pidoc_code">[Checking: stars (Image01)...]</span>, shows what the model measures. When the answer is complete, click <em>Show measured values</em> to see the exact values the model received. <em>Show parameters</em> lists the process parameters the model looked up, and <em>Show documentation</em> shows what it read from the installed process documentation. Later questions in the same chat reuse the key values, for example FWHM and noise. When you process an image after a measurement, PIAdvisor tells the model to measure again.</p>
+<p>In PIAdvisor Free, the model measures only the image in the context: the selected or pinned image and its previews. To compare two images in Free, ask about the first image, select the second image in the image list, and ask again. The values from the first answer stay in the chat. With a Pro or trial license, the model can measure any open image in the same question, and Workspace Mode gives it the context of all open images.</p>
 <p>The tools need a model that supports function calling. When a model does not, PIAdvisor answers from the context snapshot and tells you.</p>
 
 <table class="pidoc_table">
@@ -681,7 +682,7 @@
 <tr>
 <td><p>Statistics</p>
 </td>
-<td><p>Any open image, or a region of it</p>
+<td><p>Any open image, or a region of it, also as CIE lightness (L*) in the image's RGB working space</p>
 </td>
 </tr>
 <tr>
@@ -691,9 +692,15 @@
 </td>
 </tr>
 <tr>
+<td><p>Curve preview</p>
+</td>
+<td><p>What a CurvesTransformation curve does through the image's mask, before you apply it. Pro can also test other masks and compare up to three curves.</p>
+</td>
+</tr>
+<tr>
 <td><p>History</p>
 </td>
-<td><p>All parameters of one processing step</p>
+<td><p>The recorded parameters of one processing step</p>
 </td>
 </tr>
 <tr>
@@ -703,13 +710,20 @@
 </td>
 </tr>
 <tr>
+<td><p>Process documentation</p>
+</td>
+<td><p>The reference page installed with a process, when one exists. Free and Pro.</p>
+</td>
+</tr>
+<tr>
 <td><p>FITS header</p>
 </td>
-<td><p>All keywords. Site, observer and serial-number values are removed.</p>
+<td><p>The keywords, with site, observer and serial-number values removed</p>
 </td>
 </tr>
 </table>
 
+<p>Each tool result holds at most 4000 bytes, so a long result can be cut.</p>
 <p>When noise reduction, for example TGVDenoise, is in the history, PIAdvisor does not estimate how much more integration time you need. Noise reduction lowers the measured noise, so that estimate is too low.</p>
 </div>
 
@@ -802,7 +816,7 @@
 
 <div class="pidoc_subsection" id="__Licensing_:_Trial_Licenses__">
    <h4 class="pidoc_subsectionTitle">5.3&emsp;Trial Licenses</h4>
-<p>A trial gives the Pro features for 30 days. PIAdvisor sends the trial key to your email address.</p>
+<p>A trial gives the Pro features for 30 days. PIAdvisor sends the trial key to your email address. While the trial runs, the window title shows the days left, and a reminder shows once when 5 days or fewer remain.</p>
 </div>
 
 <div class="pidoc_subsection" id="__Licensing_:_Deactivating_a_Device__">
@@ -933,7 +947,7 @@
 </div>
 
 <div id="footer">
-   <p>Generated by the PixInsight Documentation Compiler script version 1.8.0 on 2026-10-15 00:07:01 UTC</p>
+   <p>Generated by the PixInsight Documentation Compiler script version 1.8.0 on 2026-10-25 05:46:30 UTC</p>
 </div>
 <br/>
 <br/>

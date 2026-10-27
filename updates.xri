@@ -3,124 +3,139 @@
    <!-- PIAdvisor PixInsight Update Repository -->
    <description>
       <p>PIAdvisor update feed for PixInsight.</p>
-      <p>Status: Public package v1.6.0 published on 2026-10-18 02:52:35 UTC.</p>
-      <p>PIAdvisor now runs on Mac. This release also sends sharper images to the advisor, reuses uploaded images on supported connections, and allows more measurements in each round.</p>
+      <p>Status: Public package v1.7.0 published on 2026-10-27 21:33:10 UTC.</p>
+      <p>Smarter, more accurate processing advice. The advisor measures lightness, tests curves before you apply them, reads PixInsight&apos;s process documentation, and uses your installed processes and discovered scripts to guide recommendations.</p>
       <p>Changelog: https://piadvisor.net/changelog/</p>
    </description>
    <platform os="windows" arch="x64" version="1.8.9:1.9.4">
-      <package fileName="packages/PIAdvisor-windows-x64-1.6.0-20261018025120.zip" sha1="2ac6fa0fb44933bb2d0ddedd7d10a899c4510eef" releaseDate="20261018025120" type="module">
-         <title>PIAdvisor Module v1.6.0</title>
+      <package fileName="packages/PIAdvisor-windows-x64-1.7.0-20261027213232.zip" sha1="881afa40c7fb44b87acf7cb27abb5c7171ef33e3" releaseDate="20261027213232" type="module">
+         <title>PIAdvisor Module v1.7.0</title>
          <remove>bin/PIAdvisor-pxm.dll
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>PIAdvisor now runs on Mac. This release also sends sharper images to the advisor, reuses uploaded images on supported connections, and allows more measurements in each round.</p>
+            <p>Smarter, more accurate processing advice. The advisor measures lightness, tests curves before you apply them, reads PixInsight&apos;s process documentation, and uses your installed processes and discovered scripts to guide recommendations.</p>
             <p>Highlights:</p>
-            <p>- PIAdvisor now runs on Mac computers with Apple silicon in PixInsight 1.9.5 or later, alongside Windows and Linux. Install and update it from the same PixInsight repository. PIAdvisor does not support Intel Macs. If you need Intel Mac support, tell us at support@piadvisor.net.</p>
-            <p>- Attach View renders the part of the image you see from the image&apos;s own pixels and screen stretch. Previews and busy views attach the screen view instead.</p>
-            <p>- Pro now offers Full resolution. Supported models receive images up to 6000 pixels on the longest side. Other models receive images up to 2048 pixels. The advisor sees fine detail such as star shapes in the corners and noise in faint areas.</p>
-            <p>- Supported connections reuse uploaded images in later messages. PIAdvisor asks the provider to delete uploaded images when they leave the chat, and the images expire after 24 hours. You can turn this off in LLM Settings.</p>
-            <p>- Attached views show their history step and the last process, so the advisor can tell two states of the same image apart.</p>
-            <p>- Pro and Trial allow up to 32 measurements per round. That fits stars, background and FITS-header checks on each of five masters in one round.</p>
-            <p>- Every edition can set Tool rounds to 0 for answers without measurements. Free allows 0 to 2 measuring rounds per answer, with up to 6 measurements in each round.</p>
-            <p>- Export Chat adds the export date, PIAdvisor version, edition, and current provider and model beneath the title.</p>
-            <p>- Better advice for HaRGB combination, gradient correction after color calibration, and loading process settings.</p>
-            <p>- Fixes for window sizing and processing history details.</p>
+            <p>- Lightness (CIE L*) measurements for masks, curves and stretches.</p>
+            <p>- Test a curve through the image&apos;s mask before you apply it. Pro also tests another open mask before you assign it, and compares up to three curves.</p>
+            <p>- Parameter advice follows PixInsight&apos;s process documentation when it is installed. Free and Pro.</p>
+            <p>- Choose the reasoning effort on models that offer it. OpenAI models use your OpenAI key directly, with an estimated cost on each reply.</p>
+            <p>- Each process or script the advisor names is linked on its first mention in a reply.</p>
+            <p>- Try every Pro feature free for 30 days.</p>
+            <p>- Settings come from your image&apos;s current measurements when they can be measured; otherwise the advisor explains how to find them.</p>
+            <p>- Next steps start from what the image needs, its history and your earlier choices.</p>
+            <p>- Suggestions follow your installation: a suitable native process first, then installed alternatives.</p>
+            <p>- Trials stay on your working image, so the undo history stays in one place.</p>
+            <p>- Follow-ups keep earlier measurements, and questioned advice gets rechecked first.</p>
+            <p>- Better advice for stretching, black points, masks, star recombination and background color.</p>
+            <p>- Many fixes, including measurement statistics, mask state in large workspaces and cost lines on OpenRouter.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
    <platform os="linux" arch="x64" version="1.8.9:1.9.4">
-      <package fileName="packages/PIAdvisor-linux-x64-1.6.0-20261018025120.zip" sha1="a7397fda0fea17e37c1bafaa13eef4859ca2a605" type="module" releaseDate="20261018025120">
-         <title>PIAdvisor Module v1.6.0</title>
+      <package fileName="packages/PIAdvisor-linux-x64-1.7.0-20261027213232.zip" sha1="bf2cc713578750c58d77612a404170f159a123e7" type="module" releaseDate="20261027213232">
+         <title>PIAdvisor Module v1.7.0</title>
          <remove>bin/PIAdvisor-pxm.so
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>PIAdvisor now runs on Mac. This release also sends sharper images to the advisor, reuses uploaded images on supported connections, and allows more measurements in each round.</p>
+            <p>Smarter, more accurate processing advice. The advisor measures lightness, tests curves before you apply them, reads PixInsight&apos;s process documentation, and uses your installed processes and discovered scripts to guide recommendations.</p>
             <p>Highlights:</p>
-            <p>- PIAdvisor now runs on Mac computers with Apple silicon in PixInsight 1.9.5 or later, alongside Windows and Linux. Install and update it from the same PixInsight repository. PIAdvisor does not support Intel Macs. If you need Intel Mac support, tell us at support@piadvisor.net.</p>
-            <p>- Attach View renders the part of the image you see from the image&apos;s own pixels and screen stretch. Previews and busy views attach the screen view instead.</p>
-            <p>- Pro now offers Full resolution. Supported models receive images up to 6000 pixels on the longest side. Other models receive images up to 2048 pixels. The advisor sees fine detail such as star shapes in the corners and noise in faint areas.</p>
-            <p>- Supported connections reuse uploaded images in later messages. PIAdvisor asks the provider to delete uploaded images when they leave the chat, and the images expire after 24 hours. You can turn this off in LLM Settings.</p>
-            <p>- Attached views show their history step and the last process, so the advisor can tell two states of the same image apart.</p>
-            <p>- Pro and Trial allow up to 32 measurements per round. That fits stars, background and FITS-header checks on each of five masters in one round.</p>
-            <p>- Every edition can set Tool rounds to 0 for answers without measurements. Free allows 0 to 2 measuring rounds per answer, with up to 6 measurements in each round.</p>
-            <p>- Export Chat adds the export date, PIAdvisor version, edition, and current provider and model beneath the title.</p>
-            <p>- Better advice for HaRGB combination, gradient correction after color calibration, and loading process settings.</p>
-            <p>- Fixes for window sizing and processing history details.</p>
+            <p>- Lightness (CIE L*) measurements for masks, curves and stretches.</p>
+            <p>- Test a curve through the image&apos;s mask before you apply it. Pro also tests another open mask before you assign it, and compares up to three curves.</p>
+            <p>- Parameter advice follows PixInsight&apos;s process documentation when it is installed. Free and Pro.</p>
+            <p>- Choose the reasoning effort on models that offer it. OpenAI models use your OpenAI key directly, with an estimated cost on each reply.</p>
+            <p>- Each process or script the advisor names is linked on its first mention in a reply.</p>
+            <p>- Try every Pro feature free for 30 days.</p>
+            <p>- Settings come from your image&apos;s current measurements when they can be measured; otherwise the advisor explains how to find them.</p>
+            <p>- Next steps start from what the image needs, its history and your earlier choices.</p>
+            <p>- Suggestions follow your installation: a suitable native process first, then installed alternatives.</p>
+            <p>- Trials stay on your working image, so the undo history stays in one place.</p>
+            <p>- Follow-ups keep earlier measurements, and questioned advice gets rechecked first.</p>
+            <p>- Better advice for stretching, black points, masks, star recombination and background color.</p>
+            <p>- Many fixes, including measurement statistics, mask state in large workspaces and cost lines on OpenRouter.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
    <platform os="windows" arch="x64" version="1.9.5:1.9.99">
-      <package fileName="packages/PIAdvisor-windows-x64-1.6.0-20261018025235.zip" sha1="92b7679da82130efe719ec960ca937683d81a419" type="module" releaseDate="20261018025235">
-         <title>PIAdvisor Module v1.6.0</title>
+      <package fileName="packages/PIAdvisor-windows-x64-1.7.0-20261027213310.zip" sha1="9abc111415efc5f3782cf37d9c13d6182a6a2455" type="module" releaseDate="20261027213310">
+         <title>PIAdvisor Module v1.7.0</title>
          <remove>bin/PIAdvisor-pxm.dll
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>PIAdvisor now runs on Mac. This release also sends sharper images to the advisor, reuses uploaded images on supported connections, and allows more measurements in each round.</p>
+            <p>Smarter, more accurate processing advice. The advisor measures lightness, tests curves before you apply them, reads PixInsight&apos;s process documentation, and uses your installed processes and discovered scripts to guide recommendations.</p>
             <p>Highlights:</p>
-            <p>- PIAdvisor now runs on Mac computers with Apple silicon in PixInsight 1.9.5 or later, alongside Windows and Linux. Install and update it from the same PixInsight repository. PIAdvisor does not support Intel Macs. If you need Intel Mac support, tell us at support@piadvisor.net.</p>
-            <p>- Attach View renders the part of the image you see from the image&apos;s own pixels and screen stretch. Previews and busy views attach the screen view instead.</p>
-            <p>- Pro now offers Full resolution. Supported models receive images up to 6000 pixels on the longest side. Other models receive images up to 2048 pixels. The advisor sees fine detail such as star shapes in the corners and noise in faint areas.</p>
-            <p>- Supported connections reuse uploaded images in later messages. PIAdvisor asks the provider to delete uploaded images when they leave the chat, and the images expire after 24 hours. You can turn this off in LLM Settings.</p>
-            <p>- Attached views show their history step and the last process, so the advisor can tell two states of the same image apart.</p>
-            <p>- Pro and Trial allow up to 32 measurements per round. That fits stars, background and FITS-header checks on each of five masters in one round.</p>
-            <p>- Every edition can set Tool rounds to 0 for answers without measurements. Free allows 0 to 2 measuring rounds per answer, with up to 6 measurements in each round.</p>
-            <p>- Export Chat adds the export date, PIAdvisor version, edition, and current provider and model beneath the title.</p>
-            <p>- Better advice for HaRGB combination, gradient correction after color calibration, and loading process settings.</p>
-            <p>- Fixes for window sizing and processing history details.</p>
+            <p>- Lightness (CIE L*) measurements for masks, curves and stretches.</p>
+            <p>- Test a curve through the image&apos;s mask before you apply it. Pro also tests another open mask before you assign it, and compares up to three curves.</p>
+            <p>- Parameter advice follows PixInsight&apos;s process documentation when it is installed. Free and Pro.</p>
+            <p>- Choose the reasoning effort on models that offer it. OpenAI models use your OpenAI key directly, with an estimated cost on each reply.</p>
+            <p>- Each process or script the advisor names is linked on its first mention in a reply.</p>
+            <p>- Try every Pro feature free for 30 days.</p>
+            <p>- Settings come from your image&apos;s current measurements when they can be measured; otherwise the advisor explains how to find them.</p>
+            <p>- Next steps start from what the image needs, its history and your earlier choices.</p>
+            <p>- Suggestions follow your installation: a suitable native process first, then installed alternatives.</p>
+            <p>- Trials stay on your working image, so the undo history stays in one place.</p>
+            <p>- Follow-ups keep earlier measurements, and questioned advice gets rechecked first.</p>
+            <p>- Better advice for stretching, black points, masks, star recombination and background color.</p>
+            <p>- Many fixes, including measurement statistics, mask state in large workspaces and cost lines on OpenRouter.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
    <platform os="linux" arch="x64" version="1.9.5:1.9.99">
-      <package fileName="packages/PIAdvisor-linux-x64-1.6.0-20261018025235.zip" sha1="b178e8e2d067ccd44f20de4d1428bd414de80ef3" type="module" releaseDate="20261018025235">
-         <title>PIAdvisor Module v1.6.0</title>
+      <package fileName="packages/PIAdvisor-linux-x64-1.7.0-20261027213310.zip" sha1="4e596ddfda9025a21fe0ca5addd62559664f3aa5" type="module" releaseDate="20261027213310">
+         <title>PIAdvisor Module v1.7.0</title>
          <remove>bin/PIAdvisor-pxm.so
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>PIAdvisor now runs on Mac. This release also sends sharper images to the advisor, reuses uploaded images on supported connections, and allows more measurements in each round.</p>
+            <p>Smarter, more accurate processing advice. The advisor measures lightness, tests curves before you apply them, reads PixInsight&apos;s process documentation, and uses your installed processes and discovered scripts to guide recommendations.</p>
             <p>Highlights:</p>
-            <p>- PIAdvisor now runs on Mac computers with Apple silicon in PixInsight 1.9.5 or later, alongside Windows and Linux. Install and update it from the same PixInsight repository. PIAdvisor does not support Intel Macs. If you need Intel Mac support, tell us at support@piadvisor.net.</p>
-            <p>- Attach View renders the part of the image you see from the image&apos;s own pixels and screen stretch. Previews and busy views attach the screen view instead.</p>
-            <p>- Pro now offers Full resolution. Supported models receive images up to 6000 pixels on the longest side. Other models receive images up to 2048 pixels. The advisor sees fine detail such as star shapes in the corners and noise in faint areas.</p>
-            <p>- Supported connections reuse uploaded images in later messages. PIAdvisor asks the provider to delete uploaded images when they leave the chat, and the images expire after 24 hours. You can turn this off in LLM Settings.</p>
-            <p>- Attached views show their history step and the last process, so the advisor can tell two states of the same image apart.</p>
-            <p>- Pro and Trial allow up to 32 measurements per round. That fits stars, background and FITS-header checks on each of five masters in one round.</p>
-            <p>- Every edition can set Tool rounds to 0 for answers without measurements. Free allows 0 to 2 measuring rounds per answer, with up to 6 measurements in each round.</p>
-            <p>- Export Chat adds the export date, PIAdvisor version, edition, and current provider and model beneath the title.</p>
-            <p>- Better advice for HaRGB combination, gradient correction after color calibration, and loading process settings.</p>
-            <p>- Fixes for window sizing and processing history details.</p>
+            <p>- Lightness (CIE L*) measurements for masks, curves and stretches.</p>
+            <p>- Test a curve through the image&apos;s mask before you apply it. Pro also tests another open mask before you assign it, and compares up to three curves.</p>
+            <p>- Parameter advice follows PixInsight&apos;s process documentation when it is installed. Free and Pro.</p>
+            <p>- Choose the reasoning effort on models that offer it. OpenAI models use your OpenAI key directly, with an estimated cost on each reply.</p>
+            <p>- Each process or script the advisor names is linked on its first mention in a reply.</p>
+            <p>- Try every Pro feature free for 30 days.</p>
+            <p>- Settings come from your image&apos;s current measurements when they can be measured; otherwise the advisor explains how to find them.</p>
+            <p>- Next steps start from what the image needs, its history and your earlier choices.</p>
+            <p>- Suggestions follow your installation: a suitable native process first, then installed alternatives.</p>
+            <p>- Trials stay on your working image, so the undo history stays in one place.</p>
+            <p>- Follow-ups keep earlier measurements, and questioned advice gets rechecked first.</p>
+            <p>- Better advice for stretching, black points, masks, star recombination and background color.</p>
+            <p>- Many fixes, including measurement statistics, mask state in large workspaces and cost lines on OpenRouter.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
    <platform os="macosx" arch="arm64" version="1.9.5:1.9.99">
-      <package fileName="packages/PIAdvisor-macosx-arm64-1.6.0-20261018025235.zip" sha1="21e1ece69242cb4202d177d36a31a54f54bb8198" type="module" releaseDate="20261018025235">
-         <title>PIAdvisor Module v1.6.0</title>
+      <package fileName="packages/PIAdvisor-macosx-arm64-1.7.0-20261027213310.zip" sha1="aee004c5885772b1fdf77b9891c20d7a1b1aa70a" type="module" releaseDate="20261027213310">
+         <title>PIAdvisor Module v1.7.0</title>
          <remove>bin/PIAdvisor-pxm.dylib
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>PIAdvisor now runs on Mac. This release also sends sharper images to the advisor, reuses uploaded images on supported connections, and allows more measurements in each round.</p>
+            <p>Smarter, more accurate processing advice. The advisor measures lightness, tests curves before you apply them, reads PixInsight&apos;s process documentation, and uses your installed processes and discovered scripts to guide recommendations.</p>
             <p>Highlights:</p>
-            <p>- PIAdvisor now runs on Mac computers with Apple silicon in PixInsight 1.9.5 or later, alongside Windows and Linux. Install and update it from the same PixInsight repository. PIAdvisor does not support Intel Macs. If you need Intel Mac support, tell us at support@piadvisor.net.</p>
-            <p>- Attach View renders the part of the image you see from the image&apos;s own pixels and screen stretch. Previews and busy views attach the screen view instead.</p>
-            <p>- Pro now offers Full resolution. Supported models receive images up to 6000 pixels on the longest side. Other models receive images up to 2048 pixels. The advisor sees fine detail such as star shapes in the corners and noise in faint areas.</p>
-            <p>- Supported connections reuse uploaded images in later messages. PIAdvisor asks the provider to delete uploaded images when they leave the chat, and the images expire after 24 hours. You can turn this off in LLM Settings.</p>
-            <p>- Attached views show their history step and the last process, so the advisor can tell two states of the same image apart.</p>
-            <p>- Pro and Trial allow up to 32 measurements per round. That fits stars, background and FITS-header checks on each of five masters in one round.</p>
-            <p>- Every edition can set Tool rounds to 0 for answers without measurements. Free allows 0 to 2 measuring rounds per answer, with up to 6 measurements in each round.</p>
-            <p>- Export Chat adds the export date, PIAdvisor version, edition, and current provider and model beneath the title.</p>
-            <p>- Better advice for HaRGB combination, gradient correction after color calibration, and loading process settings.</p>
-            <p>- Fixes for window sizing and processing history details.</p>
+            <p>- Lightness (CIE L*) measurements for masks, curves and stretches.</p>
+            <p>- Test a curve through the image&apos;s mask before you apply it. Pro also tests another open mask before you assign it, and compares up to three curves.</p>
+            <p>- Parameter advice follows PixInsight&apos;s process documentation when it is installed. Free and Pro.</p>
+            <p>- Choose the reasoning effort on models that offer it. OpenAI models use your OpenAI key directly, with an estimated cost on each reply.</p>
+            <p>- Each process or script the advisor names is linked on its first mention in a reply.</p>
+            <p>- Try every Pro feature free for 30 days.</p>
+            <p>- Settings come from your image&apos;s current measurements when they can be measured; otherwise the advisor explains how to find them.</p>
+            <p>- Next steps start from what the image needs, its history and your earlier choices.</p>
+            <p>- Suggestions follow your installation: a suitable native process first, then installed alternatives.</p>
+            <p>- Trials stay on your working image, so the undo history stays in one place.</p>
+            <p>- Follow-ups keep earlier measurements, and questioned advice gets rechecked first.</p>
+            <p>- Better advice for stretching, black points, masks, star recombination and background color.</p>
+            <p>- Many fixes, including measurement statistics, mask state in large workspaces and cost lines on OpenRouter.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
 </xri>
-<Signature developerId="RayDetwiler" timestamp="2026-10-18T02:52:38.498Z" encoding="Base64">8cgEGsdjEamYZiI98xl7BDWvqiX7QZfqj/kk8sfp/WP4gtrBHRDkQtUbtteCJN1kR0da3dK08QhXGMAHClUGDw==</Signature>
+<Signature developerId="RayDetwiler" timestamp="2026-10-27T21:33:15.923Z" encoding="Base64">GaiubpILITtyeD+7pvtKp7tBld5mdpklf5iON8vRXuwN1REETR1jQJOTaEidvOqEZZd5SScTStybTCPuzI4dBA==</Signature>

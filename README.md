@@ -2,7 +2,7 @@
 
 PixInsight update repository for **PIAdvisor**, a processing assistant that works inside [PixInsight](https://pixinsight.com).
 
-**New in 1.6: PIAdvisor runs on Mac.** Macs with Apple silicon use the same repository URL.
+**New in 1.7: Smarter, more accurate processing advice.** The advisor measures lightness, tests curves before you apply them, reads PixInsight's process documentation, and uses your installed processes and discovered scripts to guide recommendations.
 
 | Platform | PixInsight |
 | :--- | :--- |

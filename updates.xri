@@ -3,139 +3,99 @@
    <!-- PIAdvisor PixInsight Update Repository -->
    <description>
       <p>PIAdvisor update feed for PixInsight.</p>
-      <p>Status: Public package v1.7.0 published on 2026-10-27 21:33:10 UTC.</p>
-      <p>Smarter, more accurate processing advice. The advisor measures lightness, tests curves before you apply them, reads PixInsight&apos;s process documentation, and uses your installed processes and discovered scripts to guide recommendations.</p>
+      <p>Status: Public package v1.7.1 published on 2026-11-05 02:36:53 UTC.</p>
+      <p>Optimized for PixInsight 1.9.6, with advice for more kinds of targets.</p>
       <p>Changelog: https://piadvisor.net/changelog/</p>
    </description>
    <platform os="windows" arch="x64" version="1.8.9:1.9.4">
-      <package fileName="packages/PIAdvisor-windows-x64-1.7.0-20261027213232.zip" sha1="881afa40c7fb44b87acf7cb27abb5c7171ef33e3" releaseDate="20261027213232" type="module">
-         <title>PIAdvisor Module v1.7.0</title>
+      <package fileName="packages/PIAdvisor-windows-x64-1.7.1-20261105023426.zip" sha1="6c41cf85124059ff094476ff4d5a7d1206da9db3" releaseDate="20261105023426" type="module">
+         <title>PIAdvisor Module v1.7.1</title>
          <remove>bin/PIAdvisor-pxm.dll
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Smarter, more accurate processing advice. The advisor measures lightness, tests curves before you apply them, reads PixInsight&apos;s process documentation, and uses your installed processes and discovered scripts to guide recommendations.</p>
+            <p>Optimized for PixInsight 1.9.6, with advice for more kinds of targets.</p>
             <p>Highlights:</p>
-            <p>- Lightness (CIE L*) measurements for masks, curves and stretches.</p>
-            <p>- Test a curve through the image&apos;s mask before you apply it. Pro also tests another open mask before you assign it, and compares up to three curves.</p>
-            <p>- Parameter advice follows PixInsight&apos;s process documentation when it is installed. Free and Pro.</p>
-            <p>- Choose the reasoning effort on models that offer it. OpenAI models use your OpenAI key directly, with an estimated cost on each reply.</p>
-            <p>- Each process or script the advisor names is linked on its first mention in a reply.</p>
-            <p>- Try every Pro feature free for 30 days.</p>
-            <p>- Settings come from your image&apos;s current measurements when they can be measured; otherwise the advisor explains how to find them.</p>
-            <p>- Next steps start from what the image needs, its history and your earlier choices.</p>
-            <p>- Suggestions follow your installation: a suitable native process first, then installed alternatives.</p>
-            <p>- Trials stay on your working image, so the undo history stays in one place.</p>
-            <p>- Follow-ups keep earlier measurements, and questioned advice gets rechecked first.</p>
-            <p>- Better advice for stretching, black points, masks, star recombination and background color.</p>
-            <p>- Many fixes, including measurement statistics, mask state in large workspaces and cost lines on OpenRouter.</p>
+            <p>- Optimized for the new PixInsight 1.9.6 processes, such as MultiscaleTGVDenoise and ImageAnalysis, and tool links open the new 1.9.6 scripts. On earlier versions, advice uses the processes those versions have.</p>
+            <p>- Workflow advice follows the 1.9.6 documentation for noise reduction, gradient correction, plate solving, image weights, WBPP results and narrowband color calibration.</p>
+            <p>- Installed third-party sharpening and noise-reduction tools each get their own settings, with PixInsight&apos;s own processes as the alternative. Each reply keeps one processing order.</p>
+            <p>- New advice for comets, mosaics, solar and lunar images, and bright cores, with PixInsight&apos;s own tools.</p>
+            <p>- Improved interpretation of processing history and refined star-sampling guidance.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
    <platform os="linux" arch="x64" version="1.8.9:1.9.4">
-      <package fileName="packages/PIAdvisor-linux-x64-1.7.0-20261027213232.zip" sha1="bf2cc713578750c58d77612a404170f159a123e7" type="module" releaseDate="20261027213232">
-         <title>PIAdvisor Module v1.7.0</title>
+      <package fileName="packages/PIAdvisor-linux-x64-1.7.1-20261105023426.zip" sha1="ea18ffaa4d0619487b0cac3d0be186b0355aeace" type="module" releaseDate="20261105023426">
+         <title>PIAdvisor Module v1.7.1</title>
          <remove>bin/PIAdvisor-pxm.so
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Smarter, more accurate processing advice. The advisor measures lightness, tests curves before you apply them, reads PixInsight&apos;s process documentation, and uses your installed processes and discovered scripts to guide recommendations.</p>
+            <p>Optimized for PixInsight 1.9.6, with advice for more kinds of targets.</p>
             <p>Highlights:</p>
-            <p>- Lightness (CIE L*) measurements for masks, curves and stretches.</p>
-            <p>- Test a curve through the image&apos;s mask before you apply it. Pro also tests another open mask before you assign it, and compares up to three curves.</p>
-            <p>- Parameter advice follows PixInsight&apos;s process documentation when it is installed. Free and Pro.</p>
-            <p>- Choose the reasoning effort on models that offer it. OpenAI models use your OpenAI key directly, with an estimated cost on each reply.</p>
-            <p>- Each process or script the advisor names is linked on its first mention in a reply.</p>
-            <p>- Try every Pro feature free for 30 days.</p>
-            <p>- Settings come from your image&apos;s current measurements when they can be measured; otherwise the advisor explains how to find them.</p>
-            <p>- Next steps start from what the image needs, its history and your earlier choices.</p>
-            <p>- Suggestions follow your installation: a suitable native process first, then installed alternatives.</p>
-            <p>- Trials stay on your working image, so the undo history stays in one place.</p>
-            <p>- Follow-ups keep earlier measurements, and questioned advice gets rechecked first.</p>
-            <p>- Better advice for stretching, black points, masks, star recombination and background color.</p>
-            <p>- Many fixes, including measurement statistics, mask state in large workspaces and cost lines on OpenRouter.</p>
+            <p>- Optimized for the new PixInsight 1.9.6 processes, such as MultiscaleTGVDenoise and ImageAnalysis, and tool links open the new 1.9.6 scripts. On earlier versions, advice uses the processes those versions have.</p>
+            <p>- Workflow advice follows the 1.9.6 documentation for noise reduction, gradient correction, plate solving, image weights, WBPP results and narrowband color calibration.</p>
+            <p>- Installed third-party sharpening and noise-reduction tools each get their own settings, with PixInsight&apos;s own processes as the alternative. Each reply keeps one processing order.</p>
+            <p>- New advice for comets, mosaics, solar and lunar images, and bright cores, with PixInsight&apos;s own tools.</p>
+            <p>- Improved interpretation of processing history and refined star-sampling guidance.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
    <platform os="windows" arch="x64" version="1.9.5:1.9.99">
-      <package fileName="packages/PIAdvisor-windows-x64-1.7.0-20261027213310.zip" sha1="9abc111415efc5f3782cf37d9c13d6182a6a2455" type="module" releaseDate="20261027213310">
-         <title>PIAdvisor Module v1.7.0</title>
+      <package fileName="packages/PIAdvisor-windows-x64-1.7.1-20261105023653.zip" sha1="daee829d3ed98a90bc292854378afd2264188f62" type="module" releaseDate="20261105023653">
+         <title>PIAdvisor Module v1.7.1</title>
          <remove>bin/PIAdvisor-pxm.dll
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Smarter, more accurate processing advice. The advisor measures lightness, tests curves before you apply them, reads PixInsight&apos;s process documentation, and uses your installed processes and discovered scripts to guide recommendations.</p>
+            <p>Optimized for PixInsight 1.9.6, with advice for more kinds of targets.</p>
             <p>Highlights:</p>
-            <p>- Lightness (CIE L*) measurements for masks, curves and stretches.</p>
-            <p>- Test a curve through the image&apos;s mask before you apply it. Pro also tests another open mask before you assign it, and compares up to three curves.</p>
-            <p>- Parameter advice follows PixInsight&apos;s process documentation when it is installed. Free and Pro.</p>
-            <p>- Choose the reasoning effort on models that offer it. OpenAI models use your OpenAI key directly, with an estimated cost on each reply.</p>
-            <p>- Each process or script the advisor names is linked on its first mention in a reply.</p>
-            <p>- Try every Pro feature free for 30 days.</p>
-            <p>- Settings come from your image&apos;s current measurements when they can be measured; otherwise the advisor explains how to find them.</p>
-            <p>- Next steps start from what the image needs, its history and your earlier choices.</p>
-            <p>- Suggestions follow your installation: a suitable native process first, then installed alternatives.</p>
-            <p>- Trials stay on your working image, so the undo history stays in one place.</p>
-            <p>- Follow-ups keep earlier measurements, and questioned advice gets rechecked first.</p>
-            <p>- Better advice for stretching, black points, masks, star recombination and background color.</p>
-            <p>- Many fixes, including measurement statistics, mask state in large workspaces and cost lines on OpenRouter.</p>
+            <p>- Optimized for the new PixInsight 1.9.6 processes, such as MultiscaleTGVDenoise and ImageAnalysis, and tool links open the new 1.9.6 scripts. On earlier versions, advice uses the processes those versions have.</p>
+            <p>- Workflow advice follows the 1.9.6 documentation for noise reduction, gradient correction, plate solving, image weights, WBPP results and narrowband color calibration.</p>
+            <p>- Installed third-party sharpening and noise-reduction tools each get their own settings, with PixInsight&apos;s own processes as the alternative. Each reply keeps one processing order.</p>
+            <p>- New advice for comets, mosaics, solar and lunar images, and bright cores, with PixInsight&apos;s own tools.</p>
+            <p>- Improved interpretation of processing history and refined star-sampling guidance.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
    <platform os="linux" arch="x64" version="1.9.5:1.9.99">
-      <package fileName="packages/PIAdvisor-linux-x64-1.7.0-20261027213310.zip" sha1="4e596ddfda9025a21fe0ca5addd62559664f3aa5" type="module" releaseDate="20261027213310">
-         <title>PIAdvisor Module v1.7.0</title>
+      <package fileName="packages/PIAdvisor-linux-x64-1.7.1-20261105023653.zip" sha1="d298dda45559076a9aa95802f9dfc78811beeeb4" type="module" releaseDate="20261105023653">
+         <title>PIAdvisor Module v1.7.1</title>
          <remove>bin/PIAdvisor-pxm.so
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Smarter, more accurate processing advice. The advisor measures lightness, tests curves before you apply them, reads PixInsight&apos;s process documentation, and uses your installed processes and discovered scripts to guide recommendations.</p>
+            <p>Optimized for PixInsight 1.9.6, with advice for more kinds of targets.</p>
             <p>Highlights:</p>
-            <p>- Lightness (CIE L*) measurements for masks, curves and stretches.</p>
-            <p>- Test a curve through the image&apos;s mask before you apply it. Pro also tests another open mask before you assign it, and compares up to three curves.</p>
-            <p>- Parameter advice follows PixInsight&apos;s process documentation when it is installed. Free and Pro.</p>
-            <p>- Choose the reasoning effort on models that offer it. OpenAI models use your OpenAI key directly, with an estimated cost on each reply.</p>
-            <p>- Each process or script the advisor names is linked on its first mention in a reply.</p>
-            <p>- Try every Pro feature free for 30 days.</p>
-            <p>- Settings come from your image&apos;s current measurements when they can be measured; otherwise the advisor explains how to find them.</p>
-            <p>- Next steps start from what the image needs, its history and your earlier choices.</p>
-            <p>- Suggestions follow your installation: a suitable native process first, then installed alternatives.</p>
-            <p>- Trials stay on your working image, so the undo history stays in one place.</p>
-            <p>- Follow-ups keep earlier measurements, and questioned advice gets rechecked first.</p>
-            <p>- Better advice for stretching, black points, masks, star recombination and background color.</p>
-            <p>- Many fixes, including measurement statistics, mask state in large workspaces and cost lines on OpenRouter.</p>
+            <p>- Optimized for the new PixInsight 1.9.6 processes, such as MultiscaleTGVDenoise and ImageAnalysis, and tool links open the new 1.9.6 scripts. On earlier versions, advice uses the processes those versions have.</p>
+            <p>- Workflow advice follows the 1.9.6 documentation for noise reduction, gradient correction, plate solving, image weights, WBPP results and narrowband color calibration.</p>
+            <p>- Installed third-party sharpening and noise-reduction tools each get their own settings, with PixInsight&apos;s own processes as the alternative. Each reply keeps one processing order.</p>
+            <p>- New advice for comets, mosaics, solar and lunar images, and bright cores, with PixInsight&apos;s own tools.</p>
+            <p>- Improved interpretation of processing history and refined star-sampling guidance.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
    <platform os="macosx" arch="arm64" version="1.9.5:1.9.99">
-      <package fileName="packages/PIAdvisor-macosx-arm64-1.7.0-20261027213310.zip" sha1="aee004c5885772b1fdf77b9891c20d7a1b1aa70a" type="module" releaseDate="20261027213310">
-         <title>PIAdvisor Module v1.7.0</title>
+      <package fileName="packages/PIAdvisor-macosx-arm64-1.7.1-20261105023653.zip" sha1="fcb670ad1b634014d9675ccaa1b5267e7531618b" type="module" releaseDate="20261105023653">
+         <title>PIAdvisor Module v1.7.1</title>
          <remove>bin/PIAdvisor-pxm.dylib
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Smarter, more accurate processing advice. The advisor measures lightness, tests curves before you apply them, reads PixInsight&apos;s process documentation, and uses your installed processes and discovered scripts to guide recommendations.</p>
+            <p>Optimized for PixInsight 1.9.6, with advice for more kinds of targets.</p>
             <p>Highlights:</p>
-            <p>- Lightness (CIE L*) measurements for masks, curves and stretches.</p>
-            <p>- Test a curve through the image&apos;s mask before you apply it. Pro also tests another open mask before you assign it, and compares up to three curves.</p>
-            <p>- Parameter advice follows PixInsight&apos;s process documentation when it is installed. Free and Pro.</p>
-            <p>- Choose the reasoning effort on models that offer it. OpenAI models use your OpenAI key directly, with an estimated cost on each reply.</p>
-            <p>- Each process or script the advisor names is linked on its first mention in a reply.</p>
-            <p>- Try every Pro feature free for 30 days.</p>
-            <p>- Settings come from your image&apos;s current measurements when they can be measured; otherwise the advisor explains how to find them.</p>
-            <p>- Next steps start from what the image needs, its history and your earlier choices.</p>
-            <p>- Suggestions follow your installation: a suitable native process first, then installed alternatives.</p>
-            <p>- Trials stay on your working image, so the undo history stays in one place.</p>
-            <p>- Follow-ups keep earlier measurements, and questioned advice gets rechecked first.</p>
-            <p>- Better advice for stretching, black points, masks, star recombination and background color.</p>
-            <p>- Many fixes, including measurement statistics, mask state in large workspaces and cost lines on OpenRouter.</p>
+            <p>- Optimized for the new PixInsight 1.9.6 processes, such as MultiscaleTGVDenoise and ImageAnalysis, and tool links open the new 1.9.6 scripts. On earlier versions, advice uses the processes those versions have.</p>
+            <p>- Workflow advice follows the 1.9.6 documentation for noise reduction, gradient correction, plate solving, image weights, WBPP results and narrowband color calibration.</p>
+            <p>- Installed third-party sharpening and noise-reduction tools each get their own settings, with PixInsight&apos;s own processes as the alternative. Each reply keeps one processing order.</p>
+            <p>- New advice for comets, mosaics, solar and lunar images, and bright cores, with PixInsight&apos;s own tools.</p>
+            <p>- Improved interpretation of processing history and refined star-sampling guidance.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
 </xri>
-<Signature developerId="RayDetwiler" timestamp="2026-10-27T21:33:15.923Z" encoding="Base64">GaiubpILITtyeD+7pvtKp7tBld5mdpklf5iON8vRXuwN1REETR1jQJOTaEidvOqEZZd5SScTStybTCPuzI4dBA==</Signature>
+<Signature developerId="RayDetwiler" timestamp="2026-11-05T02:36:57.799Z" encoding="Base64">kAoK3R6dJaH97MOwxgpk3pyNi8Rz1rDocQ092xTEJ5VFUrZolE3jKhQSVqjztNSrxsvTl7/fWmsjf2vkEW6QDg==</Signature>

@@ -2,7 +2,7 @@
 
 PixInsight update repository for **PIAdvisor**, a processing assistant that works inside [PixInsight](https://pixinsight.com).
 
-**New in 1.7: Smarter, more accurate processing advice.** The advisor measures lightness, tests curves before you apply them, reads PixInsight's process documentation, and uses your installed processes and discovered scripts to guide recommendations.
+**New in 1.7: Optimized for PixInsight 1.9.6.** Advice follows the new 1.9.6 processes and documentation, and covers more kinds of targets. See the [changelog](https://piadvisor.net/changelog/#v1-7-1).
 
 | Platform | PixInsight |
 | :--- | :--- |

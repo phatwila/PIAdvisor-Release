@@ -2,8 +2,6 @@
 
 PixInsight update repository for **PIAdvisor**, a processing assistant that works inside [PixInsight](https://pixinsight.com).
 
-**New in 1.7: Optimized for PixInsight 1.9.6.** Advice follows the new 1.9.6 processes and documentation, and covers more kinds of targets. See the [changelog](https://piadvisor.net/changelog/#v1-7-1).
-
 | Platform | PixInsight |
 | :--- | :--- |
 | Windows x64 | 1.8.9 or later |
@@ -41,5 +39,7 @@ The steps are the same on every platform. PIAdvisor does not support Intel Macs.
 - Changelog: [piadvisor.net/changelog/](https://piadvisor.net/changelog/)
 - Documentation: [docs/](https://phatwila.github.io/PIAdvisor-Release/docs/)
 - Packages: [packages/](https://phatwila.github.io/PIAdvisor-Release/packages/)
+
+This product is based on software from the PixInsight project, developed by Pleiades Astrophoto and its contributors (https://pixinsight.com/).
 
 PixInsight is a trademark of Pleiades Astrophoto S.L. PIAdvisor is an independent module and is not affiliated with or endorsed by Pleiades Astrophoto.

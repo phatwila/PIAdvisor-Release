@@ -3,99 +3,185 @@
    <!-- PIAdvisor PixInsight Update Repository -->
    <description>
       <p>PIAdvisor update feed for PixInsight.</p>
-      <p>Status: Public package v1.7.1 published on 2026-11-05 02:36:53 UTC.</p>
-      <p>Optimized for PixInsight 1.9.6, with advice for more kinds of targets.</p>
+      <p>Status: Public package v1.8.0 published on 2026-11-15 22:36:02 UTC.</p>
+      <p>Ready for PixInsight 1.9.6 build 1718, with a simpler settings panel and a full account of what PIAdvisor connects to.</p>
       <p>Changelog: https://piadvisor.net/changelog/</p>
    </description>
    <platform os="windows" arch="x64" version="1.8.9:1.9.4">
-      <package fileName="packages/PIAdvisor-windows-x64-1.7.1-20261105023426.zip" sha1="6c41cf85124059ff094476ff4d5a7d1206da9db3" releaseDate="20261105023426" type="module">
-         <title>PIAdvisor Module v1.7.1</title>
+      <package fileName="packages/PIAdvisor-windows-x64-1.8.0-20261115223602.zip" sha1="5a45ceb4911e06d192c22d32798ef545b4bde454" releaseDate="20261115223602" type="module">
+         <title>PIAdvisor Module v1.8.0</title>
          <remove>bin/PIAdvisor-pxm.dll
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Optimized for PixInsight 1.9.6, with advice for more kinds of targets.</p>
+            <p>Ready for PixInsight 1.9.6 build 1718, with a simpler settings panel and a full account of what PIAdvisor connects to.</p>
             <p>Highlights:</p>
-            <p>- Optimized for the new PixInsight 1.9.6 processes, such as MultiscaleTGVDenoise and ImageAnalysis, and tool links open the new 1.9.6 scripts. On earlier versions, advice uses the processes those versions have.</p>
-            <p>- Workflow advice follows the 1.9.6 documentation for noise reduction, gradient correction, plate solving, image weights, WBPP results and narrowband color calibration.</p>
-            <p>- Installed third-party sharpening and noise-reduction tools each get their own settings, with PixInsight&apos;s own processes as the alternative. Each reply keeps one processing order.</p>
-            <p>- New advice for comets, mosaics, solar and lunar images, and bright cores, with PixInsight&apos;s own tools.</p>
-            <p>- Improved interpretation of processing history and refined star-sampling guidance.</p>
+            <p>- Advice follows PixInsight 1.9.6 build 1718: plate solving for wide fields and all-sky images, mosaic registration, annotation and sky charts, filter curves from graph images, moving rejected frames in ImageAnalysis, and Cardinal Quintic B-Spline interpolation. On earlier versions, advice uses what those versions have.</p>
+            <p>- The settings are now three sections: LLM Settings, Advisor Behavior and Prompts. One section opens at a time, so the panel fits smaller screens. The top of the panel stays in place, and each settings section takes only the height it needs.</p>
+            <p>- Images go inside each request. PIAdvisor keeps no files with your AI provider.</p>
+            <p>- Connections to other computers use https. Plain http works only for a model server on your own computer.</p>
+            <p>- On PixInsight 1.9.6 build 1718 and later, PIAdvisor sends every request through PixInsight&apos;s own network functions.</p>
+            <p>- A new help section lists every server PIAdvisor contacts, every program it starts and every file it keeps. The help also carries the acknowledgments for PixInsight and the libraries PIAdvisor uses.</p>
+            <p>- New setups start with newer default models. Reasoning effort lists the levels each model accepts, and Default lets the model choose.</p>
+            <p>- When you ask for exact settings, PIAdvisor reads PixInsight&apos;s documentation only for the tools that have it, so the answer needs fewer lookups.</p>
+            <p>- Fixes for chat formatting.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
    <platform os="linux" arch="x64" version="1.8.9:1.9.4">
-      <package fileName="packages/PIAdvisor-linux-x64-1.7.1-20261105023426.zip" sha1="ea18ffaa4d0619487b0cac3d0be186b0355aeace" type="module" releaseDate="20261105023426">
-         <title>PIAdvisor Module v1.7.1</title>
+      <package fileName="packages/PIAdvisor-linux-x64-1.8.0-20261115223602.zip" sha1="4782e268ce2033af6bbac6119fb1a453076ae7f0" type="module" releaseDate="20261115223602">
+         <title>PIAdvisor Module v1.8.0</title>
          <remove>bin/PIAdvisor-pxm.so
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Optimized for PixInsight 1.9.6, with advice for more kinds of targets.</p>
+            <p>Ready for PixInsight 1.9.6 build 1718, with a simpler settings panel and a full account of what PIAdvisor connects to.</p>
             <p>Highlights:</p>
-            <p>- Optimized for the new PixInsight 1.9.6 processes, such as MultiscaleTGVDenoise and ImageAnalysis, and tool links open the new 1.9.6 scripts. On earlier versions, advice uses the processes those versions have.</p>
-            <p>- Workflow advice follows the 1.9.6 documentation for noise reduction, gradient correction, plate solving, image weights, WBPP results and narrowband color calibration.</p>
-            <p>- Installed third-party sharpening and noise-reduction tools each get their own settings, with PixInsight&apos;s own processes as the alternative. Each reply keeps one processing order.</p>
-            <p>- New advice for comets, mosaics, solar and lunar images, and bright cores, with PixInsight&apos;s own tools.</p>
-            <p>- Improved interpretation of processing history and refined star-sampling guidance.</p>
+            <p>- Advice follows PixInsight 1.9.6 build 1718: plate solving for wide fields and all-sky images, mosaic registration, annotation and sky charts, filter curves from graph images, moving rejected frames in ImageAnalysis, and Cardinal Quintic B-Spline interpolation. On earlier versions, advice uses what those versions have.</p>
+            <p>- The settings are now three sections: LLM Settings, Advisor Behavior and Prompts. One section opens at a time, so the panel fits smaller screens. The top of the panel stays in place, and each settings section takes only the height it needs.</p>
+            <p>- Images go inside each request. PIAdvisor keeps no files with your AI provider.</p>
+            <p>- Connections to other computers use https. Plain http works only for a model server on your own computer.</p>
+            <p>- On PixInsight 1.9.6 build 1718 and later, PIAdvisor sends every request through PixInsight&apos;s own network functions.</p>
+            <p>- A new help section lists every server PIAdvisor contacts, every program it starts and every file it keeps. The help also carries the acknowledgments for PixInsight and the libraries PIAdvisor uses.</p>
+            <p>- New setups start with newer default models. Reasoning effort lists the levels each model accepts, and Default lets the model choose.</p>
+            <p>- When you ask for exact settings, PIAdvisor reads PixInsight&apos;s documentation only for the tools that have it, so the answer needs fewer lookups.</p>
+            <p>- Fixes for chat formatting.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
-   <platform os="windows" arch="x64" version="1.9.5:1.9.99">
-      <package fileName="packages/PIAdvisor-windows-x64-1.7.1-20261105023653.zip" sha1="daee829d3ed98a90bc292854378afd2264188f62" type="module" releaseDate="20261105023653">
-         <title>PIAdvisor Module v1.7.1</title>
+   <platform os="windows" arch="x64" version="1.9.5:1.9.5">
+      <package fileName="packages/PIAdvisor-windows-x64-1.8.0-20261115223459.zip" sha1="b917298eadc64afbc6196c467e462fd0973de56b" type="module" releaseDate="20261115223459">
+         <title>PIAdvisor Module v1.8.0</title>
          <remove>bin/PIAdvisor-pxm.dll
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Optimized for PixInsight 1.9.6, with advice for more kinds of targets.</p>
+            <p>Ready for PixInsight 1.9.6 build 1718, with a simpler settings panel and a full account of what PIAdvisor connects to.</p>
             <p>Highlights:</p>
-            <p>- Optimized for the new PixInsight 1.9.6 processes, such as MultiscaleTGVDenoise and ImageAnalysis, and tool links open the new 1.9.6 scripts. On earlier versions, advice uses the processes those versions have.</p>
-            <p>- Workflow advice follows the 1.9.6 documentation for noise reduction, gradient correction, plate solving, image weights, WBPP results and narrowband color calibration.</p>
-            <p>- Installed third-party sharpening and noise-reduction tools each get their own settings, with PixInsight&apos;s own processes as the alternative. Each reply keeps one processing order.</p>
-            <p>- New advice for comets, mosaics, solar and lunar images, and bright cores, with PixInsight&apos;s own tools.</p>
-            <p>- Improved interpretation of processing history and refined star-sampling guidance.</p>
+            <p>- Advice follows PixInsight 1.9.6 build 1718: plate solving for wide fields and all-sky images, mosaic registration, annotation and sky charts, filter curves from graph images, moving rejected frames in ImageAnalysis, and Cardinal Quintic B-Spline interpolation. On earlier versions, advice uses what those versions have.</p>
+            <p>- The settings are now three sections: LLM Settings, Advisor Behavior and Prompts. One section opens at a time, so the panel fits smaller screens. The top of the panel stays in place, and each settings section takes only the height it needs.</p>
+            <p>- Images go inside each request. PIAdvisor keeps no files with your AI provider.</p>
+            <p>- Connections to other computers use https. Plain http works only for a model server on your own computer.</p>
+            <p>- On PixInsight 1.9.6 build 1718 and later, PIAdvisor sends every request through PixInsight&apos;s own network functions.</p>
+            <p>- A new help section lists every server PIAdvisor contacts, every program it starts and every file it keeps. The help also carries the acknowledgments for PixInsight and the libraries PIAdvisor uses.</p>
+            <p>- New setups start with newer default models. Reasoning effort lists the levels each model accepts, and Default lets the model choose.</p>
+            <p>- When you ask for exact settings, PIAdvisor reads PixInsight&apos;s documentation only for the tools that have it, so the answer needs fewer lookups.</p>
+            <p>- Fixes for chat formatting.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
-   <platform os="linux" arch="x64" version="1.9.5:1.9.99">
-      <package fileName="packages/PIAdvisor-linux-x64-1.7.1-20261105023653.zip" sha1="d298dda45559076a9aa95802f9dfc78811beeeb4" type="module" releaseDate="20261105023653">
-         <title>PIAdvisor Module v1.7.1</title>
+   <platform os="linux" arch="x64" version="1.9.5:1.9.5">
+      <package fileName="packages/PIAdvisor-linux-x64-1.8.0-20261115223459.zip" sha1="7b8c022f679cdd0edd48c94cdd2b22d633fd9003" type="module" releaseDate="20261115223459">
+         <title>PIAdvisor Module v1.8.0</title>
          <remove>bin/PIAdvisor-pxm.so
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Optimized for PixInsight 1.9.6, with advice for more kinds of targets.</p>
+            <p>Ready for PixInsight 1.9.6 build 1718, with a simpler settings panel and a full account of what PIAdvisor connects to.</p>
             <p>Highlights:</p>
-            <p>- Optimized for the new PixInsight 1.9.6 processes, such as MultiscaleTGVDenoise and ImageAnalysis, and tool links open the new 1.9.6 scripts. On earlier versions, advice uses the processes those versions have.</p>
-            <p>- Workflow advice follows the 1.9.6 documentation for noise reduction, gradient correction, plate solving, image weights, WBPP results and narrowband color calibration.</p>
-            <p>- Installed third-party sharpening and noise-reduction tools each get their own settings, with PixInsight&apos;s own processes as the alternative. Each reply keeps one processing order.</p>
-            <p>- New advice for comets, mosaics, solar and lunar images, and bright cores, with PixInsight&apos;s own tools.</p>
-            <p>- Improved interpretation of processing history and refined star-sampling guidance.</p>
+            <p>- Advice follows PixInsight 1.9.6 build 1718: plate solving for wide fields and all-sky images, mosaic registration, annotation and sky charts, filter curves from graph images, moving rejected frames in ImageAnalysis, and Cardinal Quintic B-Spline interpolation. On earlier versions, advice uses what those versions have.</p>
+            <p>- The settings are now three sections: LLM Settings, Advisor Behavior and Prompts. One section opens at a time, so the panel fits smaller screens. The top of the panel stays in place, and each settings section takes only the height it needs.</p>
+            <p>- Images go inside each request. PIAdvisor keeps no files with your AI provider.</p>
+            <p>- Connections to other computers use https. Plain http works only for a model server on your own computer.</p>
+            <p>- On PixInsight 1.9.6 build 1718 and later, PIAdvisor sends every request through PixInsight&apos;s own network functions.</p>
+            <p>- A new help section lists every server PIAdvisor contacts, every program it starts and every file it keeps. The help also carries the acknowledgments for PixInsight and the libraries PIAdvisor uses.</p>
+            <p>- New setups start with newer default models. Reasoning effort lists the levels each model accepts, and Default lets the model choose.</p>
+            <p>- When you ask for exact settings, PIAdvisor reads PixInsight&apos;s documentation only for the tools that have it, so the answer needs fewer lookups.</p>
+            <p>- Fixes for chat formatting.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
-   <platform os="macosx" arch="arm64" version="1.9.5:1.9.99">
-      <package fileName="packages/PIAdvisor-macosx-arm64-1.7.1-20261105023653.zip" sha1="fcb670ad1b634014d9675ccaa1b5267e7531618b" type="module" releaseDate="20261105023653">
-         <title>PIAdvisor Module v1.7.1</title>
+   <platform os="macosx" arch="arm64" version="1.9.5:1.9.5">
+      <package fileName="packages/PIAdvisor-macosx-arm64-1.8.0-20261115223459.zip" sha1="8122ec34ac1cd933cde29b551d908facabe801c0" type="module" releaseDate="20261115223459">
+         <title>PIAdvisor Module v1.8.0</title>
          <remove>bin/PIAdvisor-pxm.dylib
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Optimized for PixInsight 1.9.6, with advice for more kinds of targets.</p>
+            <p>Ready for PixInsight 1.9.6 build 1718, with a simpler settings panel and a full account of what PIAdvisor connects to.</p>
             <p>Highlights:</p>
-            <p>- Optimized for the new PixInsight 1.9.6 processes, such as MultiscaleTGVDenoise and ImageAnalysis, and tool links open the new 1.9.6 scripts. On earlier versions, advice uses the processes those versions have.</p>
-            <p>- Workflow advice follows the 1.9.6 documentation for noise reduction, gradient correction, plate solving, image weights, WBPP results and narrowband color calibration.</p>
-            <p>- Installed third-party sharpening and noise-reduction tools each get their own settings, with PixInsight&apos;s own processes as the alternative. Each reply keeps one processing order.</p>
-            <p>- New advice for comets, mosaics, solar and lunar images, and bright cores, with PixInsight&apos;s own tools.</p>
-            <p>- Improved interpretation of processing history and refined star-sampling guidance.</p>
+            <p>- Advice follows PixInsight 1.9.6 build 1718: plate solving for wide fields and all-sky images, mosaic registration, annotation and sky charts, filter curves from graph images, moving rejected frames in ImageAnalysis, and Cardinal Quintic B-Spline interpolation. On earlier versions, advice uses what those versions have.</p>
+            <p>- The settings are now three sections: LLM Settings, Advisor Behavior and Prompts. One section opens at a time, so the panel fits smaller screens. The top of the panel stays in place, and each settings section takes only the height it needs.</p>
+            <p>- Images go inside each request. PIAdvisor keeps no files with your AI provider.</p>
+            <p>- Connections to other computers use https. Plain http works only for a model server on your own computer.</p>
+            <p>- On PixInsight 1.9.6 build 1718 and later, PIAdvisor sends every request through PixInsight&apos;s own network functions.</p>
+            <p>- A new help section lists every server PIAdvisor contacts, every program it starts and every file it keeps. The help also carries the acknowledgments for PixInsight and the libraries PIAdvisor uses.</p>
+            <p>- New setups start with newer default models. Reasoning effort lists the levels each model accepts, and Default lets the model choose.</p>
+            <p>- When you ask for exact settings, PIAdvisor reads PixInsight&apos;s documentation only for the tools that have it, so the answer needs fewer lookups.</p>
+            <p>- Fixes for chat formatting.</p>
+            <p>Changelog: https://piadvisor.net/changelog/</p>
+         </description>
+      </package>
+   </platform>
+   <platform os="windows" arch="x64" version="1.9.6:1.9.99">
+      <package fileName="packages/PIAdvisor-windows-x64-1.8.0-20261115223348.zip" sha1="795597fc08cd6e4d6dd23cf60cacd0daedde2ee4" type="module" releaseDate="20261115223348">
+         <title>PIAdvisor Module v1.8.0</title>
+         <remove>bin/PIAdvisor-pxm.dll
+bin/PIAdvisor-pxm.xsgn
+doc/tools/PIAdvisor/PIAdvisor.html</remove>
+         <description>
+            <p>Ready for PixInsight 1.9.6 build 1718, with a simpler settings panel and a full account of what PIAdvisor connects to.</p>
+            <p>Highlights:</p>
+            <p>- Advice follows PixInsight 1.9.6 build 1718: plate solving for wide fields and all-sky images, mosaic registration, annotation and sky charts, filter curves from graph images, moving rejected frames in ImageAnalysis, and Cardinal Quintic B-Spline interpolation. On earlier versions, advice uses what those versions have.</p>
+            <p>- The settings are now three sections: LLM Settings, Advisor Behavior and Prompts. One section opens at a time, so the panel fits smaller screens. The top of the panel stays in place, and each settings section takes only the height it needs.</p>
+            <p>- Images go inside each request. PIAdvisor keeps no files with your AI provider.</p>
+            <p>- Connections to other computers use https. Plain http works only for a model server on your own computer.</p>
+            <p>- On PixInsight 1.9.6 build 1718 and later, PIAdvisor sends every request through PixInsight&apos;s own network functions.</p>
+            <p>- A new help section lists every server PIAdvisor contacts, every program it starts and every file it keeps. The help also carries the acknowledgments for PixInsight and the libraries PIAdvisor uses.</p>
+            <p>- New setups start with newer default models. Reasoning effort lists the levels each model accepts, and Default lets the model choose.</p>
+            <p>- When you ask for exact settings, PIAdvisor reads PixInsight&apos;s documentation only for the tools that have it, so the answer needs fewer lookups.</p>
+            <p>- Fixes for chat formatting.</p>
+            <p>Changelog: https://piadvisor.net/changelog/</p>
+         </description>
+      </package>
+   </platform>
+   <platform os="linux" arch="x64" version="1.9.6:1.9.99">
+      <package fileName="packages/PIAdvisor-linux-x64-1.8.0-20261115223348.zip" sha1="d0dd5387ef5563d89fac0f02d04be279294efcf9" type="module" releaseDate="20261115223348">
+         <title>PIAdvisor Module v1.8.0</title>
+         <remove>bin/PIAdvisor-pxm.so
+bin/PIAdvisor-pxm.xsgn
+doc/tools/PIAdvisor/PIAdvisor.html</remove>
+         <description>
+            <p>Ready for PixInsight 1.9.6 build 1718, with a simpler settings panel and a full account of what PIAdvisor connects to.</p>
+            <p>Highlights:</p>
+            <p>- Advice follows PixInsight 1.9.6 build 1718: plate solving for wide fields and all-sky images, mosaic registration, annotation and sky charts, filter curves from graph images, moving rejected frames in ImageAnalysis, and Cardinal Quintic B-Spline interpolation. On earlier versions, advice uses what those versions have.</p>
+            <p>- The settings are now three sections: LLM Settings, Advisor Behavior and Prompts. One section opens at a time, so the panel fits smaller screens. The top of the panel stays in place, and each settings section takes only the height it needs.</p>
+            <p>- Images go inside each request. PIAdvisor keeps no files with your AI provider.</p>
+            <p>- Connections to other computers use https. Plain http works only for a model server on your own computer.</p>
+            <p>- On PixInsight 1.9.6 build 1718 and later, PIAdvisor sends every request through PixInsight&apos;s own network functions.</p>
+            <p>- A new help section lists every server PIAdvisor contacts, every program it starts and every file it keeps. The help also carries the acknowledgments for PixInsight and the libraries PIAdvisor uses.</p>
+            <p>- New setups start with newer default models. Reasoning effort lists the levels each model accepts, and Default lets the model choose.</p>
+            <p>- When you ask for exact settings, PIAdvisor reads PixInsight&apos;s documentation only for the tools that have it, so the answer needs fewer lookups.</p>
+            <p>- Fixes for chat formatting.</p>
+            <p>Changelog: https://piadvisor.net/changelog/</p>
+         </description>
+      </package>
+   </platform>
+   <platform os="macosx" arch="arm64" version="1.9.6:1.9.99">
+      <package fileName="packages/PIAdvisor-macosx-arm64-1.8.0-20261115223348.zip" sha1="595210589e50576aa002cb2ba21cc058739ecd4d" type="module" releaseDate="20261115223348">
+         <title>PIAdvisor Module v1.8.0</title>
+         <remove>bin/PIAdvisor-pxm.dylib
+bin/PIAdvisor-pxm.xsgn
+doc/tools/PIAdvisor/PIAdvisor.html</remove>
+         <description>
+            <p>Ready for PixInsight 1.9.6 build 1718, with a simpler settings panel and a full account of what PIAdvisor connects to.</p>
+            <p>Highlights:</p>
+            <p>- Advice follows PixInsight 1.9.6 build 1718: plate solving for wide fields and all-sky images, mosaic registration, annotation and sky charts, filter curves from graph images, moving rejected frames in ImageAnalysis, and Cardinal Quintic B-Spline interpolation. On earlier versions, advice uses what those versions have.</p>
+            <p>- The settings are now three sections: LLM Settings, Advisor Behavior and Prompts. One section opens at a time, so the panel fits smaller screens. The top of the panel stays in place, and each settings section takes only the height it needs.</p>
+            <p>- Images go inside each request. PIAdvisor keeps no files with your AI provider.</p>
+            <p>- Connections to other computers use https. Plain http works only for a model server on your own computer.</p>
+            <p>- On PixInsight 1.9.6 build 1718 and later, PIAdvisor sends every request through PixInsight&apos;s own network functions.</p>
+            <p>- A new help section lists every server PIAdvisor contacts, every program it starts and every file it keeps. The help also carries the acknowledgments for PixInsight and the libraries PIAdvisor uses.</p>
+            <p>- New setups start with newer default models. Reasoning effort lists the levels each model accepts, and Default lets the model choose.</p>
+            <p>- When you ask for exact settings, PIAdvisor reads PixInsight&apos;s documentation only for the tools that have it, so the answer needs fewer lookups.</p>
+            <p>- Fixes for chat formatting.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
 </xri>
-<Signature developerId="RayDetwiler" timestamp="2026-11-05T02:36:57.799Z" encoding="Base64">kAoK3R6dJaH97MOwxgpk3pyNi8Rz1rDocQ092xTEJ5VFUrZolE3jKhQSVqjztNSrxsvTl7/fWmsjf2vkEW6QDg==</Signature>
+<Signature developerId="RayDetwiler" timestamp="2026-11-15T22:36:04.524Z" encoding="Base64">UblDKai+QWfNNCbAFMgWCyDGj4A/cc5L8deejTIXgf7+vv+WgmzrrC+ZR6/YFXs+13NPj4EEPqKcld9O6zKPBQ==</Signature>

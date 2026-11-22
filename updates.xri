@@ -3,185 +3,145 @@
    <!-- PIAdvisor PixInsight Update Repository -->
    <description>
       <p>PIAdvisor update feed for PixInsight.</p>
-      <p>Status: Public package v1.8.0 published on 2026-11-15 22:36:02 UTC.</p>
-      <p>Ready for PixInsight 1.9.6 build 1718, with a simpler settings panel and a full account of what PIAdvisor connects to.</p>
+      <p>Status: Public package v1.8.1 published on 2026-11-22 02:09:23 UTC.</p>
+      <p>Clipboard image paste on Mac, unified shortcuts across all three platforms, and attachment fixes.</p>
       <p>Changelog: https://piadvisor.net/changelog/</p>
    </description>
    <platform os="windows" arch="x64" version="1.8.9:1.9.4">
-      <package fileName="packages/PIAdvisor-windows-x64-1.8.0-20261115223602.zip" sha1="5a45ceb4911e06d192c22d32798ef545b4bde454" releaseDate="20261115223602" type="module">
-         <title>PIAdvisor Module v1.8.0</title>
+      <package fileName="packages/PIAdvisor-windows-x64-1.8.1-20261122020635.zip" sha1="9774c1a2dc8f87c7be3192d6ea1e55b3d63ec7e6" releaseDate="20261122020635" type="module">
+         <title>PIAdvisor Module v1.8.1</title>
          <remove>bin/PIAdvisor-pxm.dll
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Ready for PixInsight 1.9.6 build 1718, with a simpler settings panel and a full account of what PIAdvisor connects to.</p>
+            <p>Clipboard image paste on Mac, unified shortcuts across all three platforms, and attachment fixes.</p>
             <p>Highlights:</p>
-            <p>- Advice follows PixInsight 1.9.6 build 1718: plate solving for wide fields and all-sky images, mosaic registration, annotation and sky charts, filter curves from graph images, moving rejected frames in ImageAnalysis, and Cardinal Quintic B-Spline interpolation. On earlier versions, advice uses what those versions have.</p>
-            <p>- The settings are now three sections: LLM Settings, Advisor Behavior and Prompts. One section opens at a time, so the panel fits smaller screens. The top of the panel stays in place, and each settings section takes only the height it needs.</p>
-            <p>- Images go inside each request. PIAdvisor keeps no files with your AI provider.</p>
-            <p>- Connections to other computers use https. Plain http works only for a model server on your own computer.</p>
-            <p>- On PixInsight 1.9.6 build 1718 and later, PIAdvisor sends every request through PixInsight&apos;s own network functions.</p>
-            <p>- A new help section lists every server PIAdvisor contacts, every program it starts and every file it keeps. The help also carries the acknowledgments for PixInsight and the libraries PIAdvisor uses.</p>
-            <p>- New setups start with newer default models. Reasoning effort lists the levels each model accepts, and Default lets the model choose.</p>
-            <p>- When you ask for exact settings, PIAdvisor reads PixInsight&apos;s documentation only for the tools that have it, so the answer needs fewer lookups.</p>
-            <p>- Fixes for chat formatting.</p>
+            <p>- On Mac, click the message box and press Cmd+V to paste a screenshot or PNG/JPEG image from the clipboard, matching Windows and Linux.</p>
+            <p>- Cmd+Enter and Ctrl+Enter both send on Mac, while Enter and Shift+Enter start a new line.</p>
+            <p>- Fixes extended Unicode characters in the message box when sending or editing.</p>
+            <p>- Attaching two open views with identical pixels, such as a fresh clone, now keeps a separate draft card for each view.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
    <platform os="linux" arch="x64" version="1.8.9:1.9.4">
-      <package fileName="packages/PIAdvisor-linux-x64-1.8.0-20261115223602.zip" sha1="4782e268ce2033af6bbac6119fb1a453076ae7f0" type="module" releaseDate="20261115223602">
-         <title>PIAdvisor Module v1.8.0</title>
+      <package fileName="packages/PIAdvisor-linux-x64-1.8.1-20261122020635.zip" sha1="22934b21e2fafe12b1240a41cfb5725e2fbced8f" type="module" releaseDate="20261122020635">
+         <title>PIAdvisor Module v1.8.1</title>
          <remove>bin/PIAdvisor-pxm.so
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Ready for PixInsight 1.9.6 build 1718, with a simpler settings panel and a full account of what PIAdvisor connects to.</p>
+            <p>Clipboard image paste on Mac, unified shortcuts across all three platforms, and attachment fixes.</p>
             <p>Highlights:</p>
-            <p>- Advice follows PixInsight 1.9.6 build 1718: plate solving for wide fields and all-sky images, mosaic registration, annotation and sky charts, filter curves from graph images, moving rejected frames in ImageAnalysis, and Cardinal Quintic B-Spline interpolation. On earlier versions, advice uses what those versions have.</p>
-            <p>- The settings are now three sections: LLM Settings, Advisor Behavior and Prompts. One section opens at a time, so the panel fits smaller screens. The top of the panel stays in place, and each settings section takes only the height it needs.</p>
-            <p>- Images go inside each request. PIAdvisor keeps no files with your AI provider.</p>
-            <p>- Connections to other computers use https. Plain http works only for a model server on your own computer.</p>
-            <p>- On PixInsight 1.9.6 build 1718 and later, PIAdvisor sends every request through PixInsight&apos;s own network functions.</p>
-            <p>- A new help section lists every server PIAdvisor contacts, every program it starts and every file it keeps. The help also carries the acknowledgments for PixInsight and the libraries PIAdvisor uses.</p>
-            <p>- New setups start with newer default models. Reasoning effort lists the levels each model accepts, and Default lets the model choose.</p>
-            <p>- When you ask for exact settings, PIAdvisor reads PixInsight&apos;s documentation only for the tools that have it, so the answer needs fewer lookups.</p>
-            <p>- Fixes for chat formatting.</p>
+            <p>- On Mac, click the message box and press Cmd+V to paste a screenshot or PNG/JPEG image from the clipboard, matching Windows and Linux.</p>
+            <p>- Cmd+Enter and Ctrl+Enter both send on Mac, while Enter and Shift+Enter start a new line.</p>
+            <p>- Fixes extended Unicode characters in the message box when sending or editing.</p>
+            <p>- Attaching two open views with identical pixels, such as a fresh clone, now keeps a separate draft card for each view.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
    <platform os="windows" arch="x64" version="1.9.5:1.9.5">
-      <package fileName="packages/PIAdvisor-windows-x64-1.8.0-20261115223459.zip" sha1="b917298eadc64afbc6196c467e462fd0973de56b" type="module" releaseDate="20261115223459">
-         <title>PIAdvisor Module v1.8.0</title>
+      <package fileName="packages/PIAdvisor-windows-x64-1.8.1-20261122020757.zip" sha1="885bbcf373e3dc8dee2dbce1e88d034688b636b8" type="module" releaseDate="20261122020757">
+         <title>PIAdvisor Module v1.8.1</title>
          <remove>bin/PIAdvisor-pxm.dll
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Ready for PixInsight 1.9.6 build 1718, with a simpler settings panel and a full account of what PIAdvisor connects to.</p>
+            <p>Clipboard image paste on Mac, unified shortcuts across all three platforms, and attachment fixes.</p>
             <p>Highlights:</p>
-            <p>- Advice follows PixInsight 1.9.6 build 1718: plate solving for wide fields and all-sky images, mosaic registration, annotation and sky charts, filter curves from graph images, moving rejected frames in ImageAnalysis, and Cardinal Quintic B-Spline interpolation. On earlier versions, advice uses what those versions have.</p>
-            <p>- The settings are now three sections: LLM Settings, Advisor Behavior and Prompts. One section opens at a time, so the panel fits smaller screens. The top of the panel stays in place, and each settings section takes only the height it needs.</p>
-            <p>- Images go inside each request. PIAdvisor keeps no files with your AI provider.</p>
-            <p>- Connections to other computers use https. Plain http works only for a model server on your own computer.</p>
-            <p>- On PixInsight 1.9.6 build 1718 and later, PIAdvisor sends every request through PixInsight&apos;s own network functions.</p>
-            <p>- A new help section lists every server PIAdvisor contacts, every program it starts and every file it keeps. The help also carries the acknowledgments for PixInsight and the libraries PIAdvisor uses.</p>
-            <p>- New setups start with newer default models. Reasoning effort lists the levels each model accepts, and Default lets the model choose.</p>
-            <p>- When you ask for exact settings, PIAdvisor reads PixInsight&apos;s documentation only for the tools that have it, so the answer needs fewer lookups.</p>
-            <p>- Fixes for chat formatting.</p>
+            <p>- On Mac, click the message box and press Cmd+V to paste a screenshot or PNG/JPEG image from the clipboard, matching Windows and Linux.</p>
+            <p>- Cmd+Enter and Ctrl+Enter both send on Mac, while Enter and Shift+Enter start a new line.</p>
+            <p>- Fixes extended Unicode characters in the message box when sending or editing.</p>
+            <p>- Attaching two open views with identical pixels, such as a fresh clone, now keeps a separate draft card for each view.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
    <platform os="linux" arch="x64" version="1.9.5:1.9.5">
-      <package fileName="packages/PIAdvisor-linux-x64-1.8.0-20261115223459.zip" sha1="7b8c022f679cdd0edd48c94cdd2b22d633fd9003" type="module" releaseDate="20261115223459">
-         <title>PIAdvisor Module v1.8.0</title>
+      <package fileName="packages/PIAdvisor-linux-x64-1.8.1-20261122020757.zip" sha1="192e5ebddb61466dc645f30b9555d4602af01673" type="module" releaseDate="20261122020757">
+         <title>PIAdvisor Module v1.8.1</title>
          <remove>bin/PIAdvisor-pxm.so
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Ready for PixInsight 1.9.6 build 1718, with a simpler settings panel and a full account of what PIAdvisor connects to.</p>
+            <p>Clipboard image paste on Mac, unified shortcuts across all three platforms, and attachment fixes.</p>
             <p>Highlights:</p>
-            <p>- Advice follows PixInsight 1.9.6 build 1718: plate solving for wide fields and all-sky images, mosaic registration, annotation and sky charts, filter curves from graph images, moving rejected frames in ImageAnalysis, and Cardinal Quintic B-Spline interpolation. On earlier versions, advice uses what those versions have.</p>
-            <p>- The settings are now three sections: LLM Settings, Advisor Behavior and Prompts. One section opens at a time, so the panel fits smaller screens. The top of the panel stays in place, and each settings section takes only the height it needs.</p>
-            <p>- Images go inside each request. PIAdvisor keeps no files with your AI provider.</p>
-            <p>- Connections to other computers use https. Plain http works only for a model server on your own computer.</p>
-            <p>- On PixInsight 1.9.6 build 1718 and later, PIAdvisor sends every request through PixInsight&apos;s own network functions.</p>
-            <p>- A new help section lists every server PIAdvisor contacts, every program it starts and every file it keeps. The help also carries the acknowledgments for PixInsight and the libraries PIAdvisor uses.</p>
-            <p>- New setups start with newer default models. Reasoning effort lists the levels each model accepts, and Default lets the model choose.</p>
-            <p>- When you ask for exact settings, PIAdvisor reads PixInsight&apos;s documentation only for the tools that have it, so the answer needs fewer lookups.</p>
-            <p>- Fixes for chat formatting.</p>
+            <p>- On Mac, click the message box and press Cmd+V to paste a screenshot or PNG/JPEG image from the clipboard, matching Windows and Linux.</p>
+            <p>- Cmd+Enter and Ctrl+Enter both send on Mac, while Enter and Shift+Enter start a new line.</p>
+            <p>- Fixes extended Unicode characters in the message box when sending or editing.</p>
+            <p>- Attaching two open views with identical pixels, such as a fresh clone, now keeps a separate draft card for each view.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
    <platform os="macosx" arch="arm64" version="1.9.5:1.9.5">
-      <package fileName="packages/PIAdvisor-macosx-arm64-1.8.0-20261115223459.zip" sha1="8122ec34ac1cd933cde29b551d908facabe801c0" type="module" releaseDate="20261115223459">
-         <title>PIAdvisor Module v1.8.0</title>
+      <package fileName="packages/PIAdvisor-macosx-arm64-1.8.1-20261122020757.zip" sha1="2de4f58ff044bcde50e234b18c43c3c023e926b9" type="module" releaseDate="20261122020757">
+         <title>PIAdvisor Module v1.8.1</title>
          <remove>bin/PIAdvisor-pxm.dylib
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Ready for PixInsight 1.9.6 build 1718, with a simpler settings panel and a full account of what PIAdvisor connects to.</p>
+            <p>Clipboard image paste on Mac, unified shortcuts across all three platforms, and attachment fixes.</p>
             <p>Highlights:</p>
-            <p>- Advice follows PixInsight 1.9.6 build 1718: plate solving for wide fields and all-sky images, mosaic registration, annotation and sky charts, filter curves from graph images, moving rejected frames in ImageAnalysis, and Cardinal Quintic B-Spline interpolation. On earlier versions, advice uses what those versions have.</p>
-            <p>- The settings are now three sections: LLM Settings, Advisor Behavior and Prompts. One section opens at a time, so the panel fits smaller screens. The top of the panel stays in place, and each settings section takes only the height it needs.</p>
-            <p>- Images go inside each request. PIAdvisor keeps no files with your AI provider.</p>
-            <p>- Connections to other computers use https. Plain http works only for a model server on your own computer.</p>
-            <p>- On PixInsight 1.9.6 build 1718 and later, PIAdvisor sends every request through PixInsight&apos;s own network functions.</p>
-            <p>- A new help section lists every server PIAdvisor contacts, every program it starts and every file it keeps. The help also carries the acknowledgments for PixInsight and the libraries PIAdvisor uses.</p>
-            <p>- New setups start with newer default models. Reasoning effort lists the levels each model accepts, and Default lets the model choose.</p>
-            <p>- When you ask for exact settings, PIAdvisor reads PixInsight&apos;s documentation only for the tools that have it, so the answer needs fewer lookups.</p>
-            <p>- Fixes for chat formatting.</p>
+            <p>- On Mac, click the message box and press Cmd+V to paste a screenshot or PNG/JPEG image from the clipboard, matching Windows and Linux.</p>
+            <p>- Cmd+Enter and Ctrl+Enter both send on Mac, while Enter and Shift+Enter start a new line.</p>
+            <p>- Fixes extended Unicode characters in the message box when sending or editing.</p>
+            <p>- Attaching two open views with identical pixels, such as a fresh clone, now keeps a separate draft card for each view.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
    <platform os="windows" arch="x64" version="1.9.6:1.9.99">
-      <package fileName="packages/PIAdvisor-windows-x64-1.8.0-20261115223348.zip" sha1="795597fc08cd6e4d6dd23cf60cacd0daedde2ee4" type="module" releaseDate="20261115223348">
-         <title>PIAdvisor Module v1.8.0</title>
+      <package fileName="packages/PIAdvisor-windows-x64-1.8.1-20261122020923.zip" sha1="b215de2e27a13d84ced4a28ec2e3b4c7c6b1792d" type="module" releaseDate="20261122020923">
+         <title>PIAdvisor Module v1.8.1</title>
          <remove>bin/PIAdvisor-pxm.dll
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Ready for PixInsight 1.9.6 build 1718, with a simpler settings panel and a full account of what PIAdvisor connects to.</p>
+            <p>Clipboard image paste on Mac, unified shortcuts across all three platforms, and attachment fixes.</p>
             <p>Highlights:</p>
-            <p>- Advice follows PixInsight 1.9.6 build 1718: plate solving for wide fields and all-sky images, mosaic registration, annotation and sky charts, filter curves from graph images, moving rejected frames in ImageAnalysis, and Cardinal Quintic B-Spline interpolation. On earlier versions, advice uses what those versions have.</p>
-            <p>- The settings are now three sections: LLM Settings, Advisor Behavior and Prompts. One section opens at a time, so the panel fits smaller screens. The top of the panel stays in place, and each settings section takes only the height it needs.</p>
-            <p>- Images go inside each request. PIAdvisor keeps no files with your AI provider.</p>
-            <p>- Connections to other computers use https. Plain http works only for a model server on your own computer.</p>
-            <p>- On PixInsight 1.9.6 build 1718 and later, PIAdvisor sends every request through PixInsight&apos;s own network functions.</p>
-            <p>- A new help section lists every server PIAdvisor contacts, every program it starts and every file it keeps. The help also carries the acknowledgments for PixInsight and the libraries PIAdvisor uses.</p>
-            <p>- New setups start with newer default models. Reasoning effort lists the levels each model accepts, and Default lets the model choose.</p>
-            <p>- When you ask for exact settings, PIAdvisor reads PixInsight&apos;s documentation only for the tools that have it, so the answer needs fewer lookups.</p>
-            <p>- Fixes for chat formatting.</p>
+            <p>- On Mac, click the message box and press Cmd+V to paste a screenshot or PNG/JPEG image from the clipboard, matching Windows and Linux.</p>
+            <p>- Cmd+Enter and Ctrl+Enter both send on Mac, while Enter and Shift+Enter start a new line.</p>
+            <p>- Fixes extended Unicode characters in the message box when sending or editing.</p>
+            <p>- Attaching two open views with identical pixels, such as a fresh clone, now keeps a separate draft card for each view.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
    <platform os="linux" arch="x64" version="1.9.6:1.9.99">
-      <package fileName="packages/PIAdvisor-linux-x64-1.8.0-20261115223348.zip" sha1="d0dd5387ef5563d89fac0f02d04be279294efcf9" type="module" releaseDate="20261115223348">
-         <title>PIAdvisor Module v1.8.0</title>
+      <package fileName="packages/PIAdvisor-linux-x64-1.8.1-20261122020923.zip" sha1="d2245245b813c7560c57ec6d6acc662a10af2ec4" type="module" releaseDate="20261122020923">
+         <title>PIAdvisor Module v1.8.1</title>
          <remove>bin/PIAdvisor-pxm.so
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Ready for PixInsight 1.9.6 build 1718, with a simpler settings panel and a full account of what PIAdvisor connects to.</p>
+            <p>Clipboard image paste on Mac, unified shortcuts across all three platforms, and attachment fixes.</p>
             <p>Highlights:</p>
-            <p>- Advice follows PixInsight 1.9.6 build 1718: plate solving for wide fields and all-sky images, mosaic registration, annotation and sky charts, filter curves from graph images, moving rejected frames in ImageAnalysis, and Cardinal Quintic B-Spline interpolation. On earlier versions, advice uses what those versions have.</p>
-            <p>- The settings are now three sections: LLM Settings, Advisor Behavior and Prompts. One section opens at a time, so the panel fits smaller screens. The top of the panel stays in place, and each settings section takes only the height it needs.</p>
-            <p>- Images go inside each request. PIAdvisor keeps no files with your AI provider.</p>
-            <p>- Connections to other computers use https. Plain http works only for a model server on your own computer.</p>
-            <p>- On PixInsight 1.9.6 build 1718 and later, PIAdvisor sends every request through PixInsight&apos;s own network functions.</p>
-            <p>- A new help section lists every server PIAdvisor contacts, every program it starts and every file it keeps. The help also carries the acknowledgments for PixInsight and the libraries PIAdvisor uses.</p>
-            <p>- New setups start with newer default models. Reasoning effort lists the levels each model accepts, and Default lets the model choose.</p>
-            <p>- When you ask for exact settings, PIAdvisor reads PixInsight&apos;s documentation only for the tools that have it, so the answer needs fewer lookups.</p>
-            <p>- Fixes for chat formatting.</p>
+            <p>- On Mac, click the message box and press Cmd+V to paste a screenshot or PNG/JPEG image from the clipboard, matching Windows and Linux.</p>
+            <p>- Cmd+Enter and Ctrl+Enter both send on Mac, while Enter and Shift+Enter start a new line.</p>
+            <p>- Fixes extended Unicode characters in the message box when sending or editing.</p>
+            <p>- Attaching two open views with identical pixels, such as a fresh clone, now keeps a separate draft card for each view.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
    <platform os="macosx" arch="arm64" version="1.9.6:1.9.99">
-      <package fileName="packages/PIAdvisor-macosx-arm64-1.8.0-20261115223348.zip" sha1="595210589e50576aa002cb2ba21cc058739ecd4d" type="module" releaseDate="20261115223348">
-         <title>PIAdvisor Module v1.8.0</title>
+      <package fileName="packages/PIAdvisor-macosx-arm64-1.8.1-20261122020923.zip" sha1="e9faf1ac45d585b4994fe9eaaca14977d7c8297b" type="module" releaseDate="20261122020923">
+         <title>PIAdvisor Module v1.8.1</title>
          <remove>bin/PIAdvisor-pxm.dylib
 bin/PIAdvisor-pxm.xsgn
 doc/tools/PIAdvisor/PIAdvisor.html</remove>
          <description>
-            <p>Ready for PixInsight 1.9.6 build 1718, with a simpler settings panel and a full account of what PIAdvisor connects to.</p>
+            <p>Clipboard image paste on Mac, unified shortcuts across all three platforms, and attachment fixes.</p>
             <p>Highlights:</p>
-            <p>- Advice follows PixInsight 1.9.6 build 1718: plate solving for wide fields and all-sky images, mosaic registration, annotation and sky charts, filter curves from graph images, moving rejected frames in ImageAnalysis, and Cardinal Quintic B-Spline interpolation. On earlier versions, advice uses what those versions have.</p>
-            <p>- The settings are now three sections: LLM Settings, Advisor Behavior and Prompts. One section opens at a time, so the panel fits smaller screens. The top of the panel stays in place, and each settings section takes only the height it needs.</p>
-            <p>- Images go inside each request. PIAdvisor keeps no files with your AI provider.</p>
-            <p>- Connections to other computers use https. Plain http works only for a model server on your own computer.</p>
-            <p>- On PixInsight 1.9.6 build 1718 and later, PIAdvisor sends every request through PixInsight&apos;s own network functions.</p>
-            <p>- A new help section lists every server PIAdvisor contacts, every program it starts and every file it keeps. The help also carries the acknowledgments for PixInsight and the libraries PIAdvisor uses.</p>
-            <p>- New setups start with newer default models. Reasoning effort lists the levels each model accepts, and Default lets the model choose.</p>
-            <p>- When you ask for exact settings, PIAdvisor reads PixInsight&apos;s documentation only for the tools that have it, so the answer needs fewer lookups.</p>
-            <p>- Fixes for chat formatting.</p>
+            <p>- On Mac, click the message box and press Cmd+V to paste a screenshot or PNG/JPEG image from the clipboard, matching Windows and Linux.</p>
+            <p>- Cmd+Enter and Ctrl+Enter both send on Mac, while Enter and Shift+Enter start a new line.</p>
+            <p>- Fixes extended Unicode characters in the message box when sending or editing.</p>
+            <p>- Attaching two open views with identical pixels, such as a fresh clone, now keeps a separate draft card for each view.</p>
             <p>Changelog: https://piadvisor.net/changelog/</p>
          </description>
       </package>
    </platform>
 </xri>
-<Signature developerId="RayDetwiler" timestamp="2026-11-15T22:36:04.524Z" encoding="Base64">UblDKai+QWfNNCbAFMgWCyDGj4A/cc5L8deejTIXgf7+vv+WgmzrrC+ZR6/YFXs+13NPj4EEPqKcld9O6zKPBQ==</Signature>
+<Signature developerId="RayDetwiler" timestamp="2026-11-22T02:09:26.907Z" encoding="Base64">wtfh32vVQQefCL2cXiCTovBgrhzB0lH+NyFeoCMITy/6PwGlTdhDk5owiL62YTzyfFLfV8MIH+gx3ShkRrFEDA==</Signature>
